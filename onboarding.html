@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Client Onboarding — 44 Social</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --accent:      #e8150a;
+    --accent-dim:  rgba(232,21,10,0.1);
+    --accent-glow: rgba(232,21,10,0.25);
+    --bg:          #2c2724;
+    --bg2:         #322c29;
+    --bg3:         #38312d;
+    --bg4:         #3f3732;
+    --border:      rgba(255,255,255,0.07);
+    --border-hot:  rgba(232,21,10,0.3);
+    --text:        #f0ebe4;
+    --text2:       #a09488;
+    --muted:       #6a5e58;
+    --white:       #ffffff;
+    --font-display:'Bebas Neue', sans-serif;
+    --font-body:   'DM Sans', sans-serif;
+    --font-mono:   'Space Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ── scrollbar ── */
+  ::-webkit-scrollbar { width: 2px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--accent); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(44,39,36,0.97);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 26px; letter-spacing: 0.05em;
+    color: var(--white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-back {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text2); text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--white); }
+  .nav-back::before { content: '←'; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 140px 48px 80px;
+    max-width: 900px; margin: 0 auto;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: fixed; top: 0; right: 0;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  .eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 20px;
+    opacity: 0; animation: fade-up 0.7s 0.1s forwards;
+  }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 7vw, 96px);
+    line-height: 0.92; letter-spacing: 0.02em;
+    color: var(--white); margin-bottom: 24px;
+    opacity: 0; animation: fade-up 0.7s 0.25s forwards;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); display: block; }
+  .hero p {
+    font-size: 16px; font-weight: 300;
+    color: var(--text2); max-width: 560px;
+    line-height: 1.75;
+    opacity: 0; animation: fade-up 0.7s 0.4s forwards;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap {
+    position: sticky; top: 61px; z-index: 90;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+  }
+  .progress-steps {
+    display: flex; max-width: 900px; margin: 0 auto;
+    gap: 0;
+  }
+  .progress-step {
+    flex: 1; padding: 16px 0;
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted);
+    border-bottom: 2px solid transparent;
+    cursor: pointer; transition: color 0.2s, border-color 0.2s;
+    position: relative;
+  }
+  .progress-step.active { color: var(--white); border-bottom-color: var(--accent); }
+  .progress-step.done { color: var(--accent); border-bottom-color: var(--accent); opacity: 0.5; }
+  .step-num {
+    width: 20px; height: 20px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; flex-shrink: 0;
+  }
+  .progress-step.done .step-num { background: var(--accent); border-color: var(--accent); color: white; }
+
+  /* ── FORM CONTAINER ── */
+  .form-container {
+    max-width: 900px; margin: 0 auto;
+    padding: 0 48px 120px;
+  }
+
+  /* ── SECTION ── */
+  .form-section {
+    display: none;
+    animation: fade-up 0.5s forwards;
+  }
+  .form-section.active { display: block; }
+
+  .section-header {
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .section-tag {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+  }
+  .section-tag::after { content: ''; width: 40px; height: 1px; background: var(--accent); }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 56px);
+    letter-spacing: 0.02em; line-height: 0.95;
+    color: var(--white); margin-bottom: 12px;
+  }
+  .section-title em { font-style: normal; color: var(--accent); }
+  .section-desc {
+    font-size: 14px; font-weight: 300;
+    color: var(--text2); max-width: 540px;
+    line-height: 1.75;
+  }
+
+  /* ── FIELD GROUP ── */
+  .fields { display: flex; flex-direction: column; gap: 32px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .field { display: flex; flex-direction: column; gap: 10px; }
+  .field label {
+    font-size: 13px; font-weight: 500;
+    color: var(--text); letter-spacing: 0.02em;
+  }
+  .field label .req { color: var(--accent); margin-left: 3px; }
+  .field .hint {
+    font-size: 12px; font-weight: 300;
+    color: var(--muted); margin-top: -6px;
+    font-style: italic;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  textarea,
+  select {
+    width: 100%;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px; font-weight: 300;
+    padding: 14px 18px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    appearance: none;
+    border-radius: 0;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--accent);
+    background: var(--bg4);
+  }
+  input::placeholder, textarea::placeholder { color: var(--muted); }
+  textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a09488' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    cursor: pointer;
+  }
+  select option { background: var(--bg3); }
+
+  /* Checkbox group */
+  .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+  .checkbox-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .checkbox-item:hover { border-color: var(--border-hot); background: var(--bg4); }
+  .checkbox-item input[type="checkbox"] {
+    width: 18px; height: 18px; min-width: 18px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 0; cursor: pointer;
+    accent-color: var(--accent);
+  }
+  .checkbox-item span {
+    font-size: 14px; font-weight: 300; color: var(--text);
+  }
+
+  /* ── NAV BUTTONS ── */
+  .form-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 56px;
+    margin-top: 56px;
+    border-top: 1px solid var(--border);
+  }
+  .btn-prev {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text2); background: none;
+    border: 1px solid var(--border);
+    padding: 14px 28px; cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-prev:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+  .btn-next {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white); background: var(--accent);
+    border: none; padding: 14px 36px; cursor: pointer;
+    display: flex; align-items: center; gap: 10px;
+    transition: background 0.2s, transform 0.15s;
+    position: relative; overflow: hidden;
+  }
+  .btn-next::before {
+    content: '';
+    position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.4s;
+  }
+  .btn-next:hover::before { left: 100%; }
+  .btn-next:hover { background: #ff2a1f; transform: translateY(-1px); }
+  .btn-next:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .step-counter {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.15em;
+    color: var(--muted);
+  }
+  .step-counter span { color: var(--accent); }
+
+  /* ── SUCCESS STATE ── */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 100px 48px;
+    max-width: 600px; margin: 0 auto;
+  }
+  .success-screen.visible { display: block; animation: fade-up 0.7s forwards; }
+  .success-icon {
+    width: 80px; height: 80px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 32px;
+    font-size: 32px;
+  }
+  .success-screen h2 {
+    font-family: var(--font-display);
+    font-size: 56px; letter-spacing: 0.03em;
+    color: var(--white); margin-bottom: 16px;
+    line-height: 0.95;
+  }
+  .success-screen h2 em { font-style: normal; color: var(--accent); }
+  .success-screen p {
+    font-size: 16px; font-weight: 300;
+    color: var(--text2); line-height: 1.75;
+    margin-bottom: 40px;
+  }
+
+  /* ── ERROR ── */
+  .field-error {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    display: none;
+  }
+  .field.has-error input,
+  .field.has-error textarea,
+  .field.has-error select { border-color: var(--accent); }
+  .field.has-error .field-error { display: block; }
+
+  /* ── SUBMITTING STATE ── */
+  .submitting { pointer-events: none; opacity: 0.7; }
+  .spinner {
+    width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+  .submitting .spinner { display: block; }
+  .submitting .btn-label { display: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .hero { padding: 120px 24px 60px; }
+    .progress-wrap { padding: 0 24px; }
+    .progress-step span { display: none; }
+    .form-container { padding: 0 24px 80px; }
+    .field-row { grid-template-columns: 1fr; }
+    .form-nav { flex-direction: column; gap: 16px; align-items: stretch; }
+    .btn-next, .btn-prev { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://44social.co" class="nav-logo"><span>44</span> SOCIAL</a>
+  <a href="https://44social.co" class="nav-back">Back to site</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">New Client Onboarding</div>
+  <h1>Tell Us About<br><em>Your Brand.</em></h1>
+  <p>This questionnaire helps our team understand your brand's voice, goals, and vision. The more detail you share, the better we can build a strategy that drives real results. Takes about 10 minutes.</p>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-steps">
+    <div class="progress-step active" data-step="1">
+      <div class="step-num">1</div>
+      <span>General Info</span>
+    </div>
+    <div class="progress-step" data-step="2">
+      <div class="step-num">2</div>
+      <span>Social Media</span>
+    </div>
+    <div class="progress-step" data-step="3">
+      <div class="step-num">3</div>
+      <span>Brand Identity</span>
+    </div>
+    <div class="progress-step" data-step="4">
+      <div class="step-num">4</div>
+      <span>Audience</span>
+    </div>
+    <div class="progress-step" data-step="5">
+      <div class="step-num">5</div>
+      <span>Goals</span>
+    </div>
+    <div class="progress-step" data-step="6">
+      <div class="step-num">6</div>
+      <span>Competitors</span>
+    </div>
+    <div class="progress-step" data-step="7">
+      <div class="step-num">7</div>
+      <span>Content</span>
+    </div>
+    <div class="progress-step" data-step="8">
+      <div class="step-num">8</div>
+      <span>Review</span>
+    </div>
+  </div>
+</div>
+
+<!-- FORM -->
+<form id="onboardingForm" novalidate>
+<div class="form-container">
+
+  <!-- ═══ SECTION 1 — GENERAL INFO ═══ -->
+  <div class="form-section active" data-section="1">
+    <div class="section-header">
+      <div class="section-tag">Step 01</div>
+      <h2 class="section-title">General<br><em>Information.</em></h2>
+      <p class="section-desc">Essential details about your business. This ensures smooth communication and collaboration from day one.</p>
+    </div>
+    <div class="fields">
+      <div class="field-row">
+        <div class="field" id="f-brand-name">
+          <label>Brand Name <span class="req">*</span></label>
+          <input type="text" name="brand_name" placeholder="Your business name" required/>
+          <span class="field-error">Required</span>
+        </div>
+        <div class="field">
+          <label>Website</label>
+          <input type="url" name="website" placeholder="https://yourbrand.com"/>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field" id="f-contact-name">
+          <label>Primary Contact Name <span class="req">*</span></label>
+          <input type="text" name="contact_name" placeholder="Full name" required/>
+          <span class="field-error">Required</span>
+        </div>
+        <div class="field" id="f-contact-email">
+          <label>Primary Contact Email <span class="req">*</span></label>
+          <input type="email" name="contact_email" placeholder="email@yourbrand.com" required/>
+          <span class="field-error">Required — valid email</span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Primary Contact Phone</label>
+          <input type="tel" name="contact_phone" placeholder="(555) 000-0000"/>
+        </div>
+        <div class="field">
+          <label>Secondary Contact Name</label>
+          <input type="text" name="secondary_name" placeholder="Full name (optional)"/>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Secondary Contact Email</label>
+          <input type="email" name="secondary_email" placeholder="email@yourbrand.com"/>
+        </div>
+        <div class="field">
+          <label>Secondary Contact Phone</label>
+          <input type="tel" name="secondary_phone" placeholder="(555) 000-0000"/>
+        </div>
+      </div>
+    </div>
+    <div class="form-nav">
+      <span class="step-counter">Step <span>1</span> of 8</span>
+      <button type="button" class="btn-next" onclick="nextSection(1)">
+        <span class="btn-label">Continue →</span>
+        <span class="spinner"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 2 — SOCIAL MEDIA ═══ -->
+  <div class="form-section" data-section="2">
+    <div class="section-header">
+      <div class="section-tag">Step 02</div>
+      <h2 class="section-title">Social Media<br><em>Accounts.</em></h2>
+      <p class="section-desc">Share your existing social profiles and tell us where you want to focus. Full URLs please — e.g. https://instagram.com/yourbrand</p>
+    </div>
+    <div class="fields">
+      <div class="field-row">
+        <div class="field">
+          <label>Instagram</label>
+          <input type="url" name="instagram" placeholder="https://instagram.com/yourbrand"/>
+        </div>
+        <div class="field">
+          <label>Facebook</label>
+          <input type="url" name="facebook" placeholder="https://facebook.com/yourbrand"/>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>TikTok</label>
+          <input type="url" name="tiktok" placeholder="https://tiktok.com/@yourbrand"/>
+        </div>
+        <div class="field">
+          <label>YouTube</label>
+          <input type="url" name="youtube" placeholder="https://youtube.com/@yourbrand"/>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>LinkedIn</label>
+          <input type="url" name="linkedin" placeholder="https://linkedin.com/company/yourbrand"/>
+        </div>
+        <div class="field">
+          <label>X (Twitter)</label>
+          <input type="url" name="twitter" placeholder="https://x.com/yourbrand"/>
+        </div>
+      </div>
+      <div class="field">
+        <label>Which platforms do you want to focus on most? <span class="req">*</span></label>
+        <p class="hint">Choose 2–3 platforms where you want the majority of effort</p>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="focus_platforms" value="Instagram"/> <span>Instagram</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="focus_platforms" value="TikTok"/> <span>TikTok</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="focus_platforms" value="Facebook"/> <span>Facebook</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="focus_platforms" value="YouTube"/> <span>YouTube</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="focus_platforms" value="LinkedIn"/> <span>LinkedIn</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="focus_platforms" value="X (Twitter)"/> <span>X (Twitter)</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="form-nav">
+      <button type="button" class="btn-prev" onclick="prevSection(2)">← Back</button>
+      <span class="step-counter">Step <span>2</span> of 8</span>
+      <button type="button" class="btn-next" onclick="nextSection(2)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 3 — BRAND IDENTITY ═══ -->
+  <div class="form-section" data-section="3">
+    <div class="section-header">
+      <div class="section-tag">Step 03</div>
+      <h2 class="section-title">Brand<br><em>Identity.</em></h2>
+      <p class="section-desc">This helps us understand the core of your brand and ensure our content strategy aligns with your identity and goals.</p>
+    </div>
+    <div class="fields">
+      <div class="field" id="f-products">
+        <label>What products or services do you offer? <span class="req">*</span></label>
+        <textarea name="products_services" placeholder="Describe what your business sells or provides..." required></textarea>
+        <span class="field-error">Required</span>
+      </div>
+      <div class="field">
+        <label>What does your brand stand for? What values matter most?</label>
+        <textarea name="brand_values" placeholder="e.g. quality, community, innovation, family..."></textarea>
+      </div>
+      <div class="field">
+        <label>How would you describe your brand's personality?</label>
+        <p class="hint">e.g. fun, professional, bold, friendly, luxury, no-nonsense</p>
+        <textarea name="brand_personality" placeholder="Describe the tone and personality of your brand..."></textarea>
+      </div>
+      <div class="field">
+        <label>What makes you different from competitors?</label>
+        <textarea name="differentiator" placeholder="What's your unique selling point or edge?"></textarea>
+      </div>
+      <div class="field">
+        <label>What key message do you want to share on social media?</label>
+        <textarea name="key_message" placeholder="The main thing you want your audience to understand about your brand..."></textarea>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>How do you want people to perceive your brand?</label>
+          <p class="hint">e.g. affordable, high-end, innovative, approachable</p>
+          <input type="text" name="brand_perception" placeholder="Brand perception..."/>
+        </div>
+        <div class="field">
+          <label>Do you have a slogan or tagline?</label>
+          <input type="text" name="tagline" placeholder="Your tagline if you have one"/>
+        </div>
+      </div>
+      <div class="field">
+        <label>Do you have existing brand materials?</label>
+        <p class="hint">Logo files, brand colors, fonts — describe what you have and how you'll share them</p>
+        <textarea name="brand_assets" placeholder="Describe your existing brand assets..."></textarea>
+      </div>
+    </div>
+    <div class="form-nav">
+      <button type="button" class="btn-prev" onclick="prevSection(3)">← Back</button>
+      <span class="step-counter">Step <span>3</span> of 8</span>
+      <button type="button" class="btn-next" onclick="nextSection(3)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 4 — AUDIENCE ═══ -->
+  <div class="form-section" data-section="4">
+    <div class="section-header">
+      <div class="section-tag">Step 04</div>
+      <h2 class="section-title">Your<br><em>Audience.</em></h2>
+      <p class="section-desc">Understanding who you're talking to is everything. The more you tell us about your customers, the sharper the content.</p>
+    </div>
+    <div class="fields">
+      <div class="field" id="f-audience">
+        <label>Who are your typical customers? <span class="req">*</span></label>
+        <p class="hint">Age range, gender, location, income level, lifestyle</p>
+        <textarea name="target_audience" placeholder="Describe your ideal customer..." required></textarea>
+        <span class="field-error">Required</span>
+      </div>
+      <div class="field">
+        <label>What problems or needs do your customers have that you solve?</label>
+        <textarea name="customer_problems" placeholder="What pain points does your product or service address?"></textarea>
+      </div>
+      <div class="field">
+        <label>What platforms do you think your customers use most?</label>
+        <p class="hint">e.g. mostly Instagram, heavy TikTok users, LinkedIn professionals</p>
+        <textarea name="audience_platforms" placeholder="Where does your audience spend their time online?"></textarea>
+      </div>
+      <div class="field">
+        <label>How do customers currently engage with you on social?</label>
+        <p class="hint">e.g. comments, DMs, story replies, shares</p>
+        <textarea name="current_engagement" placeholder="Describe how your audience interacts with your content..."></textarea>
+      </div>
+      <div class="field">
+        <label>Are there specific new audiences you want to reach?</label>
+        <p class="hint">e.g. expand to a younger demographic, target a new city, reach more professionals</p>
+        <textarea name="new_audiences" placeholder="New audience segments you want to grow into..."></textarea>
+      </div>
+    </div>
+    <div class="form-nav">
+      <button type="button" class="btn-prev" onclick="prevSection(4)">← Back</button>
+      <span class="step-counter">Step <span>4</span> of 8</span>
+      <button type="button" class="btn-next" onclick="nextSection(4)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 5 — GOALS ═══ -->
+  <div class="form-section" data-section="5">
+    <div class="section-header">
+      <div class="section-tag">Step 05</div>
+      <h2 class="section-title">Goals &<br><em>Objectives.</em></h2>
+      <p class="section-desc">Clear goals help us build a strategy with measurable outcomes. Tell us what success looks like for your brand.</p>
+    </div>
+    <div class="fields">
+      <div class="field" id="f-goals">
+        <label>What are your short-term and long-term social media goals? <span class="req">*</span></label>
+        <p class="hint">e.g. increase brand awareness, grow followers, drive more sales, generate leads</p>
+        <textarea name="goals" placeholder="Share your goals for the next 3 months and beyond..." required></textarea>
+        <span class="field-error">Required</span>
+      </div>
+      <div class="field">
+        <label>How do you measure success on social media?</label>
+        <p class="hint">e.g. engagement rate, follower growth, website clicks, leads generated, sales</p>
+        <textarea name="success_metrics" placeholder="What metrics matter most to you?"></textarea>
+      </div>
+      <div class="field">
+        <label>Any upcoming products, events, or promotions we should know about?</label>
+        <textarea name="upcoming_events" placeholder="Grand openings, launches, seasonal promotions, campaigns..."></textarea>
+      </div>
+      <div class="field">
+        <label>Any other goals beyond audience growth?</label>
+        <p class="hint">e.g. customer retention, reputation building, recruiting, partnerships</p>
+        <textarea name="other_goals" placeholder="Other business objectives social media can support..."></textarea>
+      </div>
+    </div>
+    <div class="form-nav">
+      <button type="button" class="btn-prev" onclick="prevSection(5)">← Back</button>
+      <span class="step-counter">Step <span>5</span> of 8</span>
+      <button type="button" class="btn-next" onclick="nextSection(5)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 6 — COMPETITORS ═══ -->
+  <div class="form-section" data-section="6">
+    <div class="section-header">
+      <div class="section-tag">Step 06</div>
+      <h2 class="section-title">Competitor<br><em>Analysis.</em></h2>
+      <p class="section-desc">Knowing your competition helps us position your brand ahead of them and identify opportunities they're missing.</p>
+    </div>
+    <div class="fields">
+      <div class="field">
+        <label>Who are your main competitors on social media?</label>
+        <p class="hint">List their names and social handles if you know them</p>
+        <textarea name="competitors" placeholder="List your top 3-5 competitors..."></textarea>
+      </div>
+      <div class="field">
+        <label>What do you like or dislike about what they're doing on social?</label>
+        <textarea name="competitor_notes" placeholder="What are they doing well? What are they missing? What can you do better?"></textarea>
+      </div>
+      <div class="field">
+        <label>Any brands outside your industry that inspire you on social media?</label>
+        <p class="hint">Brands whose content, voice, or strategy you admire — even if they're in a completely different space</p>
+        <textarea name="brand_inspiration" placeholder="e.g. Nike, Apple, a local restaurant you follow..."></textarea>
+      </div>
+    </div>
+    <div class="form-nav">
+      <button type="button" class="btn-prev" onclick="prevSection(6)">← Back</button>
+      <span class="step-counter">Step <span>6</span> of 8</span>
+      <button type="button" class="btn-next" onclick="nextSection(6)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 — CONTENT ═══ -->
+  <div class="form-section" data-section="7">
+    <div class="section-header">
+      <div class="section-tag">Step 07</div>
+      <h2 class="section-title">Content<br><em>Strategy.</em></h2>
+      <p class="section-desc">Help us understand what type of content resonates with your audience and fits your brand's style.</p>
+    </div>
+    <div class="fields">
+      <div class="field">
+        <label>What kind of content does your audience enjoy most?</label>
+        <p class="hint">e.g. tips/education, behind-the-scenes, humor, testimonials, product demos</p>
+        <textarea name="content_preferences" placeholder="Describe what content gets the best response from your audience..."></textarea>
+      </div>
+      <div class="field">
+        <label>Are there any topics or themes you want to focus on?</label>
+        <textarea name="content_themes" placeholder="e.g. seasonal promotions, employee spotlights, community events, how-tos..."></textarea>
+      </div>
+      <div class="field">
+        <label>What content formats do you prefer?</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="content_formats" value="Reels / Short Video"/> <span>Reels / Short Video</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="content_formats" value="Photos / Static Posts"/> <span>Photos / Static Posts</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="content_formats" value="Stories"/> <span>Stories</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="content_formats" value="Carousels"/> <span>Carousels</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="content_formats" value="Long-form Video"/> <span>Long-form Video</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="content_formats" value="Live Video"/> <span>Live Video</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>How often would you like to post per week?</label>
+        <select name="post_frequency">
+          <option value="" disabled selected>Select posting frequency</option>
+          <option value="1-2x per week">1–2x per week</option>
+          <option value="3-4x per week">3–4x per week</option>
+          <option value="5-7x per week">5–7x per week (daily)</option>
+          <option value="Multiple times per day">Multiple times per day</option>
+          <option value="Not sure — I defer to 44 Social">Not sure — I defer to 44 Social</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Do you have an internal team for photos, videos, or graphics?</label>
+        <select name="internal_resources">
+          <option value="" disabled selected>Select an option</option>
+          <option value="No — we need 44 Social to handle everything">No — we need 44 Social to handle everything</option>
+          <option value="We have some in-house resources">We have some in-house resources</option>
+          <option value="Yes — we have a full creative team">Yes — we have a full creative team</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>How often would you like progress updates?</label>
+        <select name="reporting_frequency">
+          <option value="" disabled selected>Select reporting preference</option>
+          <option value="Weekly">Weekly</option>
+          <option value="Bi-weekly">Bi-weekly</option>
+          <option value="Monthly">Monthly</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Anything else we should know?</label>
+        <p class="hint">Topics to avoid, sensitivities, preferences, past experiences with agencies, or anything that will help us do great work</p>
+        <textarea name="additional_notes" placeholder="Any other context that will help us serve your brand well..."></textarea>
+      </div>
+    </div>
+    <div class="form-nav">
+      <button type="button" class="btn-prev" onclick="prevSection(7)">← Back</button>
+      <span class="step-counter">Step <span>7</span> of 8</span>
+      <button type="button" class="btn-next" onclick="nextSection(7)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 8 — REVIEW & SUBMIT ═══ -->
+  <div class="form-section" data-section="8">
+    <div class="section-header">
+      <div class="section-tag">Step 08</div>
+      <h2 class="section-title">Review &<br><em>Submit.</em></h2>
+      <p class="section-desc">Take a moment to review your responses. Once submitted, our team will receive your brand profile and reach out within 24 hours to schedule your kickoff call.</p>
+    </div>
+
+    <div id="review-summary" style="display:flex; flex-direction:column; gap:2px; margin-bottom:48px;"></div>
+
+    <div class="fields">
+      <div class="field" style="background:var(--bg3); padding:24px; border:1px solid var(--border);">
+        <p style="font-size:13px; font-weight:300; color:var(--text2); line-height:1.75;">
+          By submitting this form you confirm that the information provided is accurate and you authorize 44 Social to use it to develop your brand's social media strategy.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-nav">
+      <button type="button" class="btn-prev" onclick="prevSection(8)">← Back</button>
+      <span class="step-counter">Step <span>8</span> of 8</span>
+      <button type="button" class="btn-next" id="submitBtn" onclick="submitForm()">
+        <span class="btn-label">Submit Brand Profile →</span>
+        <span class="spinner"></span>
+      </button>
+    </div>
+  </div>
+
+</div>
+</form>
+
+<!-- SUCCESS -->
+<div class="success-screen" id="successScreen">
+  <div class="success-icon">✓</div>
+  <h2>You're<br><em>All Set.</em></h2>
+  <p>Your brand profile has been received. Our team will review your responses and reach out within 24 hours to schedule your kickoff call. Welcome to 44 Social.</p>
+  <a href="https://44social.co" style="display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:white;font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;padding:16px 32px;">Back to 44social.co →</a>
+</div>
+
+<script>
+  // ── State ──
+  const TOTAL_SECTIONS = 8;
+  let currentSection = 1;
+  const formData = {};
+
+  // ── Navigation ──
+  function nextSection(from) {
+    if (!validateSection(from)) return;
+    collectSection(from);
+    if (from === TOTAL_SECTIONS - 1) buildReview();
+    goToSection(from + 1);
+  }
+
+  function prevSection(from) {
+    goToSection(from - 1);
+  }
+
+  function goToSection(num) {
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.querySelector(`[data-section="${num}"]`).classList.add('active');
+
+    document.querySelectorAll('.progress-step').forEach(s => {
+      const n = parseInt(s.dataset.step);
+      s.classList.remove('active', 'done');
+      if (n === num) s.classList.add('active');
+      else if (n < num) s.classList.add('done');
+    });
+
+    currentSection = num;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Validation ──
+  function validateSection(num) {
+    let valid = true;
+    const section = document.querySelector(`[data-section="${num}"]`);
+    section.querySelectorAll('[required]').forEach(el => {
+      const field = el.closest('.field');
+      if (!el.value.trim()) {
+        field?.classList.add('has-error');
+        valid = false;
+      } else {
+        field?.classList.remove('has-error');
+      }
+      // Email check
+      if (el.type === 'email' && el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) {
+        field?.classList.add('has-error');
+        valid = false;
+      }
+    });
+    if (!valid) {
+      const firstError = section.querySelector('.has-error');
+      firstError?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return valid;
+  }
+
+  // ── Collect ──
+  function collectSection(num) {
+    const section = document.querySelector(`[data-section="${num}"]`);
+    section.querySelectorAll('input:not([type="checkbox"]), textarea, select').forEach(el => {
+      if (el.name) formData[el.name] = el.value;
+    });
+    // Checkboxes
+    const checkboxGroups = {};
+    section.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+      if (!checkboxGroups[cb.name]) checkboxGroups[cb.name] = [];
+      checkboxGroups[cb.name].push(cb.value);
+    });
+    Object.assign(formData, checkboxGroups);
+  }
+
+  // ── Review Builder ──
+  function buildReview() {
+    collectSection(7);
+    const container = document.getElementById('review-summary');
+    container.innerHTML = '';
+
+    const sections = [
+      { label: 'General Information', keys: ['brand_name','website','contact_name','contact_email','contact_phone'] },
+      { label: 'Social Media', keys: ['instagram','tiktok','facebook','youtube','focus_platforms'] },
+      { label: 'Brand Identity', keys: ['products_services','brand_personality','differentiator','tagline'] },
+      { label: 'Audience', keys: ['target_audience','customer_problems'] },
+      { label: 'Goals', keys: ['goals','success_metrics','upcoming_events'] },
+      { label: 'Competitors', keys: ['competitors','brand_inspiration'] },
+      { label: 'Content Strategy', keys: ['content_formats','post_frequency','reporting_frequency'] },
+    ];
+
+    sections.forEach(s => {
+      const hasData = s.keys.some(k => formData[k] && (Array.isArray(formData[k]) ? formData[k].length : formData[k].trim()));
+      if (!hasData) return;
+      const block = document.createElement('div');
+      block.style.cssText = 'background:var(--bg3);border:1px solid var(--border);padding:24px;';
+      let html = `<div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">${s.label}</div>`;
+      s.keys.forEach(k => {
+        const val = formData[k];
+        if (!val || (Array.isArray(val) && !val.length)) return;
+        const display = Array.isArray(val) ? val.join(', ') : val;
+        const label = k.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+        html += `<div style="margin-bottom:10px;"><span style="font-size:11px;color:var(--text2);display:block;margin-bottom:4px;">${label}</span><span style="font-size:14px;font-weight:300;color:var(--text);">${display}</span></div>`;
+      });
+      block.innerHTML = html;
+      container.appendChild(block);
+    });
+  }
+
+  // ── Submit ──
+  async function submitForm() {
+    collectSection(8);
+
+    const btn = document.getElementById('submitBtn');
+    btn.classList.add('submitting');
+    btn.disabled = true;
+
+    // Format payload
+    const payload = {
+      ...formData,
+      focus_platforms: Array.isArray(formData.focus_platforms) ? formData.focus_platforms.join(', ') : (formData.focus_platforms || ''),
+      content_formats: Array.isArray(formData.content_formats) ? formData.content_formats.join(', ') : (formData.content_formats || ''),
+      submitted_at: new Date().toISOString(),
+    };
+
+    try {
+      // ── REPLACE THIS URL WITH YOUR MAKE.COM WEBHOOK ──
+      const WEBHOOK_URL = 'YOUR_MAKE_WEBHOOK_URL_HERE';
+
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok || res.status === 200) {
+        document.getElementById('onboardingForm').style.display = 'none';
+        document.querySelector('.progress-wrap').style.display = 'none';
+        document.querySelector('.hero').style.display = 'none';
+        document.getElementById('successScreen').classList.add('visible');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        throw new Error('Webhook failed');
+      }
+    } catch (err) {
+      btn.classList.remove('submitting');
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or email hello@44social.co');
+    }
+  }
+
+  // ── Clear errors on input ──
+  document.addEventListener('input', e => {
+    e.target.closest('.field')?.classList.remove('has-error');
+  });
+</script>
+</body>
+</html>
