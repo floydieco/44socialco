@@ -564,37 +564,37 @@
     gap: 40px;
   }
   .work-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-direction: column;
     gap: 2px;
   }
   .work-item {
     position: relative; overflow: hidden;
-    background: var(--bg3);
+    background: #000;
     cursor: none;
   }
-  .work-item.featured {
-    grid-row: span 2;
+  .work-item.featured .work-media {
+    aspect-ratio: 16/9;
+  }
+  .work-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .work-row .work-media {
+    aspect-ratio: 9/16;
   }
   .work-media {
     width: 100%;
-    aspect-ratio: 16/10;
-    background: var(--bg4);
+    background: #000;
     position: relative;
     overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
   }
   .work-media iframe {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     border: none;
-  }
-  .work-item.featured .work-media {
-    aspect-ratio: unset;
-    height: 100%;
-    min-height: 500px;
   }
   .work-media-placeholder {
     width: 100%; height: 100%;
@@ -991,9 +991,8 @@
     .process-steps::before { display: none; }
     .testi-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .work-grid { grid-template-columns: 1fr; }
-    .work-item.featured { grid-row: span 1; }
-    .work-item.featured .work-media { min-height: auto; }
+    .work-grid { flex-direction: column; }
+    .work-row { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 768px) {
@@ -1222,10 +1221,11 @@
     </div>
 
     <div class="work-grid reveal">
-      <!-- Featured (left, tall) -->
+
+      <!-- Brand Video — Full Width Top -->
       <div class="work-item featured">
-        <div class="work-media" style="padding:0; background:#000;">
-          <iframe src="https://player.vimeo.com/video/1179604935?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Brand Video"></iframe>
+        <div class="work-media">
+          <iframe src="https://player.vimeo.com/video/1179604935?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Brand Video"></iframe>
         </div>
         <div class="work-overlay">
           <div class="work-overlay-cat">Brand Video</div>
@@ -1234,40 +1234,42 @@
         </div>
       </div>
 
-      <!-- Top right -->
-      <div class="work-item">
-        <div class="work-media" style="padding:0; background:#000; position:relative;">
-          <iframe src="https://player.vimeo.com/video/1179600247?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Ad Content"></iframe>
-        </div>
-        <div class="work-overlay">
-          <div class="work-overlay-cat">Ad Content</div>
-          <div class="work-overlay-title">CSS — No Stress Supplements</div>
-          <div class="work-overlay-desc">High-converting ad content that stops the scroll and drives action.</div>
-        </div>
-      </div>
+      <!-- 3 Videos in a Row -->
+      <div class="work-row">
 
-      <!-- Bottom right top -->
-      <div class="work-item">
-        <div class="work-media" style="padding:0; background:#000; position:relative;">
-          <iframe src="https://player.vimeo.com/video/1179607111?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Testimonial"></iframe>
+        <div class="work-item">
+          <div class="work-media">
+            <iframe src="https://player.vimeo.com/video/1179600247?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Ad Content"></iframe>
+          </div>
+          <div class="work-overlay">
+            <div class="work-overlay-cat">Ad Content</div>
+            <div class="work-overlay-title">CSS — No Stress Supplements</div>
+            <div class="work-overlay-desc">High-converting ad content that stops the scroll and drives action.</div>
+          </div>
         </div>
-        <div class="work-overlay">
-          <div class="work-overlay-cat">Customer Testimonial</div>
-          <div class="work-overlay-title">JAE — Always on Time</div>
-          <div class="work-overlay-desc">Authentic stories that turn happy clients into your best sales tool.</div>
-        </div>
-      </div>
 
-      <!-- Bottom right -->
-      <div class="work-item">
-        <div class="work-media" style="padding:0; background:#000; position:relative;">
-          <iframe src="https://player.vimeo.com/video/1179600280?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Event Media"></iframe>
+        <div class="work-item">
+          <div class="work-media">
+            <iframe src="https://player.vimeo.com/video/1179607111?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Testimonial"></iframe>
+          </div>
+          <div class="work-overlay">
+            <div class="work-overlay-cat">Customer Testimonial</div>
+            <div class="work-overlay-title">JAE — Always on Time</div>
+            <div class="work-overlay-desc">Authentic stories that turn happy clients into your best sales tool.</div>
+          </div>
         </div>
-        <div class="work-overlay">
-          <div class="work-overlay-cat">Event Media</div>
-          <div class="work-overlay-title">Zoom Express — Sanford Grand Opening</div>
-          <div class="work-overlay-desc">Event energy captured and packaged to extend your brand's reach.</div>
+
+        <div class="work-item">
+          <div class="work-media">
+            <iframe src="https://player.vimeo.com/video/1179600280?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Event Media"></iframe>
+          </div>
+          <div class="work-overlay">
+            <div class="work-overlay-cat">Event Media</div>
+            <div class="work-overlay-title">Zoom Express — Sanford Grand Opening</div>
+            <div class="work-overlay-desc">Event energy captured and packaged to extend your brand's reach.</div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
