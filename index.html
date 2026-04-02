@@ -585,6 +585,12 @@
     overflow: hidden;
     display: flex; align-items: center; justify-content: center;
   }
+  .work-media iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
   .work-item.featured .work-media {
     aspect-ratio: unset;
     height: 100%;
@@ -1015,6 +1021,8 @@
     .cursor-dot, .cursor-ring { display: none; }
   }
 </style>
+<!-- Vimeo Player -->
+<script src="https://player.vimeo.com/api/player.js"></script>
 </head>
 <body>
 
@@ -1216,18 +1224,8 @@
     <div class="work-grid reveal">
       <!-- Featured (left, tall) -->
       <div class="work-item featured">
-        <div class="work-media">
-          <div class="work-media-placeholder">
-            <div class="placeholder-icon">
-              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><polygon points="20,16 34,24 20,32"/></svg>
-              <span>Brand Video</span>
-            </div>
-          </div>
-          <div class="play-btn">
-            <div class="play-btn-inner">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-          </div>
+        <div class="work-media" style="padding:0; background:#000;">
+          <iframe src="https://player.vimeo.com/video/1179604935?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Brand Video"></iframe>
         </div>
         <div class="work-overlay">
           <div class="work-overlay-cat">Brand Video</div>
@@ -1238,18 +1236,8 @@
 
       <!-- Top right -->
       <div class="work-item">
-        <div class="work-media">
-          <div class="work-media-placeholder">
-            <div class="placeholder-icon">
-              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><polygon points="20,16 34,24 20,32"/></svg>
-              <span>Ad Content</span>
-            </div>
-          </div>
-          <div class="play-btn">
-            <div class="play-btn-inner">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-          </div>
+        <div class="work-media" style="padding:0; background:#000; position:relative;">
+          <iframe src="https://player.vimeo.com/video/1179600247?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Ad Content"></iframe>
         </div>
         <div class="work-overlay">
           <div class="work-overlay-cat">Ad Content</div>
@@ -1260,18 +1248,8 @@
 
       <!-- Bottom right top -->
       <div class="work-item">
-        <div class="work-media">
-          <div class="work-media-placeholder">
-            <div class="placeholder-icon">
-              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><polygon points="20,16 34,24 20,32"/></svg>
-              <span>Testimonial</span>
-            </div>
-          </div>
-          <div class="play-btn">
-            <div class="play-btn-inner">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-          </div>
+        <div class="work-media" style="padding:0; background:#000; position:relative;">
+          <iframe src="https://player.vimeo.com/video/1179607111?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Testimonial"></iframe>
         </div>
         <div class="work-overlay">
           <div class="work-overlay-cat">Customer Testimonial</div>
@@ -1282,22 +1260,12 @@
 
       <!-- Bottom right -->
       <div class="work-item">
-        <div class="work-media">
-          <div class="work-media-placeholder">
-            <div class="placeholder-icon">
-              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><polygon points="20,16 34,24 20,32"/></svg>
-              <span>Event Media</span>
-            </div>
-          </div>
-          <div class="play-btn">
-            <div class="play-btn-inner">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-          </div>
+        <div class="work-media" style="padding:0; background:#000; position:relative;">
+          <iframe src="https://player.vimeo.com/video/1179600280?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Event Media"></iframe>
         </div>
         <div class="work-overlay">
           <div class="work-overlay-cat">Event Media</div>
-          <div class="work-overlay-title">Don Omar — Meet & Greet Recap</div>
+          <div class="work-overlay-title">Zoom Express — Sanford Grand Opening</div>
           <div class="work-overlay-desc">Event energy captured and packaged to extend your brand's reach.</div>
         </div>
       </div>
