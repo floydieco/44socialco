@@ -75,7 +75,7 @@
   /* ── CURSOR ── */
   .cursor-dot {
     width: 8px; height: 8px;
-    background: var(--accent);
+    background: var(--amber);
     border-radius: 50%;
     position: fixed; top: -4px; left: -4px;
     pointer-events: none; z-index: 9999;
@@ -83,7 +83,7 @@
   }
   .cursor-ring {
     width: 32px; height: 32px;
-    border: 1px solid rgba(192,57,43,0.6);
+    border: 1px solid rgba(200,160,112,0.6);
     border-radius: 50%;
     position: fixed; top: -16px; left: -16px;
     pointer-events: none; z-index: 9998;
@@ -149,13 +149,13 @@
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    background: var(--accent);
-    color: var(--white) !important;
+    background: var(--amber);
+    color: var(--bg) !important;
     padding: 10px 20px !important;
     border: none;
     transition: background 0.2s, transform 0.15s !important;
   }
-  .nav-cta:hover { background: var(--accent-light) !important; transform: translateY(-1px); }
+  .nav-cta:hover { background: var(--white) !important; color: var(--bg) !important; transform: translateY(-1px); }
 
   /* ============================================================
      HERO
@@ -246,8 +246,8 @@
   }
   .btn-primary {
     display: inline-flex; align-items: center; gap: 10px;
-    background: var(--accent);
-    color: var(--white);
+    background: var(--amber);
+    color: var(--bg);
     font-family: var(--font-mono);
     font-size: 12px;
     letter-spacing: 0.12em;
@@ -269,9 +269,10 @@
   }
   .btn-primary:hover::before { left: 100%; }
   .btn-primary:hover {
-    background: var(--accent-light);
+    background: var(--white);
+    color: var(--bg);
     transform: translateY(-2px);
-    box-shadow: 0 12px 40px var(--accent-glow);
+    box-shadow: 0 12px 40px var(--amber-dim);
   }
   .btn-ghost {
     display: inline-flex; align-items: center; gap: 8px;
@@ -649,12 +650,12 @@
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     backdrop-filter: blur(8px);
-    background: rgba(192,57,43,0.3);
+    background: rgba(200,160,112,0.3);
     transition: background 0.2s, transform 0.2s;
   }
   .play-btn-inner svg { width: 20px; height: 20px; fill: white; margin-left: 3px; }
   .work-item:hover .play-btn { opacity: 1; }
-  .work-item:hover .play-btn-inner { background: rgba(192,57,43,0.7); transform: scale(1.08); }
+  .work-item:hover .play-btn-inner { background: rgba(200,160,112,0.7); transform: scale(1.08); }
 
   .work-overlay {
     position: absolute; bottom: 0; left: 0; right: 0;
@@ -849,7 +850,7 @@
      CTA STRIP
   ============================================================ */
   .cta-strip {
-    background: var(--accent);
+    background: var(--amber);
     padding: 80px 48px;
     position: relative;
     overflow: hidden;
@@ -875,12 +876,12 @@
     font-family: var(--font-display);
     font-size: clamp(40px, 5vw, 72px);
     letter-spacing: 0.02em;
-    color: var(--white);
+    color: var(--bg);
     line-height: 0.95;
   }
   .cta-strip-sub {
     font-size: 16px;
-    color: rgba(255,255,255,0.75);
+    color: rgba(44,39,36,0.75);
     max-width: 360px;
     font-weight: 300;
     margin-top: 16px;
@@ -888,8 +889,8 @@
   }
   .btn-white {
     display: inline-flex; align-items: center; gap: 10px;
-    background: var(--white);
-    color: var(--accent);
+    background: var(--bg);
+    color: var(--amber);
     font-family: var(--font-mono);
     font-size: 12px;
     letter-spacing: 0.12em;
@@ -901,8 +902,8 @@
     cursor: none;
   }
   .btn-white:hover {
-    background: var(--bg);
-    color: var(--white);
+    background: var(--bg2);
+    color: var(--amber);
     transform: translateY(-2px);
     box-shadow: 0 12px 40px rgba(0,0,0,0.3);
   }
@@ -928,7 +929,7 @@
     color: var(--white);
     margin-bottom: 16px;
   }
-  .footer-brand-name span { color: var(--accent); }
+  .footer-brand-name span { color: var(--amber); }
   .footer-tagline {
     font-size: 14px;
     font-weight: 300;
@@ -1081,7 +1082,7 @@
     <div class="hero-actions">
       <a href="https://floydie.co/apply" class="btn-primary">
         Apply To Work With Us
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7h10M7 2l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7h10M7 2l5 5-5 5" stroke="#2c2724" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="#work" class="btn-ghost">
         View Our Work
