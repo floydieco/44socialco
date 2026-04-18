@@ -28,33 +28,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    /* ── Backgrounds ── */
     --bg:          #2c2724;
     --bg2:         #322c29;
     --bg3:         #38312d;
     --bg4:         #3f3732;
-
-    /* ── Red — CTAs only ── */
     --accent:      #e8150a;
     --accent-dim:  rgba(232,21,10,0.10);
     --accent-glow: rgba(232,21,10,0.25);
     --accent-light:#ff2a1f;
     --border-hot:  rgba(232,21,10,0.35);
-
-    /* ── Amber — decorative accent ── */
     --amber:       #c8a070;
     --amber-dim:   rgba(200,160,112,0.13);
     --amber-line:  rgba(200,160,112,0.28);
-
-    /* ── Text ── */
     --text:        #f0ebe4;
     --text2:       #a09488;
     --muted:       #6a5e58;
     --white:       #ffffff;
-
-    /* ── Borders ── */
     --border:      rgba(255,255,255,0.07);
-
     --font-display:'Bebas Neue', sans-serif;
     --font-body:   'DM Sans', sans-serif;
     --font-mono:   'Space Mono', monospace;
@@ -72,7 +62,6 @@
     cursor: none;
   }
 
-  /* ── CURSOR ── */
   .cursor-dot {
     width: 8px; height: 8px;
     background: var(--amber);
@@ -90,7 +79,6 @@
     transition: transform 0.25s ease, width 0.2s, height 0.2s, border-color 0.2s;
   }
 
-  /* ── NOISE ── */
   body::after {
     content: '';
     position: fixed; inset: 0;
@@ -103,9 +91,6 @@
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--amber); }
 
-  /* ============================================================
-     NAV
-  ============================================================ */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
@@ -157,9 +142,6 @@
   }
   .nav-cta:hover { background: var(--white) !important; color: var(--bg) !important; transform: translateY(-1px); }
 
-  /* ============================================================
-     HERO
-  ============================================================ */
   .hero {
     min-height: 100vh;
     display: grid;
@@ -299,7 +281,29 @@
   }
   .btn-ghost:hover .btn-arrow { transform: translateX(3px); }
 
-  /* Hero right — stats card */
+  .hero-secondary {
+    margin-top: 28px;
+    opacity: 0;
+    animation: fade-up 0.8s 0.8s forwards;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-secondary a {
+    color: var(--amber);
+    text-decoration: none;
+    border-bottom: 1px solid var(--amber-line);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+    margin-left: 6px;
+  }
+  .hero-secondary a:hover {
+    color: var(--white);
+    border-bottom-color: var(--white);
+  }
+
   .hero-right {
     position: relative; z-index: 2;
     display: flex; flex-direction: column; gap: 20px;
@@ -381,9 +385,6 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ============================================================
-     MARQUEE
-  ============================================================ */
   .marquee-wrap {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -417,9 +418,6 @@
     flex-shrink: 0;
   }
 
-  /* ============================================================
-     SECTION SHARED
-  ============================================================ */
   section { padding: 120px 48px; }
   .section-tag {
     display: inline-flex; align-items: center; gap: 10px;
@@ -455,7 +453,6 @@
     line-height: 1.75;
   }
 
-  /* reveal on scroll */
   .reveal {
     opacity: 0;
     transform: translateY(32px);
@@ -470,17 +467,12 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
 
-  /* ============================================================
-     SERVICES
-  ============================================================ */
   .services {
     background: var(--bg2);
     position: relative;
     overflow: hidden;
   }
-  .services-inner {
-    max-width: 1200px; margin: 0 auto;
-  }
+  .services-inner { max-width: 1200px; margin: 0 auto; }
   .services-header {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 60px; align-items: end;
@@ -568,9 +560,6 @@
     border-color: var(--amber-line);
   }
 
-  /* ============================================================
-     WORK / VIDEO SECTION
-  ============================================================ */
   .work { background: var(--bg); }
   .work-inner { max-width: 1200px; margin: 0 auto; }
   .work-header {
@@ -705,9 +694,7 @@
     position: relative;
     transition: color 0.2s;
   }
-  .work-tab.active {
-    color: var(--white);
-  }
+  .work-tab.active { color: var(--white); }
   .work-tab.active::after {
     content: '';
     position: absolute; bottom: -1px; left: 0; right: 0;
@@ -716,12 +703,7 @@
   }
   .work-tab:hover { color: var(--text); }
 
-  /* ============================================================
-     PROCESS
-  ============================================================ */
-  .process {
-    background: var(--bg2);
-  }
+  .process { background: var(--bg2); }
   .process-inner { max-width: 1200px; margin: 0 auto; }
   .process-header { margin-bottom: 80px; }
   .process-steps {
@@ -770,9 +752,6 @@
     line-height: 1.75;
   }
 
-  /* ============================================================
-     TESTIMONIALS
-  ============================================================ */
   .testimonials { background: var(--bg); }
   .testimonials-inner { max-width: 1200px; margin: 0 auto; }
   .testimonials-header { margin-bottom: 64px; }
@@ -846,9 +825,6 @@
     color: var(--muted);
   }
 
-  /* ============================================================
-     CTA STRIP
-  ============================================================ */
   .cta-strip {
     background: var(--amber);
     padding: 80px 48px;
@@ -887,6 +863,9 @@
     margin-top: 16px;
     line-height: 1.65;
   }
+  .cta-strip-actions {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 14px;
+  }
   .btn-white {
     display: inline-flex; align-items: center; gap: 10px;
     background: var(--bg);
@@ -907,10 +886,25 @@
     transform: translateY(-2px);
     box-shadow: 0 12px 40px rgba(0,0,0,0.3);
   }
+  .cta-strip-secondary {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(44,39,36,0.75);
+  }
+  .cta-strip-secondary a {
+    color: var(--bg);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(44,39,36,0.35);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+    margin-left: 4px;
+  }
+  .cta-strip-secondary a:hover {
+    border-bottom-color: var(--bg);
+  }
 
-  /* ============================================================
-     FOOTER
-  ============================================================ */
   footer {
     background: var(--bg);
     padding: 80px 48px 40px;
@@ -992,14 +986,8 @@
   .location-dot { width: 6px; height: 6px; background: var(--amber); border-radius: 50%; animation: blink 2s infinite; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-  /* ============================================================
-     MOBILE NAV TOGGLE
-  ============================================================ */
   .nav-toggle { display: none; }
 
-  /* ============================================================
-     RESPONSIVE
-  ============================================================ */
   @media (max-width: 1024px) {
     .hero { grid-template-columns: 1fr; padding: 120px 32px 80px; }
     .hero-right { display: none; }
@@ -1031,6 +1019,7 @@
     .process-steps { grid-template-columns: 1fr; }
     .cta-strip { padding: 60px 24px; }
     .cta-strip-inner { flex-direction: column; align-items: flex-start; }
+    .cta-strip-actions { align-items: flex-start; }
     footer { padding: 60px 24px 32px; }
     .footer-top { grid-template-columns: 1fr; gap: 40px; }
     .footer-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -1038,18 +1027,13 @@
     .cursor-dot, .cursor-ring { display: none; }
   }
 </style>
-<!-- Vimeo Player -->
 <script src="https://player.vimeo.com/api/player.js"></script>
 </head>
 <body>
 
-<!-- Custom Cursor -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- ════════════════════════════════════════
-     NAV
-════════════════════════════════════════ -->
 <nav id="mainNav">
   <a href="#" class="nav-logo"><span>44</span> SOCIAL</a>
   <ul class="nav-links">
@@ -1057,16 +1041,13 @@
     <li><a href="#work">Work</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="https://floydie.co/apply" class="nav-cta">Apply Now</a></li>
+    <li><a href="/apply" class="nav-cta">Apply Now</a></li>
   </ul>
   <button class="nav-toggle" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- ════════════════════════════════════════
-     HERO
-════════════════════════════════════════ -->
 <section class="hero" id="home">
   <div class="hero-bg-grid"></div>
   <div class="hero-glow"></div>
@@ -1080,7 +1061,7 @@
       You're focused on running your business — we make sure your brand is just as strong online. Strategy, scroll-stopping content, and measurable results.
     </p>
     <div class="hero-actions">
-      <a href="https://floydie.co/apply" class="btn-primary">
+      <a href="/apply" class="btn-primary">
         Apply To Work With Us
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7h10M7 2l5 5-5 5" stroke="#2c2724" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -1088,6 +1069,9 @@
         View Our Work
         <span class="btn-arrow">→</span>
       </a>
+    </div>
+    <div class="hero-secondary">
+      Know what you need? <a href="/pricing">Build your package →</a>
     </div>
   </div>
 
@@ -1104,12 +1088,8 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     MARQUEE
-════════════════════════════════════════ -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <!-- Repeated twice for seamless loop -->
     <span class="marquee-item"><span class="marquee-dot"></span>Strategy Development</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Content Creation</span>
     <span class="marquee-item"><span class="marquee-dot"></span>Social Media Management</span>
@@ -1131,9 +1111,6 @@
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     SERVICES
-════════════════════════════════════════ -->
 <section class="services" id="services">
   <div class="services-inner">
     <div class="services-header">
@@ -1147,7 +1124,6 @@
     </div>
 
     <div class="services-grid reveal">
-      <!-- Service 1 -->
       <div class="service-card">
         <div class="service-number">01</div>
         <div class="service-icon">
@@ -1162,7 +1138,6 @@
         </div>
       </div>
 
-      <!-- Service 2 -->
       <div class="service-card">
         <div class="service-number">02</div>
         <div class="service-icon">
@@ -1177,7 +1152,6 @@
         </div>
       </div>
 
-      <!-- Service 3 -->
       <div class="service-card">
         <div class="service-number">03</div>
         <div class="service-icon">
@@ -1195,9 +1169,6 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     WORK
-════════════════════════════════════════ -->
 <section class="work" id="work">
   <div class="work-inner">
     <div class="work-header">
@@ -1218,7 +1189,6 @@
 
     <div class="work-grid reveal">
 
-      <!-- Brand Video — Full Width Top -->
       <div class="work-item featured">
         <div class="work-media">
           <iframe src="https://player.vimeo.com/video/1179604935?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Brand Video"></iframe>
@@ -1230,7 +1200,6 @@
         </div>
       </div>
 
-      <!-- 3 Videos in a Row -->
       <div class="work-row">
 
         <div class="work-item">
@@ -1271,9 +1240,6 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     PROCESS
-════════════════════════════════════════ -->
 <section class="process" id="process">
   <div class="process-inner">
     <div class="process-header reveal">
@@ -1305,9 +1271,6 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     TESTIMONIALS
-════════════════════════════════════════ -->
 <section class="testimonials" id="about">
   <div class="testimonials-inner">
     <div class="testimonials-header">
@@ -1352,9 +1315,6 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     CTA STRIP
-════════════════════════════════════════ -->
 <div class="cta-strip" id="contact">
   <div class="cta-strip-bg"></div>
   <div class="cta-strip-inner">
@@ -1362,16 +1322,18 @@
       <h2 class="cta-strip-title">Ready To<br>Level Up?</h2>
       <p class="cta-strip-sub">Apply to work with us. We take on a limited number of clients each month so we can give every brand the attention it deserves.</p>
     </div>
-    <a href="https://floydie.co/apply" class="btn-white">
-      Apply To Work With Us
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    <div class="cta-strip-actions">
+      <a href="/apply" class="btn-white">
+        Apply To Work With Us
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="cta-strip-secondary">
+        Prefer self-service? <a href="/pricing">Build your package →</a>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -1396,7 +1358,8 @@
           <li><a href="#about">About</a></li>
           <li><a href="#process">How It Works</a></li>
           <li><a href="#work">Our Work</a></li>
-          <li><a href="https://floydie.co/apply">Apply Now</a></li>
+          <li><a href="/pricing">Build Your Package</a></li>
+          <li><a href="/apply">Apply Now</a></li>
         </ul>
       </div>
       <div>
@@ -1411,7 +1374,7 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-legal">
-        © 2025 44 Social. All Rights Reserved. &nbsp;·&nbsp;
+        © 2026 44 Social. All Rights Reserved. &nbsp;·&nbsp;
         <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
         <a href="#">Terms & Conditions</a>
       </div>
@@ -1423,11 +1386,7 @@
   </div>
 </footer>
 
-<!-- ════════════════════════════════════════
-     SCRIPTS
-════════════════════════════════════════ -->
 <script>
-  // ── Custom Cursor
   const dot = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -1445,13 +1404,11 @@
   }
   animateRing();
 
-  // ── Nav scroll
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // ── Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -1460,7 +1417,6 @@
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
 
-  // ── Work tabs (UI only for now)
   document.querySelectorAll('.work-tab').forEach(tab => {
     tab.addEventListener('click', function() {
       document.querySelectorAll('.work-tab').forEach(t => t.classList.remove('active'));
