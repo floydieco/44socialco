@@ -51,13 +51,17 @@ header { display: flex; justify-content: space-between; align-items: flex-start;
 
 .logo-sub { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
 
+.back-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; transition: color 0.2s ease; }
+
+.back-link:hover { color: var(--amber); }
+
 .eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
 
 .title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 9vw, 96px); line-height: 0.95; letter-spacing: 1px; margin-bottom: 8px; }
 
 .title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.85em; letter-spacing: 0; }
 
-.subtitle { font-size: 16px; color: var(--muted); max-width: 580px; border-left: 2px solid var(--amber); padding-left: 16px; margin-bottom: 64px; }
+.subtitle { font-size: 16px; color: var(--muted); max-width: 620px; border-left: 2px solid var(--amber); padding-left: 16px; margin-bottom: 64px; line-height: 1.7; }
 
 .tabs { display: flex; gap: 0; margin-bottom: 32px; border-bottom: 1px solid var(--border); }
 
@@ -70,41 +74,35 @@ header { display: flex; justify-content: space-between; align-items: flex-start;
 .panel { display: none; }
 .panel.active { display: block; }
 
-.panel-intro { background: var(--bg2); border: 1px solid var(--amber-line); border-left: 3px solid var(--amber); border-radius: 0 4px 4px 0; padding: 28px 32px; margin-bottom: 40px; }
+.panel-intro { background: var(--bg2); border: 1px solid var(--amber-line); border-left: 3px solid var(--amber); border-radius: 0 4px 4px 0; padding: 32px 36px; margin-bottom: 40px; }
 
-.panel-intro-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px; }
+.panel-intro-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 14px; }
 
-.panel-intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 1px; line-height: 1.05; color: var(--text); margin-bottom: 14px; }
+.panel-intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: 1px; line-height: 1.05; color: var(--text); margin-bottom: 16px; }
 
 .panel-intro-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.9em; letter-spacing: 0; }
 
-.panel-intro-desc { font-size: 15px; color: var(--muted); margin-bottom: 24px; max-width: 780px; line-height: 1.7; }
+.panel-intro-desc { font-size: 16px; color: var(--muted); margin-bottom: 28px; max-width: 820px; line-height: 1.7; }
 
-.panel-intro-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+.panel-intro-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
 
-.meta-item { display: flex; flex-direction: column; gap: 6px; }
+.meta-item { display: flex; flex-direction: column; gap: 8px; }
 
-.meta-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--very-muted); text-transform: uppercase; letter-spacing: 2px; }
+.meta-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
 
-.meta-value { font-size: 13px; color: var(--text); line-height: 1.4; }
+.meta-value { font-size: 15px; color: var(--text); line-height: 1.5; }
 
-.base-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-
-.base-card-left { flex: 1; min-width: 240px; }
-
-.base-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; color: var(--text); margin-bottom: 4px; }
-
-.base-card-desc { font-size: 13px; color: var(--muted); }
-
-.base-card-price { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--amber); font-weight: 500; }
-
-.included-note { font-size: 13px; color: var(--muted); margin: -20px 0 32px; padding-left: 16px; border-left: 2px solid var(--amber-line); line-height: 1.6; }
+.included-note { font-size: 14px; color: var(--muted); margin: -20px 0 32px; padding: 14px 18px; background: var(--bg2); border-left: 2px solid var(--amber-line); line-height: 1.6; }
 
 .included-note strong { color: var(--amber); font-weight: 500; }
 
 .section { margin-bottom: 40px; }
 
-.section-title { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; gap: 16px; flex-wrap: wrap; }
+
+.section-title { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; }
+
+.section-note { font-size: 12px; color: var(--very-muted); font-style: italic; text-align: right; max-width: 60%; }
 
 .btn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
 
@@ -118,6 +116,10 @@ header { display: flex; justify-content: space-between; align-items: flex-start;
 
 .btn.active .btn-price { color: var(--amber); }
 
+.toggle-desc { display: block; font-size: 11px; color: var(--very-muted); margin-top: 4px; line-height: 1.4; }
+
+.btn.active .toggle-desc { color: var(--amber); opacity: 0.8; }
+
 .stack-btn { background: var(--bg2); color: var(--text); border: 1px solid var(--amber-line); padding: 18px 20px; text-align: left; position: relative; }
 
 .stack-btn:hover { background: var(--bg3); border-color: var(--amber); }
@@ -129,6 +131,40 @@ header { display: flex; justify-content: space-between; align-items: flex-start;
 .stack-price { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--amber); margin-top: 4px; }
 
 .stack-btn.enterprise .stack-price { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 14px; text-transform: none; letter-spacing: 0; }
+
+.ad-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+
+.ad-card { background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 24px; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s ease; text-align: left; display: flex; flex-direction: column; gap: 14px; }
+
+.ad-card:hover { background: var(--bg4); border-color: var(--amber-line); }
+
+.ad-card.active { background: var(--amber-dim); border-color: var(--amber); }
+
+.ad-card-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+
+.ad-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; color: var(--text); }
+
+.ad-card.active .ad-card-name { color: var(--amber); }
+
+.ad-card-price { font-family: 'DM Mono', monospace; font-size: 16px; color: var(--amber); font-weight: 500; }
+
+.ad-card-deliverable { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; color: var(--amber); line-height: 1.3; }
+
+.ad-card-turnaround { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text); text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 12px; background: var(--bg2); border-radius: 4px; display: inline-block; align-self: flex-start; }
+
+.ad-card.active .ad-card-turnaround { background: var(--bg1); color: var(--amber); }
+
+.ad-card-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+
+.ad-card-features li { font-size: 14px; color: var(--muted); padding-left: 18px; position: relative; line-height: 1.5; }
+
+.ad-card-features li::before { content: '✓'; position: absolute; left: 0; color: var(--amber); font-size: 12px; top: 2px; font-weight: 600; }
+
+.ad-card-features li strong { color: var(--text); font-weight: 500; }
+
+.ad-card-best { font-size: 13px; color: var(--very-muted); padding-top: 14px; border-top: 1px solid var(--border); font-style: italic; line-height: 1.5; margin-top: auto; }
+
+.ad-card.active .ad-card-best { color: var(--muted); }
 
 select { width: 100%; background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer; }
 
@@ -151,6 +187,8 @@ select:focus { outline: none; border-color: var(--amber); }
 
 .total-annual-value { font-family: 'DM Mono', monospace; color: var(--text); font-weight: 500; }
 
+.total-footnote { margin-top: 12px; font-size: 12px; color: var(--very-muted); line-height: 1.5; font-style: italic; }
+
 .actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
 
 .action-btn { flex: 1; min-width: 180px; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 14px 20px; font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.2s ease; }
@@ -160,6 +198,10 @@ select:focus { outline: none; border-color: var(--amber); }
 .action-btn.primary { background: var(--amber); border-color: var(--amber); color: var(--bg1); }
 
 .action-btn.primary:hover { background: var(--text); border-color: var(--text); color: var(--bg1); }
+
+.send-confirmation { margin-top: 16px; padding: 14px 18px; background: var(--bg3); border: 1px solid var(--border); border-left: 2px solid var(--amber); border-radius: 0 4px 4px 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+.send-confirmation strong { color: var(--amber); font-weight: 500; }
 
 .summary { margin-top: 24px; padding: 24px; background: var(--bg3); border: 1px solid var(--amber-line); border-radius: 4px; display: none; }
 
@@ -175,6 +217,18 @@ select:focus { outline: none; border-color: var(--amber); }
 
 .summary-note { margin-top: 16px; padding: 12px 16px; background: var(--bg4); border-radius: 4px; font-size: 12px; color: var(--muted); }
 
+.help-prompt { margin-top: 48px; padding: 32px; background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; text-align: center; }
+
+.help-prompt-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--text); margin-bottom: 8px; }
+
+.help-prompt-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.9em; letter-spacing: 0; }
+
+.help-prompt-desc { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+
+.help-prompt-link { display: inline-block; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--amber); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; padding: 12px 24px; border: 1px solid var(--amber); border-radius: 4px; transition: all 0.2s ease; }
+
+.help-prompt-link:hover { background: var(--amber); color: var(--bg1); }
+
 footer { margin-top: 96px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--very-muted); }
 
 footer a { color: var(--amber); text-decoration: none; }
@@ -184,6 +238,7 @@ footer a { color: var(--amber); text-decoration: none; }
   .btn-grid { grid-template-columns: 1fr 1fr; }
   .tabs { overflow-x: auto; }
   .tab { white-space: nowrap; padding: 14px 16px; }
+  .section-note { max-width: 100%; text-align: left; }
 }
 </style>
 </head>
@@ -196,15 +251,12 @@ footer a { color: var(--amber); text-decoration: none; }
     <div class="logo">44 SOCIAL</div>
     <div class="logo-sub">Social Media & Brand Production</div>
   </div>
-  <div style="text-align: right;">
-    <div class="logo-sub" style="margin-top: 0;">Pricing Calculator</div>
-    <div class="logo-sub" style="color: var(--very-muted); margin-top: 4px;">2026 Rate Card</div>
-  </div>
+  <a href="/" class="back-link">← Back to 44social.co</a>
 </header>
 
 <div class="eyebrow">Build Your Partnership</div>
-<h1 class="title">Configure your <em>package.</em></h1>
-<p class="subtitle">Mix and match modules to build the configuration that fits your brand. Start with a recommended stack or build from scratch. Every price below reflects our 2026 rate card.</p>
+<h1 class="title">Pick a path, build a <em>package.</em></h1>
+<p class="subtitle">Three ways to work with us. Pick the path that matches how you work, then configure the package that matches what you need. Every price below reflects our 2026 rate card.</p>
 
 <div class="tabs">
   <button class="tab" data-tab="ad">Ad Packages</button>
@@ -217,38 +269,91 @@ footer a { color: var(--amber); text-decoration: none; }
 <div class="panel-intro">
   <div class="panel-intro-eyebrow">Project-based creative</div>
   <div class="panel-intro-title">Creative built to <em>perform.</em></div>
-  <div class="panel-intro-desc">You run the ads, we build the creative. Every batch delivers multiple concepts and variations purpose-built for paid campaigns on Meta, TikTok, YouTube, and LinkedIn. Optimized for performance metrics like CTR, CPA, and ROAS. Best for brands with internal or external ad buyers who need fresh creative to test and scale.</div>
+  <div class="panel-intro-desc">You run the ads, we build the creative. Every batch delivers a set number of ad creatives purpose-built for paid campaigns on Meta, TikTok, YouTube, and LinkedIn. Optimized for performance metrics like CTR, CPA, and ROAS. Best for brands with internal or external ad buyers who need fresh creative to test and scale.</div>
   <div class="panel-intro-meta">
     <div class="meta-item">
-      <span class="meta-label">Engagement</span>
-      <span class="meta-value">Per-batch projects, no retainer required</span>
+      <span class="meta-label">How we work</span>
+      <span class="meta-value">Per-batch projects. No retainer required.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">We run the ads?</span>
-      <span class="meta-value">No, you manage the campaigns</span>
+      <span class="meta-label">Who runs the ads</span>
+      <span class="meta-value">You do. We hand off ad-ready files.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">What we deliver</span>
-      <span class="meta-value">Ad-ready creative in all platform specs</span>
+      <span class="meta-label">What you get</span>
+      <span class="meta-value">Static, video, motion. All platform specs.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Ideal for</span>
-      <span class="meta-value">Performance marketers, DTC brands</span>
+      <span class="meta-label">Best for</span>
+      <span class="meta-value">Performance marketers and DTC brands.</span>
     </div>
   </div>
 </div>
 
 <div class="section">
-  <div class="section-title">Select ad package</div>
-  <div class="btn-grid">
-    <button class="btn ad-btn" data-price="2000" data-name="Ad Starter">Ad Starter<span class="btn-price">$2,000 / batch</span></button>
-    <button class="btn ad-btn" data-price="3750" data-name="Ad Growth">Ad Growth<span class="btn-price">$3,750 / batch</span></button>
-    <button class="btn ad-btn" data-price="6500" data-name="Ad Scale">Ad Scale<span class="btn-price">$6,500 / batch</span></button>
+  <div class="section-head">
+    <div class="section-title">Select ad package</div>
+    <div class="section-note">All batches billed 50% on signing, 50% on delivery</div>
+  </div>
+  <div class="ad-card-grid">
+
+    <button class="ad-card" data-price="2000" data-name="Ad Starter">
+      <div class="ad-card-header">
+        <span class="ad-card-name">Ad Starter</span>
+        <span class="ad-card-price">$2,000</span>
+      </div>
+      <div class="ad-card-deliverable">6 ad creatives per batch</div>
+      <div class="ad-card-turnaround">7 Business Day Turnaround</div>
+      <ul class="ad-card-features">
+        <li>2 concepts, 3 variations each</li>
+        <li>Static and short-form video mix</li>
+        <li>1 revision round</li>
+        <li>Delivered in Meta and TikTok specs</li>
+      </ul>
+      <div class="ad-card-best">Best for testing creative at modest ad budgets ($1K–$3K/mo spend)</div>
+    </button>
+
+    <button class="ad-card" data-price="3750" data-name="Ad Growth">
+      <div class="ad-card-header">
+        <span class="ad-card-name">Ad Growth</span>
+        <span class="ad-card-price">$3,750</span>
+      </div>
+      <div class="ad-card-deliverable">12 ad creatives per batch</div>
+      <div class="ad-card-turnaround">5 Business Day Turnaround</div>
+      <ul class="ad-card-features">
+        <li>3 concepts, 4 variations each</li>
+        <li>UGC-style, B-roll, static, and motion</li>
+        <li>2 revision rounds</li>
+        <li>Platform-native variants (Meta, TikTok)</li>
+      </ul>
+      <div class="ad-card-best">Best for active advertisers testing weekly ($3K–$10K/mo spend)</div>
+    </button>
+
+    <button class="ad-card" data-price="6500" data-name="Ad Scale">
+      <div class="ad-card-header">
+        <span class="ad-card-name">Ad Scale</span>
+        <span class="ad-card-price">$6,500</span>
+      </div>
+      <div class="ad-card-deliverable">20 ad creatives per batch</div>
+      <div class="ad-card-turnaround">Priority 5 Day Turnaround</div>
+      <ul class="ad-card-features">
+        <li>Full concept development, 4–5 angles</li>
+        <li><strong>Includes original half-day shoot</strong></li>
+        <li>UGC coordination and motion graphics</li>
+        <li>Meta, TikTok, YouTube Shorts, LinkedIn specs</li>
+        <li>2 revision rounds</li>
+      </ul>
+      <div class="ad-card-best">Best for performance marketers spending $10K+/mo</div>
+    </button>
+
   </div>
 </div>
 
 <div class="section">
-  <div class="section-title">Commitment length</div>
+  <div class="section-head">
+    <div class="section-title">Commitment length</div>
+    <div class="section-note">Lock in pricing with a multi-batch commit</div>
+  </div>
   <div class="btn-grid">
     <button class="btn commit-btn" data-discount="0">Month-to-month<span class="btn-price">Standard pricing</span></button>
     <button class="btn commit-btn" data-discount="0.05">3-month commit<span class="btn-price">5% off</span></button>
@@ -267,20 +372,20 @@ footer a { color: var(--amber); text-decoration: none; }
   <div class="panel-intro-desc">Hand us the keys. We handle strategy, content creation, scheduling, posting, and community management across every platform. You show up to meetings, approve the work, and watch your brand grow. Best for brands that want their entire social presence outsourced end-to-end.</div>
   <div class="panel-intro-meta">
     <div class="meta-item">
-      <span class="meta-label">Engagement</span>
-      <span class="meta-value">Monthly retainer, 3-month initial term</span>
+      <span class="meta-label">How we work</span>
+      <span class="meta-value">Monthly retainer. 3-month initial term.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">We post content?</span>
-      <span class="meta-value">Yes, we handle everything end-to-end</span>
+      <span class="meta-label">Who posts content</span>
+      <span class="meta-value">We do. Full end-to-end handling.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Community management?</span>
-      <span class="meta-value">Yes, included at every tier</span>
+      <span class="meta-label">Community management</span>
+      <span class="meta-value">Included at every tier.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Ideal for</span>
-      <span class="meta-value">Brands wanting a full social team</span>
+      <span class="meta-label">Best for</span>
+      <span class="meta-value">Brands wanting a full social team.</span>
     </div>
   </div>
 </div>
@@ -296,11 +401,14 @@ footer a { color: var(--amber); text-decoration: none; }
 </div>
 
 <div class="included-note">
-  <strong>Every partnership includes</strong> dedicated account ownership, monthly strategy, community management, AI content automation, and our client portal. Stack the modules below to shape your package.
+  <strong>Every partnership includes</strong> dedicated account ownership, monthly strategy, community management (5 hrs/week), AI content automation, and our client portal. Stack the modules below to shape your package.
 </div>
 
 <div class="section">
-  <div class="section-title">Media production hours</div>
+  <div class="section-head">
+    <div class="section-title">Media production hours</div>
+    <div class="section-note">On-site shooting with videographer or photographer</div>
+  </div>
   <div class="btn-grid">
     <button class="btn mod-btn" data-group="media" data-value="0" data-price="0">None</button>
     <button class="btn mod-btn" data-group="media" data-value="4" data-price="700">4 hours<span class="btn-price">$700/mo</span></button>
@@ -311,7 +419,10 @@ footer a { color: var(--amber); text-decoration: none; }
 </div>
 
 <div class="section">
-  <div class="section-title">Short-form video pack</div>
+  <div class="section-head">
+    <div class="section-title">Short-form video pack</div>
+    <div class="section-note">Edited Reels, TikToks, and Shorts ready to post</div>
+  </div>
   <div class="btn-grid">
     <button class="btn mod-btn" data-group="video" data-value="0" data-price="0">None</button>
     <button class="btn mod-btn" data-group="video" data-value="4" data-price="600">4 videos<span class="btn-price">$600/mo</span></button>
@@ -321,7 +432,10 @@ footer a { color: var(--amber); text-decoration: none; }
 </div>
 
 <div class="section">
-  <div class="section-title">Static and carousel posts</div>
+  <div class="section-head">
+    <div class="section-title">Static and carousel posts</div>
+    <div class="section-note">Designed graphics, infographics, and multi-slide carousels</div>
+  </div>
   <div class="btn-grid">
     <button class="btn mod-btn" data-group="static" data-value="0" data-price="0">None</button>
     <button class="btn mod-btn" data-group="static" data-value="6" data-price="275">Light, 6 posts<span class="btn-price">$275/mo</span></button>
@@ -331,32 +445,38 @@ footer a { color: var(--amber); text-decoration: none; }
 </div>
 
 <div class="section">
-  <div class="section-title">Platforms and community</div>
+  <div class="section-head">
+    <div class="section-title">Platforms and community</div>
+    <div class="section-note">Base includes 2 platforms and 5 hrs/week of community management</div>
+  </div>
   <div class="btn-grid">
-    <button class="btn toggle-btn" data-toggle="platform1" data-price="400">+1 platform<span class="btn-price">$400/mo</span></button>
-    <button class="btn toggle-btn" data-toggle="platform2" data-price="800">+2 platforms<span class="btn-price">$800/mo</span></button>
-    <button class="btn toggle-btn" data-toggle="comm5" data-price="400">+5 hrs/wk community<span class="btn-price">$400/mo</span></button>
-    <button class="btn toggle-btn" data-toggle="comm10" data-price="750">+10 hrs/wk community<span class="btn-price">$750/mo</span></button>
+    <button class="btn toggle-btn" data-toggle="platform1" data-price="400">+1 platform<span class="btn-price">$400/mo</span><span class="toggle-desc">Instagram, TikTok, LinkedIn, Facebook, YouTube, or X</span></button>
+    <button class="btn toggle-btn" data-toggle="platform2" data-price="800">+2 platforms<span class="btn-price">$800/mo</span><span class="toggle-desc">Any two additional platforms from the list</span></button>
+    <button class="btn toggle-btn" data-toggle="comm5" data-price="400">+5 hrs/wk community<span class="btn-price">$400/mo</span><span class="toggle-desc">Replying to comments, DMs, and proactive engagement</span></button>
+    <button class="btn toggle-btn" data-toggle="comm10" data-price="750">+10 hrs/wk community<span class="btn-price">$750/mo</span><span class="toggle-desc">Heavy engagement for high-volume brands</span></button>
   </div>
 </div>
 
 <div class="section">
   <div class="section-title">Strategic add-ons</div>
   <div class="btn-grid">
-    <button class="btn toggle-btn" data-toggle="ai" data-price="450">AI optimization<span class="btn-price">$450/mo</span></button>
-    <button class="btn toggle-btn" data-toggle="strategy" data-price="250">Monthly strategy call<span class="btn-price">$250/mo</span></button>
-    <button class="btn toggle-btn" data-toggle="qpr" data-price="167">Quarterly review<span class="btn-price">$167/mo</span></button>
+    <button class="btn toggle-btn" data-toggle="ai" data-price="450">AI optimization<span class="btn-price">$450/mo</span><span class="toggle-desc">Ongoing tuning of our AI content stack to your brand</span></button>
+    <button class="btn toggle-btn" data-toggle="strategy" data-price="250">Monthly strategy call<span class="btn-price">$250/mo</span><span class="toggle-desc">1-hour deep dive on performance and direction</span></button>
+    <button class="btn toggle-btn" data-toggle="qpr" data-price="167">Quarterly review<span class="btn-price">$167/mo</span><span class="toggle-desc">Full performance audit with recommendations, every quarter</span></button>
   </div>
 </div>
 
 <div class="section">
-  <div class="section-title">Ad management (if running paid ads)</div>
+  <div class="section-head">
+    <div class="section-title">Ad management</div>
+    <div class="section-note">For clients running paid ads. Ad spend billed separately, paid directly to the platform.</div>
+  </div>
   <select id="ad-mgmt">
     <option value="0">No ad management</option>
-    <option value="1000">Under $2,500 ad spend, $1,000/mo</option>
-    <option value="1500">$2,500 to $7,500 ad spend, $1,500/mo</option>
-    <option value="1700">$7,500 to $15,000 ad spend, 15% of spend</option>
-    <option value="2100">$15,000+ ad spend, 12% of spend</option>
+    <option value="1000">Under $2,500 ad spend — $1,000/mo</option>
+    <option value="1500">$2,500 to $7,500 ad spend — $1,500/mo</option>
+    <option value="1700">$7,500 to $15,000 ad spend — 15% of spend</option>
+    <option value="2100">$15,000+ ad spend — 12% of spend</option>
   </select>
 </div>
 
@@ -370,34 +490,33 @@ footer a { color: var(--amber); text-decoration: none; }
   <div class="panel-intro-desc">You have the marketing team, we're the production team. We show up with cameras, capture your brand, and deliver polished content every month. You handle posting, scheduling, and community. No account management, no community overhead. Best for brands with internal marketing teams who need production capacity without full-service handover.</div>
   <div class="panel-intro-meta">
     <div class="meta-item">
-      <span class="meta-label">Engagement</span>
-      <span class="meta-value">Monthly retainer, flexible modules</span>
+      <span class="meta-label">How we work</span>
+      <span class="meta-value">Monthly retainer. Flexible modules.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">We post content?</span>
-      <span class="meta-value">No, we deliver to your team</span>
+      <span class="meta-label">Who posts content</span>
+      <span class="meta-value">You do. We deliver to your team.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Community management?</span>
-      <span class="meta-value">No, you handle community</span>
+      <span class="meta-label">Community management</span>
+      <span class="meta-value">Not included. You handle community.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Ideal for</span>
-      <span class="meta-value">Brands with internal marketing teams</span>
+      <span class="meta-label">Best for</span>
+      <span class="meta-value">Brands with internal marketing teams.</span>
     </div>
   </div>
 </div>
 
-<div class="base-card">
-  <div class="base-card-left">
-    <div class="base-card-title">Production Partner Base</div>
-    <div class="base-card-desc">Strategy call + full production team access (videographer, photographer, editor). No management, no posting. Delivery to your Drive or Dropbox.</div>
-  </div>
-  <div class="base-card-price">$750/mo</div>
+<div class="included-note">
+  <strong>Every partnership includes</strong> a monthly strategy call, access to our full production team (videographer, photographer, editor), and delivery to your Drive or Dropbox. Stack the modules below to shape your package. Minimum 1 module required.
 </div>
 
 <div class="section">
-  <div class="section-title">Media production hours</div>
+  <div class="section-head">
+    <div class="section-title">Media production hours</div>
+    <div class="section-note">On-site shooting with videographer or photographer</div>
+  </div>
   <div class="btn-grid">
     <button class="btn mod-btn-p" data-group="pmedia" data-value="0" data-price="0">None</button>
     <button class="btn mod-btn-p" data-group="pmedia" data-value="4" data-price="700">4 hours<span class="btn-price">$700/mo</span></button>
@@ -408,7 +527,10 @@ footer a { color: var(--amber); text-decoration: none; }
 </div>
 
 <div class="section">
-  <div class="section-title">Short-form video pack</div>
+  <div class="section-head">
+    <div class="section-title">Short-form video pack</div>
+    <div class="section-note">Edited Reels, TikToks, and Shorts delivered to your team</div>
+  </div>
   <div class="btn-grid">
     <button class="btn mod-btn-p" data-group="pvideo" data-value="0" data-price="0">None</button>
     <button class="btn mod-btn-p" data-group="pvideo" data-value="4" data-price="600">4 videos<span class="btn-price">$600/mo</span></button>
@@ -418,7 +540,10 @@ footer a { color: var(--amber); text-decoration: none; }
 </div>
 
 <div class="section">
-  <div class="section-title">Static and carousel posts</div>
+  <div class="section-head">
+    <div class="section-title">Static and carousel posts</div>
+    <div class="section-note">Designed graphics and carousels ready for you to post</div>
+  </div>
   <div class="btn-grid">
     <button class="btn mod-btn-p" data-group="pstatic" data-value="0" data-price="0">None</button>
     <button class="btn mod-btn-p" data-group="pstatic" data-value="6" data-price="275">Light, 6 posts<span class="btn-price">$275/mo</span></button>
@@ -431,12 +556,13 @@ footer a { color: var(--amber); text-decoration: none; }
 
 <div class="total-card">
   <div class="total-label" id="total-label">Monthly Total</div>
-  <div class="total-sub" id="total-sub">Start building your package</div>
+  <div class="total-sub" id="total-sub">Start building your package below</div>
   <div class="total-amount" id="total-amount">$1,750</div>
   <div class="total-annual" id="total-annual">
     <span>Annual value (12-month contract)</span>
     <span class="total-annual-value" id="annual-amount">$21,000</span>
   </div>
+  <div class="total-footnote" id="total-footnote">One-time onboarding fee: $1,000 (waived on 6-month prepay)</div>
 </div>
 
 <div class="actions">
@@ -445,14 +571,24 @@ footer a { color: var(--amber); text-decoration: none; }
   <button class="action-btn primary" id="send-btn">Send to 44 Social →</button>
 </div>
 
+<div class="send-confirmation">
+  <strong>What happens next:</strong> Clicking the button above opens an email with your configuration pre-filled. Send it to us and Floydie will personally reply within 48 hours to set up a call and formalize the proposal.
+</div>
+
 <div class="summary" id="summary">
   <div class="summary-title">Your configuration</div>
   <div id="summary-content"></div>
 </div>
 
+<div class="help-prompt">
+  <div class="help-prompt-title">Still not sure which path is <em>right?</em></div>
+  <div class="help-prompt-desc">Skip the calculator and tell us about your brand. We'll recommend the right configuration.</div>
+  <a href="/apply" class="help-prompt-link">Apply to Work With Us →</a>
+</div>
+
 <footer>
   <div>© 2026 44 Social Company · Orlando, FL</div>
-  <div><a href="mailto:floydie@44social.co">floydie@44social.co</a></div>
+  <div><a href="mailto:floydie@44social.co">floydie@44social.co</a> · <a href="https://44social.co">44social.co</a></div>
 </footer>
 
 </div>
@@ -527,6 +663,7 @@ footer a { color: var(--amber); text-decoration: none; }
     const annualEl = document.getElementById('annual-amount');
     const annualCard = document.getElementById('total-annual');
     const sendBtn = document.getElementById('send-btn');
+    const footnoteEl = document.getElementById('total-footnote');
 
     let total = 0, label = '', sub = '';
     totalEl.classList.remove('custom');
@@ -537,6 +674,7 @@ footer a { color: var(--amber); text-decoration: none; }
       totalEl.textContent = "Let's talk.";
       totalEl.classList.add('custom');
       annualCard.style.display = 'none';
+      footnoteEl.style.display = 'none';
       sendBtn.textContent = 'Book a Call →';
       return;
     }
@@ -549,22 +687,27 @@ footer a { color: var(--amber); text-decoration: none; }
       const count = [state.media, state.video, state.static].filter(x => x).length
         + [state.platform1, state.platform2, state.comm5, state.comm10, state.ai, state.strategy, state.qpr].filter(x => x).length
         + (state.adMgmt > 0 ? 1 : 0);
-      sub = count ? 'Base + ' + count + ' module' + (count > 1 ? 's' : '') : 'Start building your package';
+      sub = count ? 'Base + ' + count + ' module' + (count > 1 ? 's' : '') : 'Start building your package below';
       annualEl.textContent = fmt(total * 12);
       annualCard.style.display = '';
+      footnoteEl.style.display = '';
+      footnoteEl.textContent = 'One-time onboarding fee: $1,000 (waived on 6-month prepay)';
     } else if (state.mode === 'prod') {
       total = calculateProd();
       label = 'Monthly Total';
       const count = [state.pmedia, state.pvideo, state.pstatic].filter(x => x).length;
-      sub = count ? 'Base + ' + count + ' module' + (count > 1 ? 's' : '') : 'Base access only (1 module required)';
+      sub = count ? 'Base + ' + count + ' module' + (count > 1 ? 's' : '') : 'Add at least one production module to get started';
       annualEl.textContent = fmt(total * 12);
       annualCard.style.display = '';
+      footnoteEl.style.display = 'none';
     } else if (state.mode === 'ad') {
       total = calculateAd();
       label = state.adPackage ? state.adPackage + ' per Batch' : 'Select a Package';
       if (state.adDiscount) { sub = (state.adDiscount * 100) + '% commit discount applied'; }
-      else { sub = state.adPackage ? 'Month-to-month pricing' : 'Project-based ad creative'; }
+      else { sub = state.adPackage ? 'Month-to-month pricing' : 'Project-based ad creative, select a tier above'; }
       annualCard.style.display = 'none';
+      footnoteEl.style.display = '';
+      footnoteEl.textContent = 'Payment: 50% on signing, 50% on delivery. 4% credit card processing fee applies.';
     }
 
     totalEl.textContent = fmt(total);
@@ -678,7 +821,7 @@ footer a { color: var(--amber); text-decoration: none; }
     state.pmedia = 0; state.pvideo = 0; state.pstatic = 0;
     state.adPackage = null; state.adPrice = 0; state.adDiscount = 0;
     state.enterprise = false;
-    document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.btn, .ad-card').forEach(b => b.classList.remove('active'));
     document.getElementById('ad-mgmt').value = '0';
     document.getElementById('summary').classList.remove('visible');
     updateTotal();
@@ -783,11 +926,11 @@ footer a { color: var(--amber); text-decoration: none; }
     updateTotal();
   });
 
-  document.querySelectorAll('.ad-btn').forEach(btn => {
+  document.querySelectorAll('.ad-card').forEach(btn => {
     btn.addEventListener('click', () => {
       state.adPackage = btn.dataset.name;
       state.adPrice = parseInt(btn.dataset.price);
-      document.querySelectorAll('.ad-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.ad-card').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       updateTotal();
     });
