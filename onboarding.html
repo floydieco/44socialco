@@ -24,32 +24,43 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --accent:      #e8150a;
-    --accent-dim:  rgba(232,21,10,0.1);
-    --accent-glow: rgba(232,21,10,0.25);
-    --bg:          #2c2724;
+    /* ── 44 SOCIAL BRAND SYSTEM ── */
+    --bg1:         #2c2724;
     --bg2:         #322c29;
     --bg3:         #38312d;
     --bg4:         #3f3732;
-    --border:      rgba(255,255,255,0.07);
-    --border-hot:  rgba(232,21,10,0.3);
+
+    --red:         #e8150a;
+    --red-hover:   #ff2a1f;
+    --red-dim:     rgba(232,21,10,0.10);
+    --red-border:  rgba(232,21,10,0.35);
+
+    --amber:       #c8a070;
+    --amber-hover: #d4b080;
+    --amber-dim:   rgba(200,160,112,0.13);
+    --amber-line:  rgba(200,160,112,0.28);
+    --amber-glow:  rgba(200,160,112,0.07);
+
     --text:        #f0ebe4;
-    --text2:       #a09488;
-    --muted:       #6a5e58;
+    --muted:       #a09488;
+    --very-muted:  #6a5e58;
     --white:       #ffffff;
+    --border:      rgba(255,255,255,0.07);
+
     --font-display:'Bebas Neue', sans-serif;
+    --font-serif:  'Instrument Serif', serif;
     --font-body:   'DM Sans', sans-serif;
-    --font-mono:   'Space Mono', monospace;
+    --font-mono:   'DM Mono', monospace;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--bg);
+    background: var(--bg1);
     color: var(--text);
     font-family: var(--font-body);
     font-size: 16px;
@@ -60,8 +71,8 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
 
   /* ── scrollbar ── */
   ::-webkit-scrollbar { width: 2px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--accent); }
+  ::-webkit-scrollbar-track { background: var(--bg1); }
+  ::-webkit-scrollbar-thumb { background: var(--amber); }
 
   /* ── NAV ── */
   nav {
@@ -76,12 +87,12 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     font-size: 26px; letter-spacing: 0.05em;
     color: var(--white); text-decoration: none;
   }
-  .nav-logo span { color: var(--accent); }
+  .nav-logo span { color: var(--amber); }
   .nav-back {
     font-family: var(--font-mono);
     font-size: 10px; letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--text2); text-decoration: none;
+    color: var(--muted); text-decoration: none;
     display: flex; align-items: center; gap: 8px;
     transition: color 0.2s;
   }
@@ -98,18 +109,18 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     content: '';
     position: fixed; top: 0; right: 0;
     width: 500px; height: 500px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--amber-glow) 0%, transparent 70%);
     pointer-events: none; z-index: 0;
   }
   .eyebrow {
     display: flex; align-items: center; gap: 12px;
     font-family: var(--font-mono);
     font-size: 11px; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--accent);
+    text-transform: uppercase; color: var(--amber);
     margin-bottom: 20px;
     opacity: 0; animation: fade-up 0.7s 0.1s forwards;
   }
-  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--amber); }
   .hero h1 {
     font-family: var(--font-display);
     font-size: clamp(56px, 7vw, 96px);
@@ -117,11 +128,20 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     color: var(--white); margin-bottom: 24px;
     opacity: 0; animation: fade-up 0.7s 0.25s forwards;
   }
-  .hero h1 em { font-style: normal; color: var(--accent); display: block; }
+  .hero h1 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+    display: block;
+    letter-spacing: 0;
+  }
   .hero p {
     font-size: 16px; font-weight: 300;
-    color: var(--text2); max-width: 560px;
+    color: var(--muted); max-width: 560px;
     line-height: 1.75;
+    padding-left: 16px;
+    border-left: 1px solid var(--amber-line);
     opacity: 0; animation: fade-up 0.7s 0.4s forwards;
   }
 
@@ -146,13 +166,13 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     display: flex; align-items: center; gap: 10px;
     font-family: var(--font-mono);
     font-size: 9px; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--muted);
+    text-transform: uppercase; color: var(--very-muted);
     border-bottom: 2px solid transparent;
     cursor: pointer; transition: color 0.2s, border-color 0.2s;
     position: relative;
   }
-  .progress-step.active { color: var(--white); border-bottom-color: var(--accent); }
-  .progress-step.done { color: var(--accent); border-bottom-color: var(--accent); opacity: 0.5; }
+  .progress-step.active { color: var(--white); border-bottom-color: var(--amber); }
+  .progress-step.done { color: var(--amber); border-bottom-color: var(--amber); opacity: 0.55; }
   .step-num {
     width: 20px; height: 20px;
     border: 1px solid currentColor;
@@ -160,7 +180,7 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     display: flex; align-items: center; justify-content: center;
     font-size: 9px; flex-shrink: 0;
   }
-  .progress-step.done .step-num { background: var(--accent); border-color: var(--accent); color: white; }
+  .progress-step.done .step-num { background: var(--amber); border-color: var(--amber); color: var(--bg1); }
 
   /* ── FORM CONTAINER ── */
   .form-container {
@@ -183,21 +203,27 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
   .section-tag {
     font-family: var(--font-mono);
     font-size: 10px; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--accent);
+    text-transform: uppercase; color: var(--amber);
     display: flex; align-items: center; gap: 10px;
     margin-bottom: 16px;
   }
-  .section-tag::after { content: ''; width: 40px; height: 1px; background: var(--accent); }
+  .section-tag::after { content: ''; width: 40px; height: 1px; background: var(--amber); }
   .section-title {
     font-family: var(--font-display);
     font-size: clamp(36px, 4vw, 56px);
     letter-spacing: 0.02em; line-height: 0.95;
     color: var(--white); margin-bottom: 12px;
   }
-  .section-title em { font-style: normal; color: var(--accent); }
+  .section-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+    letter-spacing: 0;
+  }
   .section-desc {
     font-size: 14px; font-weight: 300;
-    color: var(--text2); max-width: 540px;
+    color: var(--muted); max-width: 540px;
     line-height: 1.75;
   }
 
@@ -210,10 +236,10 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     font-size: 13px; font-weight: 500;
     color: var(--text); letter-spacing: 0.02em;
   }
-  .field label .req { color: var(--accent); margin-left: 3px; }
+  .field label .req { color: var(--amber); margin-left: 3px; }
   .field .hint {
     font-size: 12px; font-weight: 300;
-    color: var(--muted); margin-top: -6px;
+    color: var(--very-muted); margin-top: -6px;
     font-style: italic;
   }
 
@@ -236,14 +262,14 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     border-radius: 0;
   }
   input:focus, textarea:focus, select:focus {
-    border-color: var(--accent);
+    border-color: var(--amber);
     background: var(--bg4);
   }
-  input::placeholder, textarea::placeholder { color: var(--muted); }
+  input::placeholder, textarea::placeholder { color: var(--very-muted); }
   textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
 
   select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a09488' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8a070' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 16px center;
     cursor: pointer;
@@ -260,13 +286,13 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     cursor: pointer;
     transition: border-color 0.2s, background 0.2s;
   }
-  .checkbox-item:hover { border-color: var(--border-hot); background: var(--bg4); }
+  .checkbox-item:hover { border-color: var(--amber-line); background: var(--bg4); }
   .checkbox-item input[type="checkbox"] {
     width: 18px; height: 18px; min-width: 18px;
     background: var(--bg2);
     border: 1px solid var(--border);
     padding: 0; cursor: pointer;
-    accent-color: var(--accent);
+    accent-color: var(--amber);
   }
   .checkbox-item span {
     font-size: 14px; font-weight: 300; color: var(--text);
@@ -283,39 +309,40 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     font-family: var(--font-mono);
     font-size: 11px; letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--text2); background: none;
+    color: var(--muted); background: none;
     border: 1px solid var(--border);
     padding: 14px 28px; cursor: pointer;
     transition: color 0.2s, border-color 0.2s;
   }
-  .btn-prev:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+  .btn-prev:hover { color: var(--white); border-color: var(--amber-line); }
   .btn-next {
     font-family: var(--font-mono);
     font-size: 11px; letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--white); background: var(--accent);
+    color: var(--bg1); background: var(--amber);
     border: none; padding: 14px 36px; cursor: pointer;
     display: flex; align-items: center; gap: 10px;
     transition: background 0.2s, transform 0.15s;
     position: relative; overflow: hidden;
+    font-weight: 500;
   }
   .btn-next::before {
     content: '';
     position: absolute; top: 0; left: -100%;
     width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
     transition: left 0.4s;
   }
   .btn-next:hover::before { left: 100%; }
-  .btn-next:hover { background: #ff2a1f; transform: translateY(-1px); }
+  .btn-next:hover { background: var(--amber-hover); transform: translateY(-1px); }
   .btn-next:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
   .step-counter {
     font-family: var(--font-mono);
     font-size: 10px; letter-spacing: 0.15em;
-    color: var(--muted);
+    color: var(--very-muted);
   }
-  .step-counter span { color: var(--accent); }
+  .step-counter span { color: var(--amber); }
 
   /* ── SUCCESS STATE ── */
   .success-screen {
@@ -327,11 +354,12 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
   .success-screen.visible { display: block; animation: fade-up 0.7s forwards; }
   .success-icon {
     width: 80px; height: 80px;
-    border: 2px solid var(--accent);
+    border: 2px solid var(--amber);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 32px;
     font-size: 32px;
+    color: var(--amber);
   }
   .success-screen h2 {
     font-family: var(--font-display);
@@ -339,10 +367,16 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     color: var(--white); margin-bottom: 16px;
     line-height: 0.95;
   }
-  .success-screen h2 em { font-style: normal; color: var(--accent); }
+  .success-screen h2 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+    letter-spacing: 0;
+  }
   .success-screen p {
     font-size: 16px; font-weight: 300;
-    color: var(--text2); line-height: 1.75;
+    color: var(--muted); line-height: 1.75;
     margin-bottom: 40px;
   }
 
@@ -350,20 +384,20 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
   .field-error {
     font-family: var(--font-mono);
     font-size: 10px; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--accent);
+    text-transform: uppercase; color: var(--red);
     display: none;
   }
   .field.has-error input,
   .field.has-error textarea,
-  .field.has-error select { border-color: var(--accent); }
+  .field.has-error select { border-color: var(--red); }
   .field.has-error .field-error { display: block; }
 
   /* ── SUBMITTING STATE ── */
   .submitting { pointer-events: none; opacity: 0.7; }
   .spinner {
     width: 16px; height: 16px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-top-color: white;
+    border: 2px solid rgba(44,39,36,0.3);
+    border-top-color: var(--bg1);
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
     display: none;
@@ -373,7 +407,7 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
   @keyframes spin { to { transform: rotate(360deg); } }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     nav { padding: 16px 24px; }
     .hero { padding: 120px 24px 60px; }
     .progress-wrap { padding: 0 24px; }
@@ -470,7 +504,7 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
         <div class="field" id="f-contact-email">
           <label>Primary Contact Email <span class="req">*</span></label>
           <input type="email" name="contact_email" placeholder="email@yourbrand.com" required/>
-          <span class="field-error">Required — valid email</span>
+          <span class="field-error">Required, valid email</span>
         </div>
       </div>
       <div class="field-row">
@@ -508,7 +542,7 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     <div class="section-header">
       <div class="section-tag">Step 02</div>
       <h2 class="section-title">Social Media<br><em>Accounts.</em></h2>
-      <p class="section-desc">Share your existing social profiles and tell us where you want to focus. Full URLs please — e.g. https://instagram.com/yourbrand</p>
+      <p class="section-desc">Share your existing social profiles and tell us where you want to focus. Full URLs please, e.g. https://instagram.com/yourbrand</p>
     </div>
     <div class="fields">
       <div class="field-row">
@@ -543,7 +577,7 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
       </div>
       <div class="field">
         <label>Which platforms do you want to focus on most? <span class="req">*</span></label>
-        <p class="hint">Choose 2–3 platforms where you want the majority of effort</p>
+        <p class="hint">Choose 2 to 3 platforms where you want the majority of effort</p>
         <div class="checkbox-group">
           <label class="checkbox-item"><input type="checkbox" name="focus_platforms" value="Instagram"/> <span>Instagram</span></label>
           <label class="checkbox-item"><input type="checkbox" name="focus_platforms" value="TikTok"/> <span>TikTok</span></label>
@@ -604,7 +638,7 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
       </div>
       <div class="field">
         <label>Do you have existing brand materials?</label>
-        <p class="hint">Logo files, brand colors, fonts — describe what you have and how you'll share them</p>
+        <p class="hint">Logo files, brand colors, fonts. Describe what you have and how you'll share them</p>
         <textarea name="brand_assets" placeholder="Describe your existing brand assets..."></textarea>
       </div>
     </div>
@@ -711,7 +745,7 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
       </div>
       <div class="field">
         <label>Any brands outside your industry that inspire you on social media?</label>
-        <p class="hint">Brands whose content, voice, or strategy you admire — even if they're in a completely different space</p>
+        <p class="hint">Brands whose content, voice, or strategy you admire, even if they're in a completely different space</p>
         <textarea name="brand_inspiration" placeholder="e.g. Nike, Apple, a local restaurant you follow..."></textarea>
       </div>
     </div>
@@ -754,20 +788,20 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
         <label>How often would you like to post per week?</label>
         <select name="post_frequency">
           <option value="" disabled selected>Select posting frequency</option>
-          <option value="1-2x per week">1–2x per week</option>
-          <option value="3-4x per week">3–4x per week</option>
-          <option value="5-7x per week">5–7x per week (daily)</option>
+          <option value="1-2x per week">1 to 2x per week</option>
+          <option value="3-4x per week">3 to 4x per week</option>
+          <option value="5-7x per week">5 to 7x per week (daily)</option>
           <option value="Multiple times per day">Multiple times per day</option>
-          <option value="Not sure — I defer to 44 Social">Not sure — I defer to 44 Social</option>
+          <option value="Not sure (defer to 44 Social)">Not sure (defer to 44 Social)</option>
         </select>
       </div>
       <div class="field">
         <label>Do you have an internal team for photos, videos, or graphics?</label>
         <select name="internal_resources">
           <option value="" disabled selected>Select an option</option>
-          <option value="No — we need 44 Social to handle everything">No — we need 44 Social to handle everything</option>
+          <option value="No (we need 44 Social to handle everything)">No (we need 44 Social to handle everything)</option>
           <option value="We have some in-house resources">We have some in-house resources</option>
-          <option value="Yes — we have a full creative team">Yes — we have a full creative team</option>
+          <option value="Yes (we have a full creative team)">Yes (we have a full creative team)</option>
         </select>
       </div>
       <div class="field">
@@ -804,7 +838,7 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
 
     <div class="fields">
       <div class="field" style="background:var(--bg3); padding:24px; border:1px solid var(--border);">
-        <p style="font-size:13px; font-weight:300; color:var(--text2); line-height:1.75;">
+        <p style="font-size:13px; font-weight:300; color:var(--muted); line-height:1.75;">
           By submitting this form you confirm that the information provided is accurate and you authorize 44 Social to use it to develop your brand's social media strategy.
         </p>
       </div>
@@ -828,7 +862,7 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
   <div class="success-icon">✓</div>
   <h2>You're<br><em>All Set.</em></h2>
   <p>Your brand profile has been received. Our team will review your responses and reach out within 24 hours to schedule your kickoff call. Welcome to 44 Social.</p>
-  <a href="https://44social.co" style="display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:white;font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;padding:16px 32px;">Back to 44social.co →</a>
+  <a href="https://44social.co" style="display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:var(--bg1);font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;padding:16px 32px;font-weight:500;">Back to 44social.co →</a>
 </div>
 
 <script>
@@ -876,7 +910,6 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
       } else {
         field?.classList.remove('has-error');
       }
-      // Email check
       if (el.type === 'email' && el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) {
         field?.classList.add('has-error');
         valid = false;
@@ -895,7 +928,6 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     section.querySelectorAll('input:not([type="checkbox"]), textarea, select').forEach(el => {
       if (el.name) formData[el.name] = el.value;
     });
-    // Checkboxes
     const checkboxGroups = {};
     section.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
       if (!checkboxGroups[cb.name]) checkboxGroups[cb.name] = [];
@@ -925,13 +957,13 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
       if (!hasData) return;
       const block = document.createElement('div');
       block.style.cssText = 'background:var(--bg3);border:1px solid var(--border);padding:24px;';
-      let html = `<div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">${s.label}</div>`;
+      let html = `<div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;">${s.label}</div>`;
       s.keys.forEach(k => {
         const val = formData[k];
         if (!val || (Array.isArray(val) && !val.length)) return;
         const display = Array.isArray(val) ? val.join(', ') : val;
         const label = k.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-        html += `<div style="margin-bottom:10px;"><span style="font-size:11px;color:var(--text2);display:block;margin-bottom:4px;">${label}</span><span style="font-size:14px;font-weight:300;color:var(--text);">${display}</span></div>`;
+        html += `<div style="margin-bottom:10px;"><span style="font-size:11px;color:var(--muted);display:block;margin-bottom:4px;">${label}</span><span style="font-size:14px;font-weight:300;color:var(--text);">${display}</span></div>`;
       });
       block.innerHTML = html;
       container.appendChild(block);
@@ -946,17 +978,16 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     btn.classList.add('submitting');
     btn.disabled = true;
 
-    // Format payload
+    // Preserve arrays for Notion multi-select compatibility
     const payload = {
       ...formData,
-      focus_platforms: Array.isArray(formData.focus_platforms) ? formData.focus_platforms.join(', ') : (formData.focus_platforms || ''),
-      content_formats: Array.isArray(formData.content_formats) ? formData.content_formats.join(', ') : (formData.content_formats || ''),
+      focus_platforms: Array.isArray(formData.focus_platforms) ? formData.focus_platforms : (formData.focus_platforms ? [formData.focus_platforms] : []),
+      content_formats: Array.isArray(formData.content_formats) ? formData.content_formats : (formData.content_formats ? [formData.content_formats] : []),
       submitted_at: new Date().toISOString(),
     };
 
     try {
-      // ── REPLACE THIS URL WITH YOUR MAKE.COM WEBHOOK ──
-      const WEBHOOK_URL = 'YOUR_MAKE_WEBHOOK_URL_HERE';
+      const WEBHOOK_URL = 'https://hook.us2.make.com/3lakjrfw4wcyiui081cmg1d0q97euif1';
 
       const res = await fetch(WEBHOOK_URL, {
         method: 'POST',
@@ -980,7 +1011,6 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
     }
   }
 
-  // ── Clear errors on input ──
   document.addEventListener('input', e => {
     e.target.closest('.field')?.classList.remove('has-error');
   });
