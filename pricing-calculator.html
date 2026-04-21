@@ -30,17 +30,16 @@ src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
   --bg2: #322c29;
   --bg3: #38312d;
   --bg4: #3f3732;
-  --red: #e8150a;
-  --red-hover: #ff2a1f;
-  --red-dim: rgba(232,21,10,0.10);
-  --red-border: rgba(232,21,10,0.35);
   --amber: #c8a070;
   --amber-dim: rgba(200,160,112,0.13);
   --amber-line: rgba(200,160,112,0.28);
+  --green: #3a7a63;
+  --green-hover: #4a9479;
+  --green-dim: rgba(58,122,99,0.13);
+  --green-line: rgba(58,122,99,0.35);
   --text: #f0ebe4;
   --muted: #a09488;
   --very-muted: #6a5e58;
-  --white: #ffffff;
   --border: rgba(255,255,255,0.07);
 }
 
@@ -61,8 +60,8 @@ body::after {
   top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.45;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 48px 32px; position: relative; z-index: 1; }
@@ -73,13 +72,17 @@ header { display: flex; justify-content: space-between; align-items: flex-start;
 
 .logo-sub { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
 
+.back-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; transition: color 0.2s ease; }
+
+.back-link:hover { color: var(--amber); }
+
 .eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
 
 .title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 9vw, 96px); line-height: 0.95; letter-spacing: 1px; margin-bottom: 8px; }
 
 .title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.85em; letter-spacing: 0; }
 
-.subtitle { font-size: 16px; color: var(--muted); max-width: 580px; border-left: 2px solid var(--amber); padding-left: 16px; margin-bottom: 64px; }
+.subtitle { font-size: 16px; color: var(--muted); max-width: 620px; border-left: 2px solid var(--amber); padding-left: 16px; margin-bottom: 64px; line-height: 1.7; }
 
 .tabs { display: flex; gap: 0; margin-bottom: 32px; border-bottom: 1px solid var(--border); }
 
@@ -92,37 +95,91 @@ header { display: flex; justify-content: space-between; align-items: flex-start;
 .panel { display: none; }
 .panel.active { display: block; }
 
-.panel-intro { background: var(--bg2); border: 1px solid var(--amber-line); border-left: 3px solid var(--amber); border-radius: 0 4px 4px 0; padding: 28px 32px; margin-bottom: 40px; }
+.panel-intro { background: var(--bg2); border: 1px solid var(--amber-line); border-left: 3px solid var(--amber); border-radius: 0 4px 4px 0; padding: 32px 36px; margin-bottom: 40px; }
 
-.panel-intro-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px; }
+.panel-intro-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 14px; }
 
-.panel-intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 1px; line-height: 1.05; color: var(--text); margin-bottom: 14px; }
+.panel-intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: 1px; line-height: 1.05; color: var(--text); margin-bottom: 16px; }
 
 .panel-intro-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.9em; letter-spacing: 0; }
 
-.panel-intro-desc { font-size: 15px; color: var(--muted); margin-bottom: 24px; max-width: 780px; line-height: 1.7; }
+.panel-intro-desc { font-size: 16px; color: var(--muted); margin-bottom: 28px; max-width: 820px; line-height: 1.7; }
 
-.panel-intro-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+.panel-intro-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
 
-.meta-item { display: flex; flex-direction: column; gap: 6px; }
+.meta-item { display: flex; flex-direction: column; gap: 8px; }
 
-.meta-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--very-muted); text-transform: uppercase; letter-spacing: 2px; }
+.meta-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
 
-.meta-value { font-size: 13px; color: var(--text); line-height: 1.4; }
+.meta-value { font-size: 15px; color: var(--text); line-height: 1.5; }
 
-.base-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.credits-explainer { background: var(--bg2); border: 1px solid var(--amber-line); border-radius: 4px; padding: 36px; margin-bottom: 40px; position: relative; overflow: hidden; }
 
-.base-card-left { flex: 1; min-width: 240px; }
+.credits-explainer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--amber), transparent); opacity: 0.35; }
 
-.base-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; color: var(--text); margin-bottom: 4px; }
+.credits-explainer-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 14px; }
 
-.base-card-desc { font-size: 13px; color: var(--muted); }
+.credits-explainer-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 1px; line-height: 1.05; color: var(--text); margin-bottom: 18px; }
 
-.base-card-price { font-family: 'DM Mono', monospace; font-size: 20px; color: var(--amber); font-weight: 500; }
+.credits-explainer-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.9em; letter-spacing: 0; }
+
+.credits-explainer-lead { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 28px; max-width: 820px; }
+
+.credits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-bottom: 32px; }
+
+.credits-col { display: flex; flex-direction: column; gap: 12px; padding: 20px; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; }
+
+.credits-col-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); text-transform: uppercase; letter-spacing: 2px; padding-bottom: 8px; border-bottom: 1px solid var(--amber-line); }
+
+.credits-col-heading { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; color: var(--text); line-height: 1.2; }
+
+.credits-col-body { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+.credits-col-body strong { color: var(--text); font-weight: 500; }
+
+.charts-section { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 36px; margin-bottom: 40px; }
+
+.charts-section-heading { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1px; line-height: 1; margin-bottom: 28px; }
+
+.charts-section-heading em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.9em; letter-spacing: 0; }
+
+.charts-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.chart-block { background: var(--bg3); border: 1px solid var(--border); padding: 24px 20px; position: relative; border-radius: 4px; }
+
+.chart-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--amber), transparent); opacity: 0.35; }
+
+.chart-title { font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 2px; margin-bottom: 4px; }
+
+.chart-subtitle { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--very-muted); text-transform: uppercase; margin-bottom: 20px; }
+
+.bar-chart { display: flex; flex-direction: column; gap: 12px; }
+
+.bar-row { display: flex; align-items: center; gap: 10px; }
+
+.bar-label { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 1px; color: var(--text); width: 72px; flex-shrink: 0; }
+
+.bar-track { flex: 1; height: 20px; background: rgba(200,160,112,0.06); position: relative; border: 1px solid var(--border); }
+
+.bar-fill { position: absolute; top: 0; left: 0; bottom: 0; background: var(--amber); transition: width 0.6s ease; }
+
+.bar-fill.featured { background: var(--green-hover); }
+
+.bar-value { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; color: var(--amber); width: 60px; flex-shrink: 0; text-align: right; }
+
+.bar-value.featured { color: var(--green-hover); }
+
+.included-note { font-size: 14px; color: var(--muted); margin: -20px 0 32px; padding: 14px 18px; background: var(--bg2); border-left: 2px solid var(--amber-line); line-height: 1.6; }
+
+.included-note strong { color: var(--amber); font-weight: 500; }
 
 .section { margin-bottom: 40px; }
 
-.section-title { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; gap: 16px; flex-wrap: wrap; }
+
+.section-title { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; }
+
+.section-note { font-size: 12px; color: var(--very-muted); font-style: italic; text-align: right; max-width: 60%; }
 
 .btn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
 
@@ -136,22 +193,82 @@ header { display: flex; justify-content: space-between; align-items: flex-start;
 
 .btn.active .btn-price { color: var(--amber); }
 
-.stack-btn { background: var(--bg2); color: var(--text); border: 1px solid var(--amber-line); padding: 18px 20px; text-align: left; }
+.toggle-desc { display: block; font-size: 11px; color: var(--very-muted); margin-top: 4px; line-height: 1.4; }
+
+.btn.active .toggle-desc { color: var(--amber); opacity: 0.8; }
+
+.stack-btn { background: var(--bg2); color: var(--text); border: 1px solid var(--amber-line); padding: 20px 22px; text-align: left; position: relative; }
 
 .stack-btn:hover { background: var(--bg3); border-color: var(--amber); }
 
 .stack-btn.active { background: var(--amber-dim); border-color: var(--amber); }
 
-.stack-name { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1px; display: block; }
+.stack-btn.recommended { border: 2px solid var(--green); }
+.stack-btn.recommended:hover { border-color: var(--green-hover); }
+.stack-btn.recommended.active { background: var(--green-dim); border-color: var(--green-hover); }
+.stack-btn.recommended::after { content: 'RECOMMENDED'; position: absolute; top: -9px; right: 12px; background: var(--green); color: #fff; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 2px; padding: 3px 8px; border-radius: 2px; }
 
-.stack-price { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--amber); margin-top: 4px; }
+.stack-name { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; display: block; }
+
+.stack-price { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--amber); margin-top: 4px; display: block; }
+
+.stack-btn.recommended .stack-price { color: var(--green-hover); }
+
+.stack-meta { font-size: 11px; color: var(--very-muted); margin-top: 8px; line-height: 1.4; }
+
+.stack-btn.active .stack-meta { color: var(--amber); opacity: 0.8; }
+
+.stack-btn.recommended.active .stack-meta { color: var(--green-hover); opacity: 0.85; }
+
+.stack-btn.enterprise .stack-price { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 14px; text-transform: none; letter-spacing: 0; }
+
+.ad-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+
+.ad-card { background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 24px; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s ease; text-align: left; display: flex; flex-direction: column; gap: 14px; position: relative; }
+
+.ad-card:hover { background: var(--bg4); border-color: var(--amber-line); }
+
+.ad-card.active { background: var(--amber-dim); border-color: var(--amber); }
+
+.ad-card.recommended { border: 2px solid var(--green); }
+.ad-card.recommended:hover { border-color: var(--green-hover); }
+.ad-card.recommended.active { background: var(--green-dim); border-color: var(--green-hover); }
+.ad-card.recommended::after { content: 'RECOMMENDED'; position: absolute; top: -9px; right: 12px; background: var(--green); color: #fff; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 2px; padding: 3px 8px; border-radius: 2px; }
+
+.ad-card-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+
+.ad-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; color: var(--text); }
+
+.ad-card.active .ad-card-name { color: var(--amber); }
+
+.ad-card-price { font-family: 'DM Mono', monospace; font-size: 16px; color: var(--amber); font-weight: 500; }
+
+.ad-card.recommended .ad-card-price { color: var(--green-hover); }
+
+.ad-card-deliverable { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; color: var(--amber); line-height: 1.3; }
+
+.ad-card-turnaround { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text); text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 12px; background: var(--bg2); border-radius: 4px; display: inline-block; align-self: flex-start; }
+
+.ad-card.active .ad-card-turnaround { background: var(--bg1); color: var(--amber); }
+
+.ad-card-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+
+.ad-card-features li { font-size: 14px; color: var(--muted); padding-left: 18px; position: relative; line-height: 1.5; }
+
+.ad-card-features li::before { content: '✓'; position: absolute; left: 0; color: var(--amber); font-size: 12px; top: 2px; font-weight: 600; }
+
+.ad-card-features li strong { color: var(--text); font-weight: 500; }
+
+.ad-card-best { font-size: 13px; color: var(--very-muted); padding-top: 14px; border-top: 1px solid var(--border); font-style: italic; line-height: 1.5; margin-top: auto; }
+
+.ad-card.active .ad-card-best { color: var(--muted); }
 
 select { width: 100%; background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer; }
 
 select:hover { border-color: var(--amber-line); }
 select:focus { outline: none; border-color: var(--amber); }
 
-.total-card { background: var(--bg2); border: 2px solid var(--red-border); border-radius: 4px; padding: 32px; margin-top: 48px; position: relative; }
+.total-card { background: var(--bg2); border: 2px solid var(--amber); border-radius: 4px; padding: 32px; margin-top: 48px; position: relative; }
 
 .total-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--amber), transparent); opacity: 0.35; }
 
@@ -161,9 +278,13 @@ select:focus { outline: none; border-color: var(--amber); }
 
 .total-amount { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 1; letter-spacing: 1px; color: var(--amber); }
 
+.total-amount.custom { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 48px; letter-spacing: 0; }
+
 .total-annual { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); }
 
 .total-annual-value { font-family: 'DM Mono', monospace; color: var(--text); font-weight: 500; }
+
+.total-footnote { margin-top: 12px; font-size: 12px; color: var(--very-muted); line-height: 1.5; font-style: italic; }
 
 .actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
 
@@ -171,9 +292,13 @@ select:focus { outline: none; border-color: var(--amber); }
 
 .action-btn:hover { background: var(--bg3); border-color: var(--amber-line); color: var(--amber); }
 
-.action-btn.primary { background: var(--red); border-color: var(--red); color: var(--white); }
+.action-btn.primary { background: var(--green); border-color: var(--green); color: #fff; }
 
-.action-btn.primary:hover { background: var(--red-hover); border-color: var(--red-hover); color: var(--white); }
+.action-btn.primary:hover { background: var(--green-hover); border-color: var(--green-hover); color: #fff; }
+
+.send-confirmation { margin-top: 16px; padding: 14px 18px; background: var(--bg3); border: 1px solid var(--border); border-left: 2px solid var(--amber); border-radius: 0 4px 4px 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+.send-confirmation strong { color: var(--amber); font-weight: 500; }
 
 .summary { margin-top: 24px; padding: 24px; background: var(--bg3); border: 1px solid var(--amber-line); border-radius: 4px; display: none; }
 
@@ -189,6 +314,18 @@ select:focus { outline: none; border-color: var(--amber); }
 
 .summary-note { margin-top: 16px; padding: 12px 16px; background: var(--bg4); border-radius: 4px; font-size: 12px; color: var(--muted); }
 
+.help-prompt { margin-top: 48px; padding: 32px; background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; text-align: center; }
+
+.help-prompt-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--text); margin-bottom: 8px; }
+
+.help-prompt-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.9em; letter-spacing: 0; }
+
+.help-prompt-desc { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+
+.help-prompt-link { display: inline-block; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--amber); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; padding: 12px 24px; border: 1px solid var(--amber); border-radius: 4px; transition: all 0.2s ease; }
+
+.help-prompt-link:hover { background: var(--amber); color: var(--bg1); }
+
 footer { margin-top: 96px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--very-muted); }
 
 footer a { color: var(--amber); text-decoration: none; }
@@ -198,6 +335,9 @@ footer a { color: var(--amber); text-decoration: none; }
   .btn-grid { grid-template-columns: 1fr 1fr; }
   .tabs { overflow-x: auto; }
   .tab { white-space: nowrap; padding: 14px 16px; }
+  .section-note { max-width: 100%; text-align: left; }
+  .credits-grid { grid-template-columns: 1fr; }
+  .charts-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -210,127 +350,17 @@ footer a { color: var(--amber); text-decoration: none; }
     <div class="logo">44 SOCIAL</div>
     <div class="logo-sub">Social Media & Brand Production</div>
   </div>
-  <div style="text-align: right;">
-    <div class="logo-sub" style="margin-top: 0;">Pricing Calculator</div>
-    <div class="logo-sub" style="color: var(--very-muted); margin-top: 4px;">2026 Rate Card</div>
-  </div>
+  <a href="/" class="back-link">← Back to 44social.co</a>
 </header>
 
 <div class="eyebrow">Build Your Partnership</div>
-<h1 class="title">Configure your <em>package.</em></h1>
-<p class="subtitle">Mix and match modules to build the configuration that fits your brand. Start with a recommended stack or build from scratch. Every price below reflects our 2026 rate card.</p>
+<h1 class="title">Pick a path, build a <em>package.</em></h1>
+<p class="subtitle">Three ways to work with us. Pick the path that matches how you work, then configure the package that matches what you need. Every price below reflects our 2026 rate card.</p>
 
 <div class="tabs">
-  <button class="tab active" data-tab="smm">Social Media Management</button>
   <button class="tab" data-tab="ad">Ad Packages</button>
+  <button class="tab active" data-tab="smm">Social Media Management</button>
   <button class="tab" data-tab="prod">Production Partner</button>
-</div>
-
-<div class="panel active" id="panel-smm">
-
-<div class="panel-intro">
-  <div class="panel-intro-eyebrow">Full-service retainer</div>
-  <div class="panel-intro-title">We run your <em>social presence.</em></div>
-  <div class="panel-intro-desc">Hand us the keys. We handle strategy, content creation, scheduling, posting, and community management across every platform. You show up to meetings, approve the work, and watch your brand grow. Best for brands that want their entire social presence outsourced end-to-end.</div>
-  <div class="panel-intro-meta">
-    <div class="meta-item">
-      <span class="meta-label">Engagement</span>
-      <span class="meta-value">Monthly retainer, 3-month initial term</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">We post content?</span>
-      <span class="meta-value">Yes, we handle everything end-to-end</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Community management?</span>
-      <span class="meta-value">Yes, included at every tier</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Ideal for</span>
-      <span class="meta-value">Brands wanting a full social team</span>
-    </div>
-  </div>
-</div>
-
-<div class="base-card">
-  <div class="base-card-left">
-    <div class="base-card-title">Base Management Fee</div>
-    <div class="base-card-desc">Account ownership, monthly strategy, 2 platforms, 5 hrs/week community management, full AI content automation stack, client portal, performance reporting</div>
-  </div>
-  <div class="base-card-price">$1,750/mo</div>
-</div>
-
-<div class="section">
-  <div class="section-title">Quick-start stacks</div>
-  <div class="btn-grid">
-    <button class="btn stack-btn" data-stack="starter"><span class="stack-name">Starter</span><span class="stack-price">$3,200/mo</span></button>
-    <button class="btn stack-btn" data-stack="growth"><span class="stack-name">Growth</span><span class="stack-price">$5,550/mo</span></button>
-    <button class="btn stack-btn" data-stack="scale"><span class="stack-name">Scale</span><span class="stack-price">$6,150/mo</span></button>
-    <button class="btn stack-btn" data-stack="enterprise"><span class="stack-name">Enterprise</span><span class="stack-price">$9,500/mo</span></button>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">Media production hours</div>
-  <div class="btn-grid">
-    <button class="btn mod-btn" data-group="media" data-value="0" data-price="0">None</button>
-    <button class="btn mod-btn" data-group="media" data-value="4" data-price="700">4 hours<span class="btn-price">$700/mo</span></button>
-    <button class="btn mod-btn" data-group="media" data-value="8" data-price="1250">8 hours<span class="btn-price">$1,250/mo</span></button>
-    <button class="btn mod-btn" data-group="media" data-value="12" data-price="1750">12 hours<span class="btn-price">$1,750/mo</span></button>
-    <button class="btn mod-btn" data-group="media" data-value="16" data-price="2200">16 hours<span class="btn-price">$2,200/mo</span></button>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">Short-form video pack</div>
-  <div class="btn-grid">
-    <button class="btn mod-btn" data-group="video" data-value="0" data-price="0">None</button>
-    <button class="btn mod-btn" data-group="video" data-value="4" data-price="600">4 videos<span class="btn-price">$600/mo</span></button>
-    <button class="btn mod-btn" data-group="video" data-value="8" data-price="1100">8 videos<span class="btn-price">$1,100/mo</span></button>
-    <button class="btn mod-btn" data-group="video" data-value="12" data-price="1500">12 videos<span class="btn-price">$1,500/mo</span></button>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">Static and carousel posts</div>
-  <div class="btn-grid">
-    <button class="btn mod-btn" data-group="static" data-value="0" data-price="0">None</button>
-    <button class="btn mod-btn" data-group="static" data-value="6" data-price="275">Light, 6 posts<span class="btn-price">$275/mo</span></button>
-    <button class="btn mod-btn" data-group="static" data-value="12" data-price="500">Standard, 12 posts<span class="btn-price">$500/mo</span></button>
-    <button class="btn mod-btn" data-group="static" data-value="24" data-price="900">Heavy, 24 posts<span class="btn-price">$900/mo</span></button>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">Platforms and community</div>
-  <div class="btn-grid">
-    <button class="btn toggle-btn" data-toggle="platform1" data-price="400">+1 platform<span class="btn-price">$400/mo</span></button>
-    <button class="btn toggle-btn" data-toggle="platform2" data-price="800">+2 platforms<span class="btn-price">$800/mo</span></button>
-    <button class="btn toggle-btn" data-toggle="comm5" data-price="400">+5 hrs/wk community<span class="btn-price">$400/mo</span></button>
-    <button class="btn toggle-btn" data-toggle="comm10" data-price="750">+10 hrs/wk community<span class="btn-price">$750/mo</span></button>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">Strategic add-ons</div>
-  <div class="btn-grid">
-    <button class="btn toggle-btn" data-toggle="ai" data-price="450">AI optimization<span class="btn-price">$450/mo</span></button>
-    <button class="btn toggle-btn" data-toggle="strategy" data-price="250">Monthly strategy call<span class="btn-price">$250/mo</span></button>
-    <button class="btn toggle-btn" data-toggle="qpr" data-price="167">Quarterly review<span class="btn-price">$167/mo</span></button>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">Ad management (if running paid ads)</div>
-  <select id="ad-mgmt">
-    <option value="0">No ad management</option>
-    <option value="1000">Under $2,500 ad spend, $1,000/mo</option>
-    <option value="1500">$2,500 to $7,500 ad spend, $1,500/mo</option>
-    <option value="1700">$7,500 to $15,000 ad spend, 15% of spend</option>
-    <option value="2100">$15,000+ ad spend, 12% of spend</option>
-  </select>
-</div>
-
 </div>
 
 <div class="panel" id="panel-ad">
@@ -338,38 +368,91 @@ footer a { color: var(--amber); text-decoration: none; }
 <div class="panel-intro">
   <div class="panel-intro-eyebrow">Project-based creative</div>
   <div class="panel-intro-title">Creative built to <em>perform.</em></div>
-  <div class="panel-intro-desc">You run the ads, we build the creative. Every batch delivers multiple concepts and variations purpose-built for paid campaigns on Meta, TikTok, YouTube, and LinkedIn. Optimized for performance metrics like CTR, CPA, and ROAS. Best for brands with internal or external ad buyers who need fresh creative to test and scale.</div>
+  <div class="panel-intro-desc">You run the ads, we build the creative. Every batch delivers a set number of ad creatives purpose-built for paid campaigns on Meta, TikTok, YouTube, and LinkedIn. Optimized for performance metrics like CTR, CPA, and ROAS. Best for brands with internal or external ad buyers who need fresh creative to test and scale.</div>
   <div class="panel-intro-meta">
     <div class="meta-item">
-      <span class="meta-label">Engagement</span>
-      <span class="meta-value">Per-batch projects, no retainer required</span>
+      <span class="meta-label">How we work</span>
+      <span class="meta-value">Per-batch projects. No retainer required.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">We run the ads?</span>
-      <span class="meta-value">No, you manage the campaigns</span>
+      <span class="meta-label">Who runs the ads</span>
+      <span class="meta-value">You do. We hand off ad-ready files.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">What we deliver</span>
-      <span class="meta-value">Ad-ready creative in all platform specs</span>
+      <span class="meta-label">What you get</span>
+      <span class="meta-value">Static, video, motion. All platform specs.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Ideal for</span>
-      <span class="meta-value">Performance marketers, DTC brands</span>
+      <span class="meta-label">Best for</span>
+      <span class="meta-value">Performance marketers and DTC brands.</span>
     </div>
   </div>
 </div>
 
 <div class="section">
-  <div class="section-title">Select ad package</div>
-  <div class="btn-grid">
-    <button class="btn ad-btn" data-price="2000" data-name="Ad Starter">Ad Starter<span class="btn-price">$2,000 / batch</span></button>
-    <button class="btn ad-btn" data-price="3750" data-name="Ad Growth">Ad Growth<span class="btn-price">$3,750 / batch</span></button>
-    <button class="btn ad-btn" data-price="6500" data-name="Ad Scale">Ad Scale<span class="btn-price">$6,500 / batch</span></button>
+  <div class="section-head">
+    <div class="section-title">Select ad package</div>
+    <div class="section-note">All batches billed 50% on signing, 50% on delivery</div>
+  </div>
+  <div class="ad-card-grid">
+
+    <button class="ad-card" data-price="2000" data-name="Ad Starter">
+      <div class="ad-card-header">
+        <span class="ad-card-name">Ad Starter</span>
+        <span class="ad-card-price">$2,000</span>
+      </div>
+      <div class="ad-card-deliverable">6 ad creatives per batch</div>
+      <div class="ad-card-turnaround">7 Business Day Turnaround</div>
+      <ul class="ad-card-features">
+        <li>2 concepts, 3 variations each</li>
+        <li>Static and short-form video mix</li>
+        <li>1 revision round</li>
+        <li>Delivered in Meta and TikTok specs</li>
+      </ul>
+      <div class="ad-card-best">Best for testing creative at modest ad budgets ($1K–$3K/mo spend)</div>
+    </button>
+
+    <button class="ad-card recommended" data-price="3750" data-name="Ad Growth">
+      <div class="ad-card-header">
+        <span class="ad-card-name">Ad Growth</span>
+        <span class="ad-card-price">$3,750</span>
+      </div>
+      <div class="ad-card-deliverable">12 ad creatives per batch</div>
+      <div class="ad-card-turnaround">5 Business Day Turnaround</div>
+      <ul class="ad-card-features">
+        <li>3 concepts, 4 variations each</li>
+        <li>UGC-style, B-roll, static, and motion</li>
+        <li>2 revision rounds</li>
+        <li>Platform-native variants (Meta, TikTok)</li>
+      </ul>
+      <div class="ad-card-best">Best for active advertisers testing weekly ($3K–$10K/mo spend)</div>
+    </button>
+
+    <button class="ad-card" data-price="6500" data-name="Ad Scale">
+      <div class="ad-card-header">
+        <span class="ad-card-name">Ad Scale</span>
+        <span class="ad-card-price">$6,500</span>
+      </div>
+      <div class="ad-card-deliverable">20 ad creatives per batch</div>
+      <div class="ad-card-turnaround">Priority 5 Day Turnaround</div>
+      <ul class="ad-card-features">
+        <li>Full concept development, 4–5 angles</li>
+        <li><strong>Includes original half-day shoot</strong></li>
+        <li>UGC coordination and motion graphics</li>
+        <li>Meta, TikTok, YouTube Shorts, LinkedIn specs</li>
+        <li>2 revision rounds</li>
+      </ul>
+      <div class="ad-card-best">Best for performance marketers spending $10K+/mo</div>
+    </button>
+
   </div>
 </div>
 
 <div class="section">
-  <div class="section-title">Commitment length</div>
+  <div class="section-head">
+    <div class="section-title">Commitment length</div>
+    <div class="section-note">Lock in pricing with a multi-batch commit</div>
+  </div>
   <div class="btn-grid">
     <button class="btn commit-btn" data-discount="0">Month-to-month<span class="btn-price">Standard pricing</span></button>
     <button class="btn commit-btn" data-discount="0.05">3-month commit<span class="btn-price">5% off</span></button>
@@ -380,68 +463,258 @@ footer a { color: var(--amber); text-decoration: none; }
 
 </div>
 
+<div class="panel active" id="panel-smm">
+
+<div class="panel-intro">
+  <div class="panel-intro-eyebrow">Full-service retainer · Credits Model</div>
+  <div class="panel-intro-title">Flexibility in <em>production.</em> Consistency in <em>posting.</em></div>
+  <div class="panel-intro-desc">Every stack pairs a monthly Credit allotment for content creation with a guaranteed weekly posting cadence. Credits fund what we create. Your retainer funds what we post. Quiet production months don't mean a quiet feed.</div>
+  <div class="panel-intro-meta">
+    <div class="meta-item">
+      <span class="meta-label">How we work</span>
+      <span class="meta-value">Monthly retainer. 3-month initial term.</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Who posts content</span>
+      <span class="meta-value">We do. Full end-to-end handling.</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Community management</span>
+      <span class="meta-value">Included at every tier.</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Best for</span>
+      <span class="meta-value">Brands wanting a full social team.</span>
+    </div>
+  </div>
+</div>
+
+<div class="credits-explainer">
+  <div class="credits-explainer-eyebrow">How It Works</div>
+  <div class="credits-explainer-title">Credits are <em>flexible</em> units of production.</div>
+  <p class="credits-explainer-lead">Instead of fixed content quotas, each month you receive a set number of Credits to spend however your business needs. Shoot more one month, edit more the next. Your feed stays consistent regardless.</p>
+
+  <div class="credits-grid">
+    <div class="credits-col">
+      <div class="credits-col-label">The Idea</div>
+      <div class="credits-col-heading">One Credit, endless options.</div>
+      <div class="credits-col-body">A Credit is a unit of production output. You use it for whatever your content calendar needs that month. <strong>Video, photo, graphics, or on-site shooting.</strong></div>
+    </div>
+    <div class="credits-col">
+      <div class="credits-col-label">The Flexibility</div>
+      <div class="credits-col-heading">Spend your way.</div>
+      <div class="credits-col-body">Big shoot month ahead? Cash in Credits for media hours and video edits. Quiet month? Save them for carousels and graphics. <strong>You decide.</strong></div>
+    </div>
+    <div class="credits-col">
+      <div class="credits-col-label">The Consistency</div>
+      <div class="credits-col-heading">Your feed stays active.</div>
+      <div class="credits-col-body">Posting cadence is included in your retainer, separate from Credits. We post every week from new content, <strong>repurposed archives, and evergreen brand assets.</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="charts-section">
+  <div class="charts-section-heading">Stacks at a <em>glance.</em></div>
+  <div class="charts-row">
+
+    <div class="chart-block">
+      <div class="chart-title">MONTHLY COST</div>
+      <div class="chart-subtitle">Total retainer per month</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Starter</div>
+          <div class="bar-track"><div class="bar-fill" style="width: 36.7%;"></div></div>
+          <div class="bar-value">$3,125</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Growth</div>
+          <div class="bar-track"><div class="bar-fill featured" style="width: 49.9%;"></div></div>
+          <div class="bar-value featured">$4,250</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Scale</div>
+          <div class="bar-track"><div class="bar-fill" style="width: 74.5%;"></div></div>
+          <div class="bar-value">$6,350</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Enterprise</div>
+          <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+          <div class="bar-value">$8,525</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-block">
+      <div class="chart-title">CREDITS</div>
+      <div class="chart-subtitle">Monthly production allotment</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Starter</div>
+          <div class="bar-track"><div class="bar-fill" style="width: 20%;"></div></div>
+          <div class="bar-value">10</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Growth</div>
+          <div class="bar-track"><div class="bar-fill featured" style="width: 40%;"></div></div>
+          <div class="bar-value featured">20</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Scale</div>
+          <div class="bar-track"><div class="bar-fill" style="width: 64%;"></div></div>
+          <div class="bar-value">32</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Enterprise</div>
+          <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+          <div class="bar-value">50</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-block">
+      <div class="chart-title">POSTS / WEEK</div>
+      <div class="chart-subtitle">Per platform, minimum cadence</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Starter</div>
+          <div class="bar-track"><div class="bar-fill" style="width: 60%;"></div></div>
+          <div class="bar-value">3</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Growth</div>
+          <div class="bar-track"><div class="bar-fill featured" style="width: 80%;"></div></div>
+          <div class="bar-value featured">4</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Scale</div>
+          <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+          <div class="bar-value">5</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Enterprise</div>
+          <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+          <div class="bar-value">5</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="section-title">Pick your stack</div>
+    <div class="section-note">Each stack includes Credits, posting cadence, platforms, and community hours</div>
+  </div>
+  <div class="btn-grid">
+    <button class="btn stack-btn" data-stack="starter">
+      <span class="stack-name">Starter</span>
+      <span class="stack-price">$3,125/mo</span>
+      <div class="stack-meta">10 credits · 3 posts/wk · 2 platforms · 5 hrs community</div>
+    </button>
+    <button class="btn stack-btn recommended" data-stack="growth">
+      <span class="stack-name">Growth</span>
+      <span class="stack-price">$4,250/mo</span>
+      <div class="stack-meta">20 credits · 4 posts/wk · 2 platforms · 5 hrs community</div>
+    </button>
+    <button class="btn stack-btn" data-stack="scale">
+      <span class="stack-name">Scale</span>
+      <span class="stack-price">$6,350/mo</span>
+      <div class="stack-meta">32 credits · 5 posts/wk · 3 platforms · 10 hrs community</div>
+    </button>
+    <button class="btn stack-btn enterprise" data-stack="enterprise">
+      <span class="stack-name">Enterprise</span>
+      <span class="stack-price">Let's talk.</span>
+      <div class="stack-meta">50 credits · 5 posts/wk · 3 platforms · 15 hrs community</div>
+    </button>
+  </div>
+</div>
+
+<div class="included-note">
+  <strong>Every stack includes</strong> dedicated account ownership, monthly strategy, community management, posting and scheduling, repurposing of existing content, client portal access, and monthly performance reporting.
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="section-title">Platforms and community</div>
+    <div class="section-note">Stack base includes 2 platforms. Add more as needed.</div>
+  </div>
+  <div class="btn-grid">
+    <button class="btn toggle-btn" data-toggle="platform1" data-price="400">+1 platform<span class="btn-price">$400/mo</span><span class="toggle-desc">Instagram, TikTok, LinkedIn, Facebook, YouTube, or X</span></button>
+    <button class="btn toggle-btn" data-toggle="platform2" data-price="800">+2 platforms<span class="btn-price">$800/mo</span><span class="toggle-desc">Any two additional platforms from the list</span></button>
+    <button class="btn toggle-btn" data-toggle="comm5" data-price="400">+5 hrs/wk community<span class="btn-price">$400/mo</span><span class="toggle-desc">Replying to comments, DMs, and proactive engagement</span></button>
+    <button class="btn toggle-btn" data-toggle="comm10" data-price="750">+10 hrs/wk community<span class="btn-price">$750/mo</span><span class="toggle-desc">Heavy engagement for high-volume brands</span></button>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Strategic add-ons</div>
+  <div class="btn-grid">
+    <button class="btn toggle-btn" data-toggle="strategy" data-price="250">Monthly strategy call<span class="btn-price">$250/mo</span><span class="toggle-desc">1-hour deep dive on performance and direction</span></button>
+    <button class="btn toggle-btn" data-toggle="qpr" data-price="167">Quarterly review<span class="btn-price">$167/mo</span><span class="toggle-desc">Full performance audit with recommendations, every quarter</span></button>
+    <button class="btn toggle-btn" data-toggle="shoot1" data-price="2200">Bonus shoot day, solo<span class="btn-price">$2,200/mo</span><span class="toggle-desc">Additional full shoot day with single personnel</span></button>
+    <button class="btn toggle-btn" data-toggle="shoot2" data-price="3400">Bonus shoot day, duo<span class="btn-price">$3,400/mo</span><span class="toggle-desc">Additional full shoot day with dual personnel</span></button>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <div class="section-title">Ad management</div>
+    <div class="section-note">For clients running paid ads. Ad spend billed separately, paid directly to the platform.</div>
+  </div>
+  <select id="ad-mgmt">
+    <option value="0">No ad management</option>
+    <option value="1000">Under $2,500 ad spend — $1,000/mo</option>
+    <option value="1500">$2,500 to $7,500 ad spend — $1,500/mo</option>
+    <option value="1700">$7,500 to $15,000 ad spend — 15% of spend</option>
+    <option value="2100">$15,000+ ad spend — 12% of spend</option>
+  </select>
+</div>
+
+</div>
+
 <div class="panel" id="panel-prod">
 
 <div class="panel-intro">
-  <div class="panel-intro-eyebrow">Production-only partnership</div>
+  <div class="panel-intro-eyebrow">Production-only partnership · Credits Model</div>
   <div class="panel-intro-title">Your outsourced <em>production team.</em></div>
-  <div class="panel-intro-desc">You have the marketing team, we're the production team. We show up with cameras, capture your brand, and deliver polished content every month. You handle posting, scheduling, and community. No account management, no community overhead. Best for brands with internal marketing teams who need production capacity without full-service handover.</div>
+  <div class="panel-intro-desc">You have the marketing team, we're the production team. We show up with cameras, capture your brand, and deliver polished content every month. You handle posting, scheduling, and community. Credits-based, so you pick what we create each month. Best for brands with internal marketing teams who need production capacity without full-service handover.</div>
   <div class="panel-intro-meta">
     <div class="meta-item">
-      <span class="meta-label">Engagement</span>
-      <span class="meta-value">Monthly retainer, flexible modules</span>
+      <span class="meta-label">How we work</span>
+      <span class="meta-value">Monthly retainer. Credits-based.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">We post content?</span>
-      <span class="meta-value">No, we deliver to your team</span>
+      <span class="meta-label">Who posts content</span>
+      <span class="meta-value">You do. We deliver to your team.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Community management?</span>
-      <span class="meta-value">No, you handle community</span>
+      <span class="meta-label">Community management</span>
+      <span class="meta-value">Not included. You handle community.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Ideal for</span>
-      <span class="meta-value">Brands with internal marketing teams</span>
+      <span class="meta-label">Best for</span>
+      <span class="meta-value">Brands with internal marketing teams.</span>
     </div>
   </div>
 </div>
 
-<div class="base-card">
-  <div class="base-card-left">
-    <div class="base-card-title">Production Partner Base</div>
-    <div class="base-card-desc">Strategy call + full production team access (videographer, photographer, editor). No management, no posting. Delivery to your Drive or Dropbox.</div>
-  </div>
-  <div class="base-card-price">$750/mo</div>
+<div class="included-note">
+  <strong>Every production partnership includes</strong> a monthly strategy call, access to our full production team (videographer, photographer, editor), and delivery to your Drive or Dropbox. Start with the $750 base, then add a Credit pack. Minimum 1 Credit pack required.
 </div>
 
 <div class="section">
-  <div class="section-title">Media production hours</div>
-  <div class="btn-grid">
-    <button class="btn mod-btn-p" data-group="pmedia" data-value="0" data-price="0">None</button>
-    <button class="btn mod-btn-p" data-group="pmedia" data-value="4" data-price="700">4 hours<span class="btn-price">$700/mo</span></button>
-    <button class="btn mod-btn-p" data-group="pmedia" data-value="8" data-price="1250">8 hours<span class="btn-price">$1,250/mo</span></button>
-    <button class="btn mod-btn-p" data-group="pmedia" data-value="12" data-price="1750">12 hours<span class="btn-price">$1,750/mo</span></button>
-    <button class="btn mod-btn-p" data-group="pmedia" data-value="16" data-price="2200">16 hours<span class="btn-price">$2,200/mo</span></button>
+  <div class="section-head">
+    <div class="section-title">Pick your credit pack</div>
+    <div class="section-note">Credits are spent across media hours, video edits, photos, and graphics (same rates as SMM)</div>
   </div>
-</div>
-
-<div class="section">
-  <div class="section-title">Short-form video pack</div>
   <div class="btn-grid">
-    <button class="btn mod-btn-p" data-group="pvideo" data-value="0" data-price="0">None</button>
-    <button class="btn mod-btn-p" data-group="pvideo" data-value="4" data-price="600">4 videos<span class="btn-price">$600/mo</span></button>
-    <button class="btn mod-btn-p" data-group="pvideo" data-value="8" data-price="1100">8 videos<span class="btn-price">$1,100/mo</span></button>
-    <button class="btn mod-btn-p" data-group="pvideo" data-value="12" data-price="1500">12 videos<span class="btn-price">$1,500/mo</span></button>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">Static and carousel posts</div>
-  <div class="btn-grid">
-    <button class="btn mod-btn-p" data-group="pstatic" data-value="0" data-price="0">None</button>
-    <button class="btn mod-btn-p" data-group="pstatic" data-value="6" data-price="275">Light, 6 posts<span class="btn-price">$275/mo</span></button>
-    <button class="btn mod-btn-p" data-group="pstatic" data-value="12" data-price="500">Standard, 12 posts<span class="btn-price">$500/mo</span></button>
-    <button class="btn mod-btn-p" data-group="pstatic" data-value="24" data-price="900">Heavy, 24 posts<span class="btn-price">$900/mo</span></button>
+    <button class="btn mod-btn-p" data-group="ppack" data-value="0" data-price="0">None</button>
+    <button class="btn mod-btn-p" data-group="ppack" data-value="8" data-price="1100">8 credits<span class="btn-price">$1,100/mo</span></button>
+    <button class="btn mod-btn-p" data-group="ppack" data-value="16" data-price="2100">16 credits<span class="btn-price">$2,100/mo</span></button>
+    <button class="btn mod-btn-p" data-group="ppack" data-value="24" data-price="2950">24 credits<span class="btn-price">$2,950/mo</span></button>
+    <button class="btn mod-btn-p" data-group="ppack" data-value="40" data-price="4700">40 credits<span class="btn-price">$4,700/mo</span></button>
+    <button class="btn mod-btn-p" data-group="ppack" data-value="60" data-price="6750">60 credits<span class="btn-price">$6,750/mo</span></button>
   </div>
 </div>
 
@@ -449,12 +722,13 @@ footer a { color: var(--amber); text-decoration: none; }
 
 <div class="total-card">
   <div class="total-label" id="total-label">Monthly Total</div>
-  <div class="total-sub" id="total-sub">Base management only</div>
+  <div class="total-sub" id="total-sub">Start building your package below</div>
   <div class="total-amount" id="total-amount">$1,750</div>
   <div class="total-annual" id="total-annual">
     <span>Annual value (12-month contract)</span>
     <span class="total-annual-value" id="annual-amount">$21,000</span>
   </div>
+  <div class="total-footnote" id="total-footnote">One-time onboarding fee: $1,000 (waived on 6-month prepay)</div>
 </div>
 
 <div class="actions">
@@ -463,14 +737,24 @@ footer a { color: var(--amber); text-decoration: none; }
   <button class="action-btn primary" id="send-btn">Send to 44 Social →</button>
 </div>
 
+<div class="send-confirmation">
+  <strong>What happens next:</strong> Clicking the button above opens an email with your configuration pre-filled. Send it to us and Floydie will personally reply within 48 hours to set up a call and formalize the proposal.
+</div>
+
 <div class="summary" id="summary">
   <div class="summary-title">Your configuration</div>
   <div id="summary-content"></div>
 </div>
 
+<div class="help-prompt">
+  <div class="help-prompt-title">Still not sure which path is <em>right?</em></div>
+  <div class="help-prompt-desc">Skip the calculator and tell us about your brand. We'll recommend the right configuration.</div>
+  <a href="/apply" class="help-prompt-link">Apply to Work With Us →</a>
+</div>
+
 <footer>
   <div>© 2026 44 Social Company · Orlando, FL</div>
-  <div><a href="mailto:floydie@44social.co">floydie@44social.co</a></div>
+  <div><a href="mailto:floydie@44social.co">floydie@44social.co</a> · <a href="https://44social.co">44social.co</a></div>
 </footer>
 
 </div>
@@ -479,57 +763,45 @@ footer a { color: var(--amber); text-decoration: none; }
 (function() {
   const state = {
     mode: 'smm',
-    media: 0, video: 0, static: 0,
+    stack: null, stackPrice: 0, stackCredits: 0, stackPosts: 0,
     platform1: false, platform2: false,
     comm5: false, comm10: false,
-    ai: false, strategy: false, qpr: false,
+    strategy: false, qpr: false,
+    shoot1: false, shoot2: false,
     adMgmt: 0,
-    pmedia: 0, pvideo: 0, pstatic: 0,
-    adPackage: null, adPrice: 0, adDiscount: 0
-  };
-
-  const labels = {
-    media: { 4: '4 hrs media production', 8: '8 hrs media production', 12: '12 hrs media production', 16: '16 hrs media production' },
-    video: { 4: '4-video short-form pack', 8: '8-video short-form pack', 12: '12-video short-form pack' },
-    static: { 6: 'Light static pack, 6 posts', 12: 'Standard static pack, 12 posts', 24: 'Heavy static pack, 24 posts' }
+    ppack: 0,
+    adPackage: null, adPrice: 0, adDiscount: 0,
+    enterprise: false
   };
 
   const stacks = {
-    starter: { media: 4, video: 4, static: 6 },
-    growth: { media: 8, video: 8, static: 12, platform1: true, ai: true },
-    scale: { media: 12, video: 8, static: 12, platform1: true, comm5: true },
-    enterprise: { media: 16, video: 12, static: 24, platform2: true, comm10: true, ai: true, strategy: true, qpr: true }
+    starter: { price: 3125, credits: 10, posts: 3, platforms: 2, community: '5 hrs/wk', name: 'Starter Stack' },
+    growth: { price: 4250, credits: 20, posts: 4, platforms: 2, community: '5 hrs/wk', name: 'Growth Stack' },
+    scale: { price: 6350, credits: 32, posts: 5, platforms: 3, community: '10 hrs/wk', name: 'Scale Stack' }
   };
 
-  const prices = {
-    media: { 4: 700, 8: 1250, 12: 1750, 16: 2200 },
-    video: { 4: 600, 8: 1100, 12: 1500 },
-    static: { 6: 275, 12: 500, 24: 900 }
-  };
+  const prodPacks = { 8: 1100, 16: 2100, 24: 2950, 40: 4700, 60: 6750 };
 
   function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
 
   function calculateSMM() {
-    let total = 1750;
-    total += prices.media[state.media] || 0;
-    total += prices.video[state.video] || 0;
-    total += prices.static[state.static] || 0;
+    if (!state.stack && !state.enterprise) return 0;
+    let total = state.stackPrice;
     if (state.platform1) total += 400;
     if (state.platform2) total += 800;
     if (state.comm5) total += 400;
     if (state.comm10) total += 750;
-    if (state.ai) total += 450;
     if (state.strategy) total += 250;
     if (state.qpr) total += 167;
+    if (state.shoot1) total += 2200;
+    if (state.shoot2) total += 3400;
     total += state.adMgmt;
     return total;
   }
 
   function calculateProd() {
     let total = 750;
-    total += prices.media[state.pmedia] || 0;
-    total += prices.video[state.pvideo] || 0;
-    total += prices.static[state.pstatic] || 0;
+    total += prodPacks[state.ppack] || 0;
     return total;
   }
 
@@ -544,36 +816,63 @@ footer a { color: var(--amber); text-decoration: none; }
     const subEl = document.getElementById('total-sub');
     const annualEl = document.getElementById('annual-amount');
     const annualCard = document.getElementById('total-annual');
+    const sendBtn = document.getElementById('send-btn');
+    const footnoteEl = document.getElementById('total-footnote');
 
-    let total = 0, label = '', sub = '';
+    let total = 0;
+    totalEl.classList.remove('custom');
+
+    if (state.enterprise) {
+      labelEl.textContent = 'Enterprise Partnership';
+      subEl.textContent = '50 credits · 5 posts/wk · 3 platforms · 15 hrs community · scoped to you';
+      totalEl.textContent = "Let's talk.";
+      totalEl.classList.add('custom');
+      annualCard.style.display = 'none';
+      footnoteEl.style.display = 'none';
+      sendBtn.textContent = 'Book a Call →';
+      return;
+    }
+
+    sendBtn.textContent = 'Send to 44 Social →';
 
     if (state.mode === 'smm') {
       total = calculateSMM();
-      label = 'Monthly Total';
-      const count = [state.media, state.video, state.static].filter(x => x).length
-        + [state.platform1, state.platform2, state.comm5, state.comm10, state.ai, state.strategy, state.qpr].filter(x => x).length
-        + (state.adMgmt > 0 ? 1 : 0);
-      sub = count ? 'Base + ' + count + ' module' + (count > 1 ? 's' : '') : 'Base management only';
-      annualEl.textContent = fmt(total * 12);
-      annualCard.style.display = '';
+      if (!state.stack) {
+        labelEl.textContent = 'Select a Stack';
+        subEl.textContent = 'Pick a stack above to start building your package';
+        totalEl.textContent = '—';
+        annualCard.style.display = 'none';
+        footnoteEl.style.display = '';
+        footnoteEl.textContent = 'One-time onboarding fee: $1,000 (waived on 6-month prepay)';
+      } else {
+        labelEl.textContent = 'Monthly Total';
+        const addOnCount = [state.platform1, state.platform2, state.comm5, state.comm10, state.strategy, state.qpr, state.shoot1, state.shoot2].filter(x => x).length + (state.adMgmt > 0 ? 1 : 0);
+        const stackName = stacks[state.stack].name;
+        subEl.textContent = stackName + (addOnCount ? ' + ' + addOnCount + ' add-on' + (addOnCount > 1 ? 's' : '') : '');
+        annualEl.textContent = fmt(total * 12);
+        annualCard.style.display = '';
+        footnoteEl.style.display = '';
+        footnoteEl.textContent = 'One-time onboarding fee: $1,000 (waived on 6-month prepay)';
+        totalEl.textContent = fmt(total);
+      }
     } else if (state.mode === 'prod') {
       total = calculateProd();
-      label = 'Monthly Total';
-      const count = [state.pmedia, state.pvideo, state.pstatic].filter(x => x).length;
-      sub = count ? 'Base + ' + count + ' module' + (count > 1 ? 's' : '') : 'Base access only (1 module required)';
+      labelEl.textContent = 'Monthly Total';
+      subEl.textContent = state.ppack ? 'Base + ' + state.ppack + ' credits/month' : 'Add a credit pack to get started';
       annualEl.textContent = fmt(total * 12);
       annualCard.style.display = '';
+      footnoteEl.style.display = 'none';
+      totalEl.textContent = fmt(total);
     } else if (state.mode === 'ad') {
       total = calculateAd();
-      label = state.adPackage ? state.adPackage + ' per Batch' : 'Select a Package';
-      if (state.adDiscount) { sub = (state.adDiscount * 100) + '% commit discount applied'; }
-      else { sub = state.adPackage ? 'Month-to-month pricing' : 'Project-based ad creative'; }
+      labelEl.textContent = state.adPackage ? state.adPackage + ' per Batch' : 'Select a Package';
+      if (state.adDiscount) { subEl.textContent = (state.adDiscount * 100) + '% commit discount applied'; }
+      else { subEl.textContent = state.adPackage ? 'Month-to-month pricing' : 'Project-based ad creative, select a tier above'; }
       annualCard.style.display = 'none';
+      footnoteEl.style.display = '';
+      footnoteEl.textContent = 'Payment: 50% on signing, 50% on delivery. 4% credit card processing fee applies.';
+      totalEl.textContent = fmt(total);
     }
-
-    totalEl.textContent = fmt(total);
-    labelEl.textContent = label;
-    subEl.textContent = sub;
   }
 
   function showSummary() {
@@ -581,30 +880,39 @@ footer a { color: var(--amber); text-decoration: none; }
     const content = document.getElementById('summary-content');
     let html = '';
 
+    if (state.enterprise) {
+      html = '<div style="font-size: 15px; color: var(--text); line-height: 1.7;">Enterprise partnerships are custom-scoped based on your brand count, location count, content volume, and internal team structure. The Enterprise Stack baseline includes 50 credits/month, 5 posts/week per platform, 3 platforms, and 15 hours/week of community management. Click "Book a Call" to start a conversation and we\'ll build a proposal tailored to your needs.</div>';
+      content.innerHTML = html;
+      el.classList.add('visible');
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      return;
+    }
+
     if (state.mode === 'smm') {
-      html += '<div class="summary-line"><span>Base management fee</span><span>' + fmt(1750) + '</span></div>';
-      if (state.media) html += '<div class="summary-line"><span>' + labels.media[state.media] + '</span><span>' + fmt(prices.media[state.media]) + '</span></div>';
-      if (state.video) html += '<div class="summary-line"><span>' + labels.video[state.video] + '</span><span>' + fmt(prices.video[state.video]) + '</span></div>';
-      if (state.static) html += '<div class="summary-line"><span>' + labels.static[state.static] + '</span><span>' + fmt(prices.static[state.static]) + '</span></div>';
-      if (state.platform1) html += '<div class="summary-line"><span>Additional platform</span><span>' + fmt(400) + '</span></div>';
-      if (state.platform2) html += '<div class="summary-line"><span>2 additional platforms</span><span>' + fmt(800) + '</span></div>';
-      if (state.comm5) html += '<div class="summary-line"><span>+5 hrs/wk community management</span><span>' + fmt(400) + '</span></div>';
-      if (state.comm10) html += '<div class="summary-line"><span>+10 hrs/wk community management</span><span>' + fmt(750) + '</span></div>';
-      if (state.ai) html += '<div class="summary-line"><span>AI optimization retainer</span><span>' + fmt(450) + '</span></div>';
-      if (state.strategy) html += '<div class="summary-line"><span>Monthly strategy call</span><span>' + fmt(250) + '</span></div>';
-      if (state.qpr) html += '<div class="summary-line"><span>Quarterly performance review</span><span>' + fmt(167) + '</span></div>';
-      if (state.adMgmt) html += '<div class="summary-line"><span>Ad management</span><span>' + fmt(state.adMgmt) + '</span></div>';
-      const total = calculateSMM();
-      html += '<div class="summary-line total"><span>Monthly total</span><span>' + fmt(total) + '</span></div>';
-      html += '<div class="summary-note">One-time onboarding fee: $1,000. Waived on 6-month prepay. Annual value at 12 months: ' + fmt(total * 12) + '.</div>';
+      if (!state.stack) {
+        html = '<div style="color: var(--muted); font-size: 14px;">Select a stack above to see the summary.</div>';
+      } else {
+        const s = stacks[state.stack];
+        html += '<div class="summary-line"><span>' + s.name + ' (' + s.credits + ' credits · ' + s.posts + ' posts/wk · ' + s.platforms + ' platforms)</span><span>' + fmt(s.price) + '</span></div>';
+        if (state.platform1) html += '<div class="summary-line"><span>Additional platform</span><span>' + fmt(400) + '</span></div>';
+        if (state.platform2) html += '<div class="summary-line"><span>2 additional platforms</span><span>' + fmt(800) + '</span></div>';
+        if (state.comm5) html += '<div class="summary-line"><span>+5 hrs/wk community management</span><span>' + fmt(400) + '</span></div>';
+        if (state.comm10) html += '<div class="summary-line"><span>+10 hrs/wk community management</span><span>' + fmt(750) + '</span></div>';
+        if (state.strategy) html += '<div class="summary-line"><span>Monthly strategy call</span><span>' + fmt(250) + '</span></div>';
+        if (state.qpr) html += '<div class="summary-line"><span>Quarterly performance review</span><span>' + fmt(167) + '</span></div>';
+        if (state.shoot1) html += '<div class="summary-line"><span>Bonus shoot day, solo</span><span>' + fmt(2200) + '</span></div>';
+        if (state.shoot2) html += '<div class="summary-line"><span>Bonus shoot day, duo</span><span>' + fmt(3400) + '</span></div>';
+        if (state.adMgmt) html += '<div class="summary-line"><span>Ad management</span><span>' + fmt(state.adMgmt) + '</span></div>';
+        const total = calculateSMM();
+        html += '<div class="summary-line total"><span>Monthly total</span><span>' + fmt(total) + '</span></div>';
+        html += '<div class="summary-note">One-time onboarding fee: $1,000. Waived on 6-month prepay. Annual value at 12 months: ' + fmt(total * 12) + '. Credits refresh on the 1st. Up to 25% roll over one month.</div>';
+      }
     } else if (state.mode === 'prod') {
       html += '<div class="summary-line"><span>Production partner base</span><span>' + fmt(750) + '</span></div>';
-      if (state.pmedia) html += '<div class="summary-line"><span>' + labels.media[state.pmedia] + '</span><span>' + fmt(prices.media[state.pmedia]) + '</span></div>';
-      if (state.pvideo) html += '<div class="summary-line"><span>' + labels.video[state.pvideo] + '</span><span>' + fmt(prices.video[state.pvideo]) + '</span></div>';
-      if (state.pstatic) html += '<div class="summary-line"><span>' + labels.static[state.pstatic] + '</span><span>' + fmt(prices.static[state.pstatic]) + '</span></div>';
+      if (state.ppack) html += '<div class="summary-line"><span>' + state.ppack + ' credits/month</span><span>' + fmt(prodPacks[state.ppack]) + '</span></div>';
       const total = calculateProd();
       html += '<div class="summary-line total"><span>Monthly total</span><span>' + fmt(total) + '</span></div>';
-      html += '<div class="summary-note">Annual value at 12 months: ' + fmt(total * 12) + '. Minimum 1 production module required.</div>';
+      html += '<div class="summary-note">Annual value at 12 months: ' + fmt(total * 12) + '. Minimum 1 credit pack required. Credits follow the same rules as SMM.</div>';
     } else if (state.mode === 'ad') {
       if (!state.adPackage) {
         html = '<div style="color: var(--muted); font-size: 14px;">Select an ad package to see the summary.</div>';
@@ -627,27 +935,30 @@ footer a { color: var(--amber); text-decoration: none; }
 
   function buildEmailBody() {
     let body = '';
+    if (state.enterprise) {
+      body = 'Hi Floydie,%0A%0AI\'m interested in an Enterprise Partnership with 44 Social and would like to book a call to discuss a custom configuration.%0A%0ABrief context on what we\'re looking for:%0A%0A%0A---%0ASent via 44 Social Pricing Calculator';
+      return body;
+    }
     if (state.mode === 'smm') {
       body += 'Interested in Social Media Management%0A%0A';
-      body += 'Base management fee: ' + fmt(1750) + '%0A';
-      if (state.media) body += labels.media[state.media] + ': ' + fmt(prices.media[state.media]) + '%0A';
-      if (state.video) body += labels.video[state.video] + ': ' + fmt(prices.video[state.video]) + '%0A';
-      if (state.static) body += labels.static[state.static] + ': ' + fmt(prices.static[state.static]) + '%0A';
+      if (state.stack) {
+        const s = stacks[state.stack];
+        body += s.name + ' (' + s.credits + ' credits, ' + s.posts + ' posts/wk, ' + s.platforms + ' platforms): ' + fmt(s.price) + '%0A';
+      }
       if (state.platform1) body += 'Additional platform: ' + fmt(400) + '%0A';
       if (state.platform2) body += '2 additional platforms: ' + fmt(800) + '%0A';
       if (state.comm5) body += '+5 hrs community: ' + fmt(400) + '%0A';
       if (state.comm10) body += '+10 hrs community: ' + fmt(750) + '%0A';
-      if (state.ai) body += 'AI optimization: ' + fmt(450) + '%0A';
       if (state.strategy) body += 'Monthly strategy call: ' + fmt(250) + '%0A';
       if (state.qpr) body += 'Quarterly review: ' + fmt(167) + '%0A';
+      if (state.shoot1) body += 'Bonus shoot day, solo: ' + fmt(2200) + '%0A';
+      if (state.shoot2) body += 'Bonus shoot day, duo: ' + fmt(3400) + '%0A';
       if (state.adMgmt) body += 'Ad management: ' + fmt(state.adMgmt) + '%0A';
       body += '%0AMonthly total: ' + fmt(calculateSMM()) + '%0A';
     } else if (state.mode === 'prod') {
       body += 'Interested in Production Partnership%0A%0A';
       body += 'Production partner base: ' + fmt(750) + '%0A';
-      if (state.pmedia) body += labels.media[state.pmedia] + ': ' + fmt(prices.media[state.pmedia]) + '%0A';
-      if (state.pvideo) body += labels.video[state.pvideo] + ': ' + fmt(prices.video[state.pvideo]) + '%0A';
-      if (state.pstatic) body += labels.static[state.pstatic] + ': ' + fmt(prices.static[state.pstatic]) + '%0A';
+      if (state.ppack) body += state.ppack + ' credits/month: ' + fmt(prodPacks[state.ppack]) + '%0A';
       body += '%0AMonthly total: ' + fmt(calculateProd()) + '%0A';
     } else if (state.mode === 'ad') {
       body += 'Interested in Ad Package%0A%0A';
@@ -662,40 +973,37 @@ footer a { color: var(--amber); text-decoration: none; }
   }
 
   function resetAll() {
-    state.media = 0; state.video = 0; state.static = 0;
+    state.stack = null; state.stackPrice = 0; state.stackCredits = 0; state.stackPosts = 0;
     state.platform1 = false; state.platform2 = false;
     state.comm5 = false; state.comm10 = false;
-    state.ai = false; state.strategy = false; state.qpr = false;
+    state.strategy = false; state.qpr = false;
+    state.shoot1 = false; state.shoot2 = false;
     state.adMgmt = 0;
-    state.pmedia = 0; state.pvideo = 0; state.pstatic = 0;
+    state.ppack = 0;
     state.adPackage = null; state.adPrice = 0; state.adDiscount = 0;
-    document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+    state.enterprise = false;
+    document.querySelectorAll('.btn, .ad-card').forEach(b => b.classList.remove('active'));
     document.getElementById('ad-mgmt').value = '0';
     document.getElementById('summary').classList.remove('visible');
     updateTotal();
   }
 
-  function applyStack(stackName) {
-    resetAll();
+  function selectStack(stackName) {
+    state.enterprise = false;
+    if (stackName === 'enterprise') {
+      state.enterprise = true;
+      state.stack = null;
+      state.stackPrice = 0;
+      document.querySelectorAll('.stack-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('.stack-btn[data-stack="enterprise"]').classList.add('active');
+      updateTotal();
+      return;
+    }
     const s = stacks[stackName];
-    if (s.media) state.media = s.media;
-    if (s.video) state.video = s.video;
-    if (s.static) state.static = s.static;
-    if (s.platform1) state.platform1 = true;
-    if (s.platform2) state.platform2 = true;
-    if (s.comm5) state.comm5 = true;
-    if (s.comm10) state.comm10 = true;
-    if (s.ai) state.ai = true;
-    if (s.strategy) state.strategy = true;
-    if (s.qpr) state.qpr = true;
-    document.querySelectorAll('.mod-btn').forEach(b => {
-      const g = b.dataset.group;
-      const v = parseInt(b.dataset.value);
-      if (state[g] === v) b.classList.add('active');
-    });
-    document.querySelectorAll('.toggle-btn').forEach(b => {
-      if (state[b.dataset.toggle]) b.classList.add('active');
-    });
+    state.stack = stackName;
+    state.stackPrice = s.price;
+    state.stackCredits = s.credits;
+    state.stackPosts = s.posts;
     document.querySelectorAll('.stack-btn').forEach(b => b.classList.remove('active'));
     document.querySelector('.stack-btn[data-stack="' + stackName + '"]').classList.add('active');
     updateTotal();
@@ -703,6 +1011,7 @@ footer a { color: var(--amber); text-decoration: none; }
 
   function switchTab(mode) {
     state.mode = mode;
+    state.enterprise = false;
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.querySelector('.tab[data-tab="' + mode + '"]').classList.add('active');
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
@@ -716,19 +1025,7 @@ footer a { color: var(--amber); text-decoration: none; }
   });
 
   document.querySelectorAll('.stack-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyStack(btn.dataset.stack));
-  });
-
-  document.querySelectorAll('.mod-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const group = btn.dataset.group;
-      const value = parseInt(btn.dataset.value);
-      state[group] = value;
-      document.querySelectorAll('.mod-btn[data-group="' + group + '"]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.stack-btn').forEach(b => b.classList.remove('active'));
-      updateTotal();
-    });
+    btn.addEventListener('click', () => selectStack(btn.dataset.stack));
   });
 
   document.querySelectorAll('.mod-btn-p').forEach(btn => {
@@ -744,30 +1041,33 @@ footer a { color: var(--amber); text-decoration: none; }
 
   document.querySelectorAll('.toggle-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      state.enterprise = false;
       const key = btn.dataset.toggle;
       state[key] = !state[key];
       if (key === 'platform1' && state.platform1) { state.platform2 = false; }
       if (key === 'platform2' && state.platform2) { state.platform1 = false; }
       if (key === 'comm5' && state.comm5) { state.comm10 = false; }
       if (key === 'comm10' && state.comm10) { state.comm5 = false; }
+      if (key === 'shoot1' && state.shoot1) { state.shoot2 = false; }
+      if (key === 'shoot2' && state.shoot2) { state.shoot1 = false; }
       document.querySelectorAll('.toggle-btn').forEach(b => {
         if (state[b.dataset.toggle]) { b.classList.add('active'); } else { b.classList.remove('active'); }
       });
-      document.querySelectorAll('.stack-btn').forEach(b => b.classList.remove('active'));
       updateTotal();
     });
   });
 
   document.getElementById('ad-mgmt').addEventListener('change', (e) => {
+    state.enterprise = false;
     state.adMgmt = parseInt(e.target.value) || 0;
     updateTotal();
   });
 
-  document.querySelectorAll('.ad-btn').forEach(btn => {
+  document.querySelectorAll('.ad-card').forEach(btn => {
     btn.addEventListener('click', () => {
       state.adPackage = btn.dataset.name;
       state.adPrice = parseInt(btn.dataset.price);
-      document.querySelectorAll('.ad-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.ad-card').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       updateTotal();
     });
@@ -785,9 +1085,14 @@ footer a { color: var(--amber); text-decoration: none; }
   document.getElementById('reset-btn').addEventListener('click', resetAll);
   document.getElementById('summary-btn').addEventListener('click', showSummary);
   document.getElementById('send-btn').addEventListener('click', () => {
-    const subject = state.mode === 'smm' ? '44 Social SMM Configuration Inquiry' :
-                    state.mode === 'prod' ? '44 Social Production Partnership Inquiry' :
-                    '44 Social Ad Package Inquiry';
+    let subject;
+    if (state.enterprise) {
+      subject = '44 Social Enterprise Partnership Inquiry';
+    } else {
+      subject = state.mode === 'smm' ? '44 Social SMM Configuration Inquiry' :
+               state.mode === 'prod' ? '44 Social Production Partnership Inquiry' :
+               '44 Social Ad Package Inquiry';
+    }
     window.location.href = 'mailto:floydie@44social.co?subject=' + encodeURIComponent(subject) + '&body=' + buildEmailBody();
   });
 
