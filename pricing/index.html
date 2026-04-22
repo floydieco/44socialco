@@ -113,6 +113,30 @@ header { display: flex; justify-content: space-between; align-items: flex-start;
 
 .meta-value { font-size: 15px; color: var(--text); line-height: 1.5; }
 
+.ads-sub-intro { background: var(--bg2); border-left: 2px solid var(--amber-line); padding: 20px 24px; margin-bottom: 24px; border-radius: 0 4px 4px 0; }
+
+.ads-sub-intro-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; }
+
+.ads-sub-intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; color: var(--text); line-height: 1.15; margin-bottom: 6px; }
+
+.ads-sub-intro-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+.combo-callout { background: var(--bg2); border: 1px solid var(--green-line); border-radius: 4px; padding: 28px 32px; margin-top: 32px; position: relative; overflow: hidden; }
+
+.combo-callout::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green-hover), transparent); opacity: 0.5; }
+
+.combo-callout-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--green-hover); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; }
+
+.combo-callout-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--text); line-height: 1.1; margin-bottom: 10px; }
+
+.combo-callout-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--green-hover); font-size: 0.9em; letter-spacing: 0; }
+
+.combo-callout-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 18px; max-width: 720px; }
+
+.combo-callout-btn { display: inline-block; background: transparent; color: var(--green-hover); border: 1px solid var(--green-hover); border-radius: 4px; padding: 12px 24px; font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.2s ease; font-weight: 500; }
+
+.combo-callout-btn:hover { background: var(--green-hover); color: var(--bg1); }
+
 .credits-explainer { background: var(--bg2); border: 1px solid var(--amber-line); border-radius: 4px; padding: 36px; margin-bottom: 40px; position: relative; overflow: hidden; }
 
 .credits-explainer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--amber), transparent); opacity: 0.35; }
@@ -263,10 +287,28 @@ header { display: flex; justify-content: space-between; align-items: flex-start;
 
 .ad-card.active .ad-card-best { color: var(--muted); }
 
-select { width: 100%; background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer; }
+.mgmt-card { background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 22px; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s ease; text-align: left; display: flex; flex-direction: column; gap: 12px; position: relative; }
 
-select:hover { border-color: var(--amber-line); }
-select:focus { outline: none; border-color: var(--amber); }
+.mgmt-card:hover { background: var(--bg4); border-color: var(--amber-line); }
+
+.mgmt-card.active { background: var(--amber-dim); border-color: var(--amber); }
+
+.mgmt-card.recommended { border: 2px solid var(--green); }
+.mgmt-card.recommended:hover { border-color: var(--green-hover); }
+.mgmt-card.recommended.active { background: var(--green-dim); border-color: var(--green-hover); }
+.mgmt-card.recommended::after { content: 'RECOMMENDED'; position: absolute; top: -9px; right: 12px; background: var(--green); color: #fff; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 2px; padding: 3px 8px; border-radius: 2px; }
+
+.mgmt-card-tier { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); text-transform: uppercase; letter-spacing: 2px; }
+
+.mgmt-card.recommended .mgmt-card-tier { color: var(--green-hover); }
+
+.mgmt-card-spend { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; color: var(--text); line-height: 1.1; }
+
+.mgmt-card-fee { font-family: 'DM Mono', monospace; font-size: 15px; color: var(--amber); font-weight: 500; padding-top: 12px; border-top: 1px solid var(--border); }
+
+.mgmt-card.recommended .mgmt-card-fee { color: var(--green-hover); }
+
+.mgmt-card-note { font-size: 12px; color: var(--very-muted); line-height: 1.5; font-style: italic; }
 
 .total-card { background: var(--bg2); border: 2px solid var(--amber); border-radius: 4px; padding: 32px; margin-top: 48px; position: relative; }
 
@@ -279,6 +321,12 @@ select:focus { outline: none; border-color: var(--amber); }
 .total-amount { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 1; letter-spacing: 1px; color: var(--amber); }
 
 .total-amount.custom { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 48px; letter-spacing: 0; }
+
+.total-breakdown { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+
+.total-breakdown-row { display: flex; justify-content: space-between; align-items: baseline; color: var(--muted); }
+
+.total-breakdown-row .val { font-family: 'DM Mono', monospace; color: var(--amber); font-weight: 500; }
 
 .total-annual { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); }
 
@@ -311,6 +359,10 @@ select:focus { outline: none; border-color: var(--amber); }
 .summary-line:last-of-type { border-bottom: none; }
 
 .summary-line.total { margin-top: 12px; padding-top: 16px; border-top: 1px solid var(--amber-line); border-bottom: none; font-family: 'DM Mono', monospace; font-size: 15px; color: var(--amber); }
+
+.summary-section { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); }
+
+.summary-section-title { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
 
 .summary-note { margin-top: 16px; padding: 12px 16px; background: var(--bg4); border-radius: 4px; font-size: 12px; color: var(--muted); }
 
@@ -358,40 +410,50 @@ footer a { color: var(--amber); text-decoration: none; }
 <p class="subtitle">Three ways to work with us. Pick the path that matches how you work, then configure the package that matches what you need. Every price below reflects our 2026 rate card.</p>
 
 <div class="tabs">
-  <button class="tab" data-tab="ad">Ad Packages</button>
+  <button class="tab" data-tab="ads">Ads</button>
   <button class="tab active" data-tab="smm">Social Media Management</button>
   <button class="tab" data-tab="prod">Production Partner</button>
 </div>
 
-<div class="panel" id="panel-ad">
+<!-- ============================================ -->
+<!-- ADS PANEL (Creative Batches + Management) -->
+<!-- ============================================ -->
+<div class="panel" id="panel-ads">
 
 <div class="panel-intro">
-  <div class="panel-intro-eyebrow">Project-based creative</div>
-  <div class="panel-intro-title">Creative built to <em>perform.</em></div>
-  <div class="panel-intro-desc">You run the ads, we build the creative. Every batch delivers a set number of ad creatives purpose-built for paid campaigns on Meta, TikTok, YouTube, and LinkedIn. Optimized for performance metrics like CTR, CPA, and ROAS. Best for brands with internal or external ad buyers who need fresh creative to test and scale.</div>
+  <div class="panel-intro-eyebrow">Ad creative and campaign management</div>
+  <div class="panel-intro-title">Creative that <em>performs.</em> Management that <em>scales.</em></div>
+  <div class="panel-intro-desc">Two ways to work with us on ads. Drop in for creative batches when you run your own campaigns, or bring us in to manage spend and optimization on your behalf. Mix and match as needed. Both services can work independently or together.</div>
   <div class="panel-intro-meta">
     <div class="meta-item">
-      <span class="meta-label">How we work</span>
-      <span class="meta-value">Per-batch projects. No retainer required.</span>
+      <span class="meta-label">Creative Batches</span>
+      <span class="meta-value">Project-based. Billed per batch, 50/50.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Who runs the ads</span>
-      <span class="meta-value">You do. We hand off ad-ready files.</span>
+      <span class="meta-label">Campaign Management</span>
+      <span class="meta-value">Monthly retainer. 2-month minimum.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">What you get</span>
-      <span class="meta-value">Static, video, motion. All platform specs.</span>
+      <span class="meta-label">Platforms</span>
+      <span class="meta-value">Meta, TikTok, YouTube, LinkedIn.</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Best for</span>
-      <span class="meta-value">Performance marketers and DTC brands.</span>
+      <span class="meta-label">Ad Spend</span>
+      <span class="meta-value">Billed to you, paid to the platform.</span>
     </div>
   </div>
 </div>
 
+<!-- CREATIVE BATCHES -->
+<div class="ads-sub-intro">
+  <div class="ads-sub-intro-label">Section 01</div>
+  <div class="ads-sub-intro-title">Creative Batches</div>
+  <div class="ads-sub-intro-desc">Project-based ad creative, delivered ad-ready. For teams that run their own campaigns and need fresh creative to test and scale.</div>
+</div>
+
 <div class="section">
   <div class="section-head">
-    <div class="section-title">Select ad package</div>
+    <div class="section-title">Select a batch</div>
     <div class="section-note">All batches billed 50% on signing, 50% on delivery</div>
   </div>
   <div class="ad-card-grid">
@@ -461,8 +523,68 @@ footer a { color: var(--amber); text-decoration: none; }
   </div>
 </div>
 
+<!-- CAMPAIGN MANAGEMENT -->
+<div class="ads-sub-intro" style="margin-top: 48px;">
+  <div class="ads-sub-intro-label">Section 02</div>
+  <div class="ads-sub-intro-title">Campaign Management</div>
+  <div class="ads-sub-intro-desc">Monthly retainer where we handle campaign strategy, optimization, tracking, and reporting. For teams that want us running the campaigns, not just delivering the creative.</div>
 </div>
 
+<div class="section">
+  <div class="section-head">
+    <div class="section-title">Select a management tier</div>
+    <div class="section-note">Tier is set by your monthly ad spend. 2-month minimum commitment.</div>
+  </div>
+  <div class="ad-card-grid">
+
+    <button class="mgmt-card" data-tier="1" data-fee="1000" data-name="Tier 1">
+      <div class="mgmt-card-tier">Tier 1</div>
+      <div class="mgmt-card-spend">Under $2,500/mo spend</div>
+      <div class="mgmt-card-fee">$1,000 / month flat</div>
+      <div class="mgmt-card-note">Entry-level ad management for early testing and brand awareness campaigns.</div>
+    </button>
+
+    <button class="mgmt-card recommended" data-tier="2" data-fee="1500" data-name="Tier 2">
+      <div class="mgmt-card-tier">Tier 2</div>
+      <div class="mgmt-card-spend">$2,500 to $7,500/mo spend</div>
+      <div class="mgmt-card-fee">$1,500 / month flat</div>
+      <div class="mgmt-card-note">Sweet spot for most growing brands actively scaling paid acquisition.</div>
+    </button>
+
+    <button class="mgmt-card" data-tier="3" data-fee="spend15" data-name="Tier 3">
+      <div class="mgmt-card-tier">Tier 3</div>
+      <div class="mgmt-card-spend">$7,500 to $15,000/mo spend</div>
+      <div class="mgmt-card-fee">15% of monthly ad spend</div>
+      <div class="mgmt-card-note">For high-volume advertisers. Fee scales with your spend as campaigns grow.</div>
+    </button>
+
+    <button class="mgmt-card" data-tier="4" data-fee="spend12" data-name="Tier 4">
+      <div class="mgmt-card-tier">Tier 4</div>
+      <div class="mgmt-card-spend">$15,000+/mo spend</div>
+      <div class="mgmt-card-fee">12% of monthly ad spend</div>
+      <div class="mgmt-card-note">Enterprise-level spend management. Better per-dollar rate for major budgets.</div>
+    </button>
+
+  </div>
+</div>
+
+<div class="included-note" style="margin-top: 8px;">
+  <strong>Campaign management includes</strong> account setup, audience building, funnel design, pixel and conversion tracking, ongoing optimization, weekly performance monitoring, and a monthly performance report. Ad creative is separate (see Section 01 above or bundle with SMM).
+</div>
+
+<!-- FULL-SERVICE COMBO CALLOUT -->
+<div class="combo-callout">
+  <div class="combo-callout-label">Want it all?</div>
+  <div class="combo-callout-title">Creative, management, and <em>full social</em> under one roof.</div>
+  <div class="combo-callout-desc">Our Social Media Management retainer bundles ad management alongside monthly Credits for new creative, community management, posting cadence, and strategy. One retainer, every service.</div>
+  <button class="combo-callout-btn" id="combo-switch-btn">See Social Media Management →</button>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SMM PANEL (CREDITS MODEL) -->
+<!-- ============================================ -->
 <div class="panel active" id="panel-smm">
 
 <div class="panel-intro">
@@ -659,8 +781,8 @@ footer a { color: var(--amber); text-decoration: none; }
 
 <div class="section">
   <div class="section-head">
-    <div class="section-title">Ad management</div>
-    <div class="section-note">For clients running paid ads. Ad spend billed separately, paid directly to the platform.</div>
+    <div class="section-title">Ad management add-on</div>
+    <div class="section-note">Add campaign management to your SMM retainer. Same tiers as the Ads tab.</div>
   </div>
   <select id="ad-mgmt">
     <option value="0">No ad management</option>
@@ -673,6 +795,9 @@ footer a { color: var(--amber); text-decoration: none; }
 
 </div>
 
+<!-- ============================================ -->
+<!-- PRODUCTION PARTNER PANEL -->
+<!-- ============================================ -->
 <div class="panel" id="panel-prod">
 
 <div class="panel-intro">
@@ -720,10 +845,12 @@ footer a { color: var(--amber); text-decoration: none; }
 
 </div>
 
+<!-- TOTAL CARD -->
 <div class="total-card">
   <div class="total-label" id="total-label">Monthly Total</div>
   <div class="total-sub" id="total-sub">Start building your package below</div>
   <div class="total-amount" id="total-amount">$1,750</div>
+  <div class="total-breakdown" id="total-breakdown" style="display:none;"></div>
   <div class="total-annual" id="total-annual">
     <span>Annual value (12-month contract)</span>
     <span class="total-annual-value" id="annual-amount">$21,000</span>
@@ -771,6 +898,7 @@ footer a { color: var(--amber); text-decoration: none; }
     adMgmt: 0,
     ppack: 0,
     adPackage: null, adPrice: 0, adDiscount: 0,
+    adsMgmtTier: null, adsMgmtFee: 0, adsMgmtName: null,
     enterprise: false
   };
 
@@ -805,22 +933,31 @@ footer a { color: var(--amber); text-decoration: none; }
     return total;
   }
 
-  function calculateAd() {
+  function calculateAdBatch() {
     if (!state.adPackage) return 0;
     return state.adPrice * (1 - state.adDiscount);
+  }
+
+  function getAdsMgmtFeeDisplay() {
+    if (!state.adsMgmtTier) return null;
+    if (state.adsMgmtFee === 'spend15') return '15% of ad spend';
+    if (state.adsMgmtFee === 'spend12') return '12% of ad spend';
+    return fmt(state.adsMgmtFee) + '/mo';
   }
 
   function updateTotal() {
     const totalEl = document.getElementById('total-amount');
     const labelEl = document.getElementById('total-label');
     const subEl = document.getElementById('total-sub');
+    const breakdownEl = document.getElementById('total-breakdown');
     const annualEl = document.getElementById('annual-amount');
     const annualCard = document.getElementById('total-annual');
     const sendBtn = document.getElementById('send-btn');
     const footnoteEl = document.getElementById('total-footnote');
 
-    let total = 0;
     totalEl.classList.remove('custom');
+    breakdownEl.style.display = 'none';
+    breakdownEl.innerHTML = '';
 
     if (state.enterprise) {
       labelEl.textContent = 'Enterprise Partnership';
@@ -836,7 +973,7 @@ footer a { color: var(--amber); text-decoration: none; }
     sendBtn.textContent = 'Send to 44 Social →';
 
     if (state.mode === 'smm') {
-      total = calculateSMM();
+      const total = calculateSMM();
       if (!state.stack) {
         labelEl.textContent = 'Select a Stack';
         subEl.textContent = 'Pick a stack above to start building your package';
@@ -856,22 +993,54 @@ footer a { color: var(--amber); text-decoration: none; }
         totalEl.textContent = fmt(total);
       }
     } else if (state.mode === 'prod') {
-      total = calculateProd();
+      const total = calculateProd();
       labelEl.textContent = 'Monthly Total';
       subEl.textContent = state.ppack ? 'Base + ' + state.ppack + ' credits/month' : 'Add a credit pack to get started';
       annualEl.textContent = fmt(total * 12);
       annualCard.style.display = '';
       footnoteEl.style.display = 'none';
       totalEl.textContent = fmt(total);
-    } else if (state.mode === 'ad') {
-      total = calculateAd();
-      labelEl.textContent = state.adPackage ? state.adPackage + ' per Batch' : 'Select a Package';
-      if (state.adDiscount) { subEl.textContent = (state.adDiscount * 100) + '% commit discount applied'; }
-      else { subEl.textContent = state.adPackage ? 'Month-to-month pricing' : 'Project-based ad creative, select a tier above'; }
-      annualCard.style.display = 'none';
-      footnoteEl.style.display = '';
-      footnoteEl.textContent = 'Payment: 50% on signing, 50% on delivery. 4% credit card processing fee applies.';
-      totalEl.textContent = fmt(total);
+    } else if (state.mode === 'ads') {
+      const batchTotal = calculateAdBatch();
+      const hasBatch = !!state.adPackage;
+      const hasMgmt = !!state.adsMgmtTier;
+
+      if (!hasBatch && !hasMgmt) {
+        labelEl.textContent = 'Build Your Ads Package';
+        subEl.textContent = 'Pick a creative batch, a management tier, or both';
+        totalEl.textContent = '—';
+        annualCard.style.display = 'none';
+        footnoteEl.style.display = '';
+        footnoteEl.textContent = 'Creative batches bill 50/50 per batch. Management bills monthly. Both scale independently.';
+      } else if (hasBatch && !hasMgmt) {
+        labelEl.textContent = state.adPackage + ' per Batch';
+        subEl.textContent = state.adDiscount ? (state.adDiscount * 100) + '% commit discount applied' : 'Month-to-month pricing';
+        totalEl.textContent = fmt(batchTotal);
+        annualCard.style.display = 'none';
+        footnoteEl.style.display = '';
+        footnoteEl.textContent = 'Payment: 50% on signing, 50% on delivery. 4% credit card processing fee applies.';
+      } else if (!hasBatch && hasMgmt) {
+        labelEl.textContent = 'Ads Management, Monthly';
+        subEl.textContent = state.adsMgmtName + ' · 2-month minimum commitment';
+        totalEl.textContent = getAdsMgmtFeeDisplay();
+        if (state.adsMgmtFee === 'spend15' || state.adsMgmtFee === 'spend12') {
+          totalEl.classList.add('custom');
+        }
+        annualCard.style.display = 'none';
+        footnoteEl.style.display = '';
+        footnoteEl.textContent = 'Ad spend billed separately, paid directly to the platform.';
+      } else {
+        labelEl.textContent = 'Ads Package, Combined';
+        subEl.textContent = 'Creative batch + monthly management';
+        totalEl.textContent = fmt(batchTotal);
+        breakdownEl.style.display = '';
+        breakdownEl.innerHTML =
+          '<div class="total-breakdown-row"><span>Creative: ' + state.adPackage + ', per batch</span><span class="val">' + fmt(batchTotal) + '</span></div>' +
+          '<div class="total-breakdown-row"><span>Management: ' + state.adsMgmtName + ', monthly</span><span class="val">' + getAdsMgmtFeeDisplay() + '</span></div>';
+        annualCard.style.display = 'none';
+        footnoteEl.style.display = '';
+        footnoteEl.textContent = 'Creative bills 50/50 per batch. Management bills monthly. Billing cadences are independent.';
+      }
     }
   }
 
@@ -913,18 +1082,27 @@ footer a { color: var(--amber); text-decoration: none; }
       const total = calculateProd();
       html += '<div class="summary-line total"><span>Monthly total</span><span>' + fmt(total) + '</span></div>';
       html += '<div class="summary-note">Annual value at 12 months: ' + fmt(total * 12) + '. Minimum 1 credit pack required. Credits follow the same rules as SMM.</div>';
-    } else if (state.mode === 'ad') {
-      if (!state.adPackage) {
-        html = '<div style="color: var(--muted); font-size: 14px;">Select an ad package to see the summary.</div>';
+    } else if (state.mode === 'ads') {
+      const hasBatch = !!state.adPackage;
+      const hasMgmt = !!state.adsMgmtTier;
+      if (!hasBatch && !hasMgmt) {
+        html = '<div style="color: var(--muted); font-size: 14px;">Select a creative batch, a management tier, or both to see the summary.</div>';
       } else {
-        html += '<div class="summary-line"><span>' + state.adPackage + ' batch</span><span>' + fmt(state.adPrice) + '</span></div>';
-        if (state.adDiscount) {
-          const discount = state.adPrice * state.adDiscount;
-          html += '<div class="summary-line"><span>Commit discount (' + (state.adDiscount * 100) + '%)</span><span style="color: var(--amber);">-' + fmt(discount) + '</span></div>';
+        if (hasBatch) {
+          html += '<div class="summary-section-title">Creative Batch, per batch</div>';
+          html += '<div class="summary-line"><span>' + state.adPackage + '</span><span>' + fmt(state.adPrice) + '</span></div>';
+          if (state.adDiscount) {
+            const discount = state.adPrice * state.adDiscount;
+            html += '<div class="summary-line"><span>Commit discount (' + (state.adDiscount * 100) + '%)</span><span style="color: var(--amber);">-' + fmt(discount) + '</span></div>';
+          }
+          html += '<div class="summary-line total"><span>Batch total</span><span>' + fmt(calculateAdBatch()) + '</span></div>';
         }
-        const total = calculateAd();
-        html += '<div class="summary-line total"><span>Per batch</span><span>' + fmt(total) + '</span></div>';
-        html += '<div class="summary-note">Payment: 50% on signing, 50% on delivery. 4% credit card processing fee applies.</div>';
+        if (hasMgmt) {
+          if (hasBatch) html += '<div class="summary-section"></div>';
+          html += '<div class="summary-section-title">Campaign Management, monthly</div>';
+          html += '<div class="summary-line"><span>' + state.adsMgmtName + '</span><span>' + getAdsMgmtFeeDisplay() + '</span></div>';
+        }
+        html += '<div class="summary-note">Creative bills 50/50 per batch. Management bills monthly with a 2-month minimum commitment. Ad spend billed separately, paid directly to the platform. 4% credit card processing fee applies.</div>';
       }
     }
 
@@ -960,12 +1138,16 @@ footer a { color: var(--amber); text-decoration: none; }
       body += 'Production partner base: ' + fmt(750) + '%0A';
       if (state.ppack) body += state.ppack + ' credits/month: ' + fmt(prodPacks[state.ppack]) + '%0A';
       body += '%0AMonthly total: ' + fmt(calculateProd()) + '%0A';
-    } else if (state.mode === 'ad') {
-      body += 'Interested in Ad Package%0A%0A';
+    } else if (state.mode === 'ads') {
+      body += 'Interested in Ads%0A%0A';
       if (state.adPackage) {
-        body += state.adPackage + ' batch: ' + fmt(state.adPrice) + '%0A';
-        if (state.adDiscount) body += 'Commit: ' + (state.adDiscount * 100) + '%25 off%0A';
-        body += '%0ATotal per batch: ' + fmt(calculateAd()) + '%0A';
+        body += 'Creative Batch: ' + state.adPackage + ' - ' + fmt(state.adPrice) + ' per batch%0A';
+        if (state.adDiscount) body += 'Commit discount: ' + (state.adDiscount * 100) + '%25 off%0A';
+        body += 'Batch total: ' + fmt(calculateAdBatch()) + '%0A';
+      }
+      if (state.adsMgmtTier) {
+        if (state.adPackage) body += '%0A';
+        body += 'Campaign Management: ' + state.adsMgmtName + ' - ' + getAdsMgmtFeeDisplay() + '%0A';
       }
     }
     body += '%0ASent via 44 Social Pricing Calculator';
@@ -981,8 +1163,9 @@ footer a { color: var(--amber); text-decoration: none; }
     state.adMgmt = 0;
     state.ppack = 0;
     state.adPackage = null; state.adPrice = 0; state.adDiscount = 0;
+    state.adsMgmtTier = null; state.adsMgmtFee = 0; state.adsMgmtName = null;
     state.enterprise = false;
-    document.querySelectorAll('.btn, .ad-card').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.btn, .ad-card, .mgmt-card').forEach(b => b.classList.remove('active'));
     document.getElementById('ad-mgmt').value = '0';
     document.getElementById('summary').classList.remove('visible');
     updateTotal();
@@ -1073,6 +1256,18 @@ footer a { color: var(--amber); text-decoration: none; }
     });
   });
 
+  document.querySelectorAll('.mgmt-card').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.adsMgmtTier = btn.dataset.tier;
+      const feeVal = btn.dataset.fee;
+      state.adsMgmtFee = (feeVal === 'spend15' || feeVal === 'spend12') ? feeVal : parseInt(feeVal);
+      state.adsMgmtName = btn.dataset.name;
+      document.querySelectorAll('.mgmt-card').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updateTotal();
+    });
+  });
+
   document.querySelectorAll('.commit-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       state.adDiscount = parseFloat(btn.dataset.discount);
@@ -1080,6 +1275,11 @@ footer a { color: var(--amber); text-decoration: none; }
       btn.classList.add('active');
       updateTotal();
     });
+  });
+
+  document.getElementById('combo-switch-btn').addEventListener('click', () => {
+    switchTab('smm');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   document.getElementById('reset-btn').addEventListener('click', resetAll);
@@ -1091,7 +1291,7 @@ footer a { color: var(--amber); text-decoration: none; }
     } else {
       subject = state.mode === 'smm' ? '44 Social SMM Configuration Inquiry' :
                state.mode === 'prod' ? '44 Social Production Partnership Inquiry' :
-               '44 Social Ad Package Inquiry';
+               '44 Social Ads Inquiry';
     }
     window.location.href = 'mailto:floydie@44social.co?subject=' + encodeURIComponent(subject) + '&body=' + buildEmailBody();
   });
