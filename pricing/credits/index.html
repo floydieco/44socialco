@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How Credits Work · 44 Social</title>
+<meta name="description" content="A credit-based production system that gives you flexibility without losing structure. One monthly balance. You decide how to spend it." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#2c2724;
+  --bg2:#322c29;
+  --bg3:#38312d;
+  --bg4:#3f3732;
+  --red:#e8150a;
+  --red-hover:#ff2a1f;
+  --red-dim:rgba(232,21,10,0.10);
+  --red-border:rgba(232,21,10,0.35);
+  --amber:#c8a070;
+  --amber-dim:rgba(200,160,112,0.13);
+  --amber-line:rgba(200,160,112,0.28);
+  --text:#f0ebe4;
+  --muted:#a09488;
+  --very-muted:#6a5e58;
+  --white:#ffffff;
+  --border:rgba(255,255,255,0.07);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+html,body{background:var(--bg1);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:9999;
+  opacity:0.45;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode:overlay;
+}
+
+a{color:inherit;text-decoration:none;}
+
+.shell{max-width:1240px;margin:0 auto;padding:0 48px;}
+@media(max-width:800px){.shell{padding:0 24px;}}
+
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(44,39,36,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.site-nav .shell{padding-top:20px;padding-bottom:20px;display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;flex-direction:column;gap:2px;}
+.logo-mark{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.04em;color:var(--amber);line-height:1;}
+.logo-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.25em;color:var(--muted);text-transform:uppercase;}
+.nav-back{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;transition:color 0.2s ease;}
+.nav-back:hover{color:var(--amber);}
+.nav-back::before{content:"←";color:var(--amber);}
+
+.hero{min-height:78vh;background:var(--bg1);position:relative;overflow:hidden;display:flex;align-items:center;padding:80px 0;}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(to right, rgba(200,160,112,0.04) 1px, transparent 1px),linear-gradient(to bottom, rgba(200,160,112,0.04) 1px, transparent 1px);background-size:72px 72px;pointer-events:none;}
+.hero-orb{position:absolute;bottom:-120px;right:-180px;width:720px;height:720px;background:radial-gradient(circle, rgba(200,160,112,0.07) 0%, rgba(200,160,112,0) 70%);pointer-events:none;}
+.hero-body{position:relative;z-index:2;width:100%;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.35em;color:var(--amber);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp 0.9s ease 0.05s forwards;display:flex;align-items:center;gap:14px;}
+.hero-eyebrow::before{content:"";width:36px;height:1px;background:var(--amber);}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,9vw,136px);line-height:0.92;letter-spacing:-0.01em;color:var(--text);max-width:1100px;opacity:0;animation:fadeUp 0.9s ease 0.12s forwards;}
+.hero h1 .accent{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--amber);letter-spacing:-0.02em;display:block;font-size:0.88em;padding-left:0.15em;}
+.hero-desc{margin-top:36px;max-width:620px;padding-left:20px;border-left:2px solid var(--amber);color:var(--text);font-size:17px;line-height:1.7;opacity:0;animation:fadeUp 0.9s ease 0.22s forwards;}
+.hero-stats{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding-top:32px;border-top:1px solid var(--border);opacity:0;animation:fadeUp 0.9s ease 0.34s forwards;}
+@media(max-width:800px){.hero-stats{grid-template-columns:1fr;gap:24px;}}
+.stat-block{display:flex;flex-direction:column;gap:8px;}
+.stat-value{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:var(--amber);letter-spacing:0.01em;}
+.stat-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--muted);text-transform:uppercase;}
+
+section{padding:120px 0;position:relative;}
+@media(max-width:800px){section{padding:88px 0;}}
+
+.label-row{display:flex;align-items:center;gap:14px;margin-bottom:40px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.3em;color:var(--amber);text-transform:uppercase;}
+.label-row::before{content:"";width:28px;height:1px;background:var(--amber);}
+.label-row .num{color:var(--very-muted);margin-right:6px;}
+
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:72px;align-items:end;}
+@media(max-width:800px){.section-head{grid-template-columns:1fr;gap:32px;}}
+.section-head h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6vw,88px);line-height:0.95;letter-spacing:-0.005em;color:var(--text);}
+.section-head h2 .accent{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--amber);display:block;font-size:0.82em;padding-left:0.1em;}
+.section-head p{color:var(--muted);font-size:15px;line-height:1.8;max-width:480px;}
+
+#definition{background:var(--bg2);}
+.def-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+@media(max-width:800px){.def-grid{grid-template-columns:1fr;}}
+.def-card{background:var(--bg3);border:1px solid var(--border);padding:44px 40px 48px;position:relative;}
+.def-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right, var(--amber), transparent);opacity:0.35;}
+.def-tag{display:inline-block;padding:6px 14px;border:1px solid var(--amber-line);border-radius:999px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--amber);text-transform:uppercase;margin-bottom:24px;}
+.def-card h3{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.01em;color:var(--text);margin-bottom:20px;line-height:1.05;}
+.def-card ul{list-style:none;}
+.def-card ul li{padding:12px 0;border-top:1px solid var(--border);display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:14px;color:var(--muted);line-height:1.6;}
+.def-card ul li::before{content:"→";color:var(--amber);font-family:'DM Mono',monospace;font-size:12px;}
+
+#menu{background:var(--bg1);}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;}
+@media(max-width:800px){.menu-grid{grid-template-columns:1fr;}}
+.menu-card{background:var(--bg3);border:1px solid var(--border);padding:36px 36px 12px;position:relative;}
+.menu-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right, var(--amber), transparent);opacity:0.35;}
+.menu-card-head{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+.menu-card-icon{font-size:22px;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--amber-dim);border:1px solid var(--amber-line);border-radius:8px;}
+.menu-card-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.02em;color:var(--text);}
+.menu-item{padding:16px 0;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;border-top:1px solid var(--border);}
+.menu-item:last-child{border-bottom:1px solid var(--border);}
+.menu-item-name{color:var(--text);font-size:14px;line-height:1.4;}
+.menu-item-credits{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--amber);letter-spacing:0.01em;}
+.menu-item-unit{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;margin-left:4px;}
+
+#stacks{background:var(--bg2);}
+.stacks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+@media(max-width:1000px){.stacks-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:800px){.stacks-grid{grid-template-columns:1fr;}}
+.stack-card{background:var(--bg3);border:1px solid var(--border);padding:32px 28px 36px;text-align:center;position:relative;overflow:hidden;}
+.stack-card .watermark{position:absolute;top:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:160px;line-height:1;color:rgba(200,160,112,0.06);pointer-events:none;}
+.stack-name{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--muted);text-transform:uppercase;margin-bottom:16px;}
+.stack-credits{font-family:'Bebas Neue',sans-serif;font-size:72px;line-height:1;color:var(--amber);letter-spacing:0.005em;position:relative;z-index:1;}
+.stack-unit{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-top:8px;}
+.stacks-note{margin-top:48px;padding:20px 28px;background:var(--amber-dim);border-left:2px solid var(--amber);font-size:14px;color:var(--text);line-height:1.6;}
+
+#example{background:var(--bg1);}
+.example-wrap{border:1px solid var(--border);background:var(--bg3);}
+.example-cap{padding:22px 32px;background:var(--amber-dim);border-bottom:1px solid var(--amber-line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.example-cap-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.25em;color:var(--amber);text-transform:uppercase;}
+.example-cap-total{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--amber);letter-spacing:0.01em;}
+.example-table{width:100%;border-collapse:collapse;}
+.example-table th{text-align:left;padding:18px 32px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--very-muted);text-transform:uppercase;border-bottom:1px solid var(--border);font-weight:500;}
+.example-table td{padding:20px 32px;border-bottom:1px solid var(--border);vertical-align:top;font-size:14px;}
+.example-table tr:last-child td{border-bottom:none;}
+.example-table td.week{color:var(--amber);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;width:120px;}
+.example-table td.action{color:var(--text);}
+.example-table td.credits{color:var(--amber);font-family:'Bebas Neue',sans-serif;font-size:22px;text-align:right;width:120px;}
+.example-table tr.total td{background:var(--amber-dim);border-top:2px solid var(--amber);padding:22px 32px;}
+.example-table tr.total td.week{color:var(--amber);font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.04em;}
+.example-table tr.total td.credits{font-size:28px;color:var(--amber);}
+@media(max-width:800px){.example-table th, .example-table td{padding:14px 18px;font-size:12px;}.example-table td.credits{font-size:18px;}.example-table td.week{width:auto;}}
+
+#policies{background:var(--bg2);}
+.policy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+@media(max-width:800px){.policy-grid{grid-template-columns:1fr;}}
+.policy-card{background:var(--bg2);padding:44px 40px;position:relative;min-height:260px;}
+.policy-card .watermark{position:absolute;top:8px;right:20px;font-family:'Bebas Neue',sans-serif;font-size:140px;line-height:1;color:rgba(200,160,112,0.07);pointer-events:none;}
+.policy-icon{font-size:22px;margin-bottom:20px;}
+.policy-card h3{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;color:var(--text);margin-bottom:14px;position:relative;z-index:1;}
+.policy-card p{color:var(--muted);font-size:14px;line-height:1.7;position:relative;z-index:1;margin-bottom:14px;}
+.policy-card ul{list-style:none;position:relative;z-index:1;}
+.policy-card ul li{padding:8px 0;color:var(--muted);font-size:13px;line-height:1.6;display:grid;grid-template-columns:14px 1fr;gap:10px;}
+.policy-card ul li::before{content:"✓";color:var(--amber);font-size:13px;}
+
+#tables{background:var(--bg1);}
+.table-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+@media(max-width:800px){.table-grid{grid-template-columns:1fr;}}
+.mini-table-wrap{border:1px solid var(--border);background:var(--bg3);}
+.mini-table-cap{padding:18px 24px;background:var(--amber-dim);border-bottom:1px solid var(--amber-line);display:flex;align-items:center;gap:12px;}
+.mini-table-cap-icon{font-size:16px;}
+.mini-table-cap-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.25em;color:var(--amber);text-transform:uppercase;}
+.mini-table{width:100%;border-collapse:collapse;}
+.mini-table th{text-align:left;padding:16px 24px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.22em;color:var(--very-muted);text-transform:uppercase;border-bottom:1px solid var(--border);font-weight:500;}
+.mini-table td{padding:18px 24px;border-bottom:1px solid var(--border);vertical-align:top;font-size:13px;line-height:1.6;}
+.mini-table tr:last-child td{border-bottom:none;}
+.mini-table td:first-child{color:var(--text);font-weight:500;}
+.mini-table td:last-child{color:var(--muted);text-align:right;}
+.mini-table td.highlight{color:var(--amber);font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.04em;}
+
+#faq{background:var(--bg2);}
+.faq-list{display:flex;flex-direction:column;gap:12px;}
+.faq-item{background:var(--bg3);border:1px solid var(--border);transition:border-color 0.2s ease;}
+.faq-item[open]{border-color:var(--amber-line);}
+.faq-item summary{padding:22px 28px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:15px;font-weight:500;color:var(--text);}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:"+";font-family:'DM Mono',monospace;font-size:22px;color:var(--amber);transition:transform 0.25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-body{padding:0 28px 26px;color:var(--muted);font-size:14px;line-height:1.7;}
+
+#bottomline{background:var(--bg1);text-align:center;}
+.bottomline-inner{max-width:820px;margin:0 auto;}
+.bottomline-inner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,96px);line-height:0.95;letter-spacing:-0.005em;color:var(--text);margin-bottom:32px;}
+.bottomline-inner h2 .accent{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--amber);display:block;}
+.bottomline-inner p{color:var(--muted);font-size:17px;line-height:1.8;margin-bottom:40px;}
+.cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.cta-btn{display:inline-block;padding:18px 32px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;transition:all 0.25s ease;border:1px solid var(--amber);color:var(--amber);}
+.cta-btn:hover{background:var(--amber);color:var(--bg1);}
+.cta-btn.filled{background:var(--amber);color:var(--bg1);}
+.cta-btn.filled:hover{background:var(--text);color:var(--bg1);border-color:var(--text);}
+
+footer{background:var(--bg2);padding:72px 0 0;}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:64px;padding-bottom:52px;border-bottom:1px solid var(--border);}
+@media(max-width:800px){.footer-grid{grid-template-columns:1fr;gap:40px;}}
+.footer-brand .logo-mark{font-size:32px;}
+.footer-brand p{margin-top:16px;color:var(--muted);font-size:14px;line-height:1.7;max-width:320px;}
+.footer-col h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--amber);text-transform:uppercase;margin-bottom:20px;}
+.footer-col ul{list-style:none;}
+.footer-col li{padding:6px 0;color:var(--muted);font-size:13px;}
+.footer-col li a:hover{color:var(--amber);}
+.footer-bottom{background:#261f1c;padding:22px 0;}
+.footer-bottom .shell{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.copyright{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--very-muted);text-transform:uppercase;}
+.version{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--very-muted);text-transform:uppercase;}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="shell">
+    <a href="/" class="logo">
+      <div class="logo-mark">44 SOCIAL</div>
+      <div class="logo-sub">Brand &amp; Content Agency</div>
+    </a>
+    <a href="/pricing" class="nav-back">Back to Pricing</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="shell">
+    <div class="hero-body">
+      <div class="hero-eyebrow">Client Guide · Version 1.0</div>
+      <h1>
+        How<br/>
+        <span class="accent">credits</span>
+        work.
+      </h1>
+      <p class="hero-desc">
+        A flexible production system that gives you structure without
+        rigid quotas. One monthly balance. You decide how to spend it.
+        We handle the math.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-block">
+          <div class="stat-value">1</div>
+          <div class="stat-label">Monthly Balance</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Stack Tiers</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-value">25%</div>
+          <div class="stat-label">Monthly Rollover</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-orb"></div>
+</section>
+
+<section id="definition">
+  <div class="shell">
+    <div class="label-row"><span class="num">01</span> What Is a Credit</div>
+    <div class="section-head">
+      <h2>A flexible unit<br/><span class="accent">of production.</span></h2>
+      <p>
+        Instead of locking you into a specific number of shoot hours or
+        a fixed quota of videos, credits let you decide what you need,
+        when you need it. Think of it as a gift card for content
+        production. You get a monthly balance, and you spend it
+        however makes sense that month.
+      </p>
+    </div>
+
+    <div class="def-grid">
+      <div class="def-card">
+        <div class="def-tag">One month you might need</div>
+        <h3>A big shoot day.</h3>
+        <ul>
+          <li>Full-day on-site production</li>
+          <li>Large batch of cinematic photos</li>
+          <li>B-roll library for the quarter</li>
+          <li>All under one monthly balance</li>
+        </ul>
+      </div>
+      <div class="def-card">
+        <div class="def-tag">The next month you might need</div>
+        <h3>Five short videos.</h3>
+        <ul>
+          <li>Reels, Shorts, TikToks</li>
+          <li>A promotional carousel</li>
+          <li>A quick photo refresh</li>
+          <li>Same balance, different mix</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="shell">
+    <div class="label-row"><span class="num">02</span> The Credit Menu</div>
+    <div class="section-head">
+      <h2>How credits<br/><span class="accent">get spent.</span></h2>
+      <p>
+        Every deliverable we produce has a credit cost. The more work
+        involved, the more credits it takes. Here is the full menu,
+        all-in, no hidden line items.
+      </p>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <div class="menu-card-head">
+          <div class="menu-card-icon">🎥</div>
+          <div class="menu-card-title">Video Content</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Short-form video, 15 seconds</div>
+          <div><span class="menu-item-credits">0.75</span><span class="menu-item-unit">cr</span></div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Short-form video, 30 seconds</div>
+          <div><span class="menu-item-credits">1.0</span><span class="menu-item-unit">cr</span></div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Short-form video, 45 to 60 seconds</div>
+          <div><span class="menu-item-credits">1.25</span><span class="menu-item-unit">cr</span></div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Short-form video, 60 to 90 seconds</div>
+          <div><span class="menu-item-credits">1.75</span><span class="menu-item-unit">cr</span></div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Long-form edit, per finished minute</div>
+          <div><span class="menu-item-credits">1.5</span><span class="menu-item-unit">cr</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-head">
+          <div class="menu-card-icon">📸</div>
+          <div class="menu-card-title">Photo Content</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Photo batch, 25 edited finals</div>
+          <div><span class="menu-item-credits">1.0</span><span class="menu-item-unit">cr</span></div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Photo batch, 50 edited finals</div>
+          <div><span class="menu-item-credits">1.75</span><span class="menu-item-unit">cr</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-head">
+          <div class="menu-card-icon">🎬</div>
+          <div class="menu-card-title">On-Site Production</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">1 hour on-site shooting, single personnel</div>
+          <div><span class="menu-item-credits">1.0</span><span class="menu-item-unit">cr</span></div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">1 hour on-site shooting, dual personnel</div>
+          <div><span class="menu-item-credits">1.75</span><span class="menu-item-unit">cr</span></div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-head">
+          <div class="menu-card-icon">🎨</div>
+          <div class="menu-card-title">Graphics &amp; Design</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Single static graphic</div>
+          <div><span class="menu-item-credits">0.25</span><span class="menu-item-unit">cr</span></div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">Carousel, up to 10 slides</div>
+          <div><span class="menu-item-credits">1.5</span><span class="menu-item-unit">cr</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="stacks">
+  <div class="shell">
+    <div class="label-row"><span class="num">03</span> Monthly Allotment</div>
+    <div class="section-head">
+      <h2>Your balance<br/><span class="accent">by stack.</span></h2>
+      <p>
+        Your retainer includes a set number of credits each month based
+        on the stack you selected. Credits refresh on the 1st of every
+        month.
+      </p>
+    </div>
+
+    <div class="stacks-grid">
+      <div class="stack-card">
+        <div class="watermark">01</div>
+        <div class="stack-name">Starter</div>
+        <div class="stack-credits">10</div>
+        <div class="stack-unit">Credits / Month</div>
+      </div>
+      <div class="stack-card">
+        <div class="watermark">02</div>
+        <div class="stack-name">Growth</div>
+        <div class="stack-credits">20</div>
+        <div class="stack-unit">Credits / Month</div>
+      </div>
+      <div class="stack-card">
+        <div class="watermark">03</div>
+        <div class="stack-name">Scale</div>
+        <div class="stack-credits">32</div>
+        <div class="stack-unit">Credits / Month</div>
+      </div>
+      <div class="stack-card">
+        <div class="watermark">04</div>
+        <div class="stack-name">Enterprise</div>
+        <div class="stack-credits">50</div>
+        <div class="stack-unit">Credits / Month</div>
+      </div>
+    </div>
+
+    <div class="stacks-note">
+      Credits reset on the 1st of every month. Up to 25% of unused
+      credits roll into the next month. See the rollover policy below.
+    </div>
+  </div>
+</section>
+
+<section id="example">
+  <div class="shell">
+    <div class="label-row"><span class="num">04</span> A Real Example</div>
+    <div class="section-head">
+      <h2>What a month<br/><span class="accent">actually looks like.</span></h2>
+      <p>
+        Here is how a Growth Stack client might spend their 20 credits
+        across a single month. Fully mixed across video, photo, and
+        graphics. No "we only shot X hours" conversations.
+      </p>
+    </div>
+
+    <div class="example-wrap">
+      <div class="example-cap">
+        <div class="example-cap-label">Growth Stack · 20 Credits / Month</div>
+        <div class="example-cap-total">Total Spent: 20 Credits</div>
+      </div>
+      <table class="example-table">
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>Deliverable</th>
+            <th style="text-align:right;">Credits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="week">Week 1</td>
+            <td class="action">Half-day on-site shoot, 4 hours</td>
+            <td class="credits">4.0</td>
+          </tr>
+          <tr>
+            <td class="week">Week 2</td>
+            <td class="action">3 short-form videos, 30 seconds each</td>
+            <td class="credits">3.0</td>
+          </tr>
+          <tr>
+            <td class="week">Week 2</td>
+            <td class="action">Photo batch, 25 edited finals</td>
+            <td class="credits">1.0</td>
+          </tr>
+          <tr>
+            <td class="week">Week 3</td>
+            <td class="action">2 short-form videos, 60 seconds each</td>
+            <td class="credits">2.5</td>
+          </tr>
+          <tr>
+            <td class="week">Week 3</td>
+            <td class="action">Promotional carousel</td>
+            <td class="credits">1.5</td>
+          </tr>
+          <tr>
+            <td class="week">Week 4</td>
+            <td class="action">Full-day on-site shoot, 8 hours</td>
+            <td class="credits">8.0</td>
+          </tr>
+          <tr class="total">
+            <td class="week">Total</td>
+            <td class="action">Mixed video, photo, and graphics output</td>
+            <td class="credits">20.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section id="policies">
+  <div class="shell">
+    <div class="label-row"><span class="num">05</span> The Fine Print</div>
+    <div class="section-head">
+      <h2>What credits<br/><span class="accent">cover, and don't.</span></h2>
+      <p>
+        Credits cover the production side of your retainer. Strategy,
+        account management, and posting stay separate and are included
+        flat every month.
+      </p>
+    </div>
+
+    <div class="policy-grid">
+
+      <div class="policy-card">
+        <div class="watermark">A</div>
+        <div class="policy-icon">✓</div>
+        <h3>Included in Retainer</h3>
+        <p>These never count against your credit balance. They come with every retainer, every month.</p>
+        <ul>
+          <li>Account management and strategy</li>
+          <li>Community management (DMs, comments)</li>
+          <li>Platform posting and scheduling</li>
+          <li>Monthly strategy call</li>
+          <li>Performance reporting</li>
+        </ul>
+      </div>
+
+      <div class="policy-card">
+        <div class="watermark">B</div>
+        <div class="policy-icon">↻</div>
+        <h3>Rollover, 25% Max</h3>
+        <p>
+          Up to 25% of unused credits roll into the following month.
+          Example: Growth stack, used 14 of 20 in March. 5 credits roll
+          to April (25% of 20), 1 forfeits. April starts at 25
+          available.
+        </p>
+        <p style="color:var(--very-muted);font-size:12px;">Rollover credits expire at the end of the following month.</p>
+      </div>
+
+      <div class="policy-card">
+        <div class="watermark">C</div>
+        <div class="policy-icon">+</div>
+        <h3>If You Need More</h3>
+        <p>
+          Run out mid-month? Two options. Overage credits are billed
+          on-demand at a slightly higher rate, added to your next
+          invoice. Or upgrade your stack, which we'll flag for you if
+          it's the right move.
+        </p>
+        <p style="color:var(--very-muted);font-size:12px;">You'll always get a WhatsApp heads-up before any overage is triggered.</p>
+      </div>
+
+      <div class="policy-card">
+        <div class="watermark">D</div>
+        <div class="policy-icon">📊</div>
+        <h3>Always Visible</h3>
+        <p>
+          Your credit balance lives in two places, so you never guess.
+          The client portal updates every 2 hours. Your monthly report
+          itemizes every credit spent, what rolled over, and what's
+          coming next month.
+        </p>
+        <ul>
+          <li>Portal at 44social.co/clients/[yourname]</li>
+          <li>Monthly performance report</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="tables">
+  <div class="shell">
+    <div class="label-row"><span class="num">06</span> Policies</div>
+    <div class="section-head">
+      <h2>Scheduling<br/><span class="accent">and timing.</span></h2>
+      <p>
+        Two policies worth knowing up front. Cancellation protects
+        both sides when plans change. Rush fees accommodate urgent
+        needs without eating your credit balance.
+      </p>
+    </div>
+
+    <div class="table-grid">
+
+      <div class="mini-table-wrap">
+        <div class="mini-table-cap">
+          <div class="mini-table-cap-icon">📅</div>
+          <div class="mini-table-cap-label">Cancellation Policy</div>
+        </div>
+        <table class="mini-table">
+          <thead>
+            <tr>
+              <th>When You Cancel</th>
+              <th style="text-align:right;">What Happens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>48+ hours before shoot</td>
+              <td class="highlight">Full refund</td>
+            </tr>
+            <tr>
+              <td>Within 48 hours</td>
+              <td>Credits forfeit</td>
+            </tr>
+            <tr>
+              <td>Cancelled by 44 Social</td>
+              <td class="highlight">Full refund</td>
+            </tr>
+            <tr>
+              <td>No-show or no access</td>
+              <td>Forfeit + 2-credit fee</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mini-table-wrap">
+        <div class="mini-table-cap">
+          <div class="mini-table-cap-icon">⚡</div>
+          <div class="mini-table-cap-label">Rush Request Fees</div>
+        </div>
+        <table class="mini-table">
+          <thead>
+            <tr>
+              <th>Timeline</th>
+              <th style="text-align:right;">Rush Fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Faster than standard</td>
+              <td class="highlight">+25%</td>
+            </tr>
+            <tr>
+              <td>Same-day or next-day</td>
+              <td class="highlight">+50%</td>
+            </tr>
+            <tr>
+              <td>Weekend or holiday</td>
+              <td class="highlight">+100%</td>
+            </tr>
+            <tr>
+              <td>Note</td>
+              <td>Billed separately, never from credits</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="shell">
+    <div class="label-row"><span class="num">07</span> Quick Reference</div>
+    <div class="section-head">
+      <h2>Frequently<br/><span class="accent">asked.</span></h2>
+      <p>
+        The questions that come up most. If yours isn't here, reach out
+        and we'll answer it directly.
+      </p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Can I change my credit allotment?</summary>
+        <div class="faq-body">
+          Yes. Stack upgrades or downgrades require 30 days' written
+          notice and take effect on the next billing cycle.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Do unused credits ever convert to cash or discounts?</summary>
+        <div class="faq-body">
+          No. Credits are for production only and cannot be converted
+          to cash, refunded, or applied to other services.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What if I don't use any credits one month?</summary>
+        <div class="faq-body">
+          Up to 25% of your allotment rolls to the next month. Beyond
+          that, unused credits expire.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I request a credit-based deliverable?</summary>
+        <div class="faq-body">
+          Same way you always have. Submit requests through your Notion
+          content pipeline or message your account lead. We handle the
+          credit math. You just tell us what you need.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Will I get a warning before credits run out?</summary>
+        <div class="faq-body">
+          Yes. Your portal shows real-time balance, and we flag low
+          balances proactively during your strategy call or via
+          WhatsApp if you're approaching zero before month-end.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I pause my retainer and bank credits?</summary>
+        <div class="faq-body">
+          No. Credits are tied to active retainers and follow the
+          monthly rollover rules. Retainers can be paused with 30 days'
+          notice, but credits do not accumulate during pauses.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens to my credits if I upgrade mid-month?</summary>
+        <div class="faq-body">
+          When you upgrade, the new allotment kicks in on the next 1st
+          of the month. We prorate any additional credits needed in the
+          current month at the new rate.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="bottomline">
+  <div class="shell">
+    <div class="bottomline-inner">
+      <h2>Flexibility<br/><span class="accent">without chaos.</span></h2>
+      <p>
+        Credits exist to give you structure that bends with the month
+        in front of you. Predictable monthly cost, predictable monthly
+        capacity, and nobody spending time arguing over whether a shoot
+        day was 3 hours or 4. You focus on what content your business
+        needs. We focus on making it.
+      </p>
+      <div class="cta-row">
+        <a class="cta-btn filled" href="/pricing">Back to Pricing Calculator</a>
+        <a class="cta-btn" href="mailto:floydie@44social.co?subject=Question%20about%20the%20credit%20system">Ask a Question</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo-mark">44 SOCIAL</a>
+        <p>Brand and content production for operators who move fast and expect the work to keep up.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Brand Video Production</li>
+          <li>Content Strategy</li>
+          <li>Social Media Management</li>
+          <li>Paid Advertising</li>
+          <li>Photography</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/pricing">Pricing Calculator</a></li>
+          <li><a href="/pricing/credits">How Credits Work</a></li>
+          <li><a href="/apply">Work With Us</a></li>
+          <li><a href="mailto:floydie@44social.co">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="shell">
+      <div class="copyright">© 2026 44 Social Company · All Rights Reserved</div>
+      <div class="version">Client Guide · v1.0 · April 2026</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
