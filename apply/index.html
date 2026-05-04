@@ -822,12 +822,23 @@ async function submitForm() {
     source: '44social.co/apply'
   };
 
-  try {
+try {
     await fetch('https://hook.us2.make.com/jgik4euhpngavnw85swfplr3cs6e8zjp', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload)
     });
+
+    // Fire Meta Pixel Lead event on successful submission
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', {
+        content_name: '44 Social Application',
+        content_category: needs.join(', '),
+        value: 0,
+        currency: 'USD'
+      });
+    }
+
     document.getElementById('apply-form').style.display = 'none';
     document.getElementById('form-success').classList.add('visible');
     window.scrollTo({top: 0, behavior: 'smooth'});
