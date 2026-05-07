@@ -285,6 +285,15 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 
+.form-section-hint {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text2);
+  margin-top: -8px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
 .field-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -306,6 +315,13 @@ nav {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text2);
+}
+
+.field > label .optional {
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 6px;
+  letter-spacing: 0.15em;
 }
 
 .field input,
@@ -664,18 +680,45 @@ footer {
           </div>
           <div class="field-row">
             <div class="field">
+              <label>Phone Number</label>
+              <input type="tel" id="f-phone" placeholder="(555) 123-4567" />
+            </div>
+            <div class="field">
               <label>Business Name</label>
               <input type="text" id="f-biz" placeholder="Your brand or company" />
             </div>
-            <div class="field">
-              <label>Industry</label>
-              <input type="text" id="f-industry" placeholder="e.g. HVAC, restaurant, fitness" />
-            </div>
+          </div>
+          <div class="field">
+            <label>Industry</label>
+            <input type="text" id="f-industry" placeholder="e.g. HVAC, restaurant, fitness" />
           </div>
         </div>
 
         <div class="form-section">
-          <div class="form-section-label">02 — What You Need</div>
+          <div class="form-section-label">02 — Your Online Presence</div>
+          <p class="form-section-hint">Drop links so we can do our homework before we talk. All optional.</p>
+          <div class="field">
+            <label>Website <span class="optional">(optional)</span></label>
+            <input type="url" id="f-website" placeholder="https://yourbusiness.com" />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Instagram <span class="optional">(optional)</span></label>
+              <input type="text" id="f-instagram" placeholder="@yourhandle" />
+            </div>
+            <div class="field">
+              <label>TikTok <span class="optional">(optional)</span></label>
+              <input type="text" id="f-tiktok" placeholder="@yourhandle" />
+            </div>
+          </div>
+          <div class="field">
+            <label>Facebook <span class="optional">(optional)</span></label>
+            <input type="text" id="f-facebook" placeholder="facebook.com/yourbusiness" />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-label">03 — What You Need</div>
           <div class="options-list">
             <label class="option-item">
               <input type="checkbox" value="Social Media Management" />
@@ -723,7 +766,7 @@ footer {
         </div>
 
         <div class="form-section">
-          <div class="form-section-label">03 — Monthly Budget</div>
+          <div class="form-section-label">04 — Monthly Budget</div>
           <div class="budget-grid">
             <label class="option-item budget-item">
               <input type="radio" name="budget" value="Under $2.5k" />
@@ -745,7 +788,7 @@ footer {
         </div>
 
         <div class="form-section">
-          <div class="form-section-label">04 — Your Brand</div>
+          <div class="form-section-label">05 — Your Brand</div>
           <div class="field">
             <label>Tell us about your business and biggest challenge</label>
             <textarea id="f-message" placeholder="The more honest the better. What are you trying to grow? What's getting in the way? What have you tried that didn't work?" rows="5" required></textarea>
@@ -779,14 +822,23 @@ footer {
 async function submitForm() {
   const name = document.getElementById('f-name').value.trim();
   const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
   const biz = document.getElementById('f-biz').value.trim();
   const industry = document.getElementById('f-industry').value.trim();
+  const website = document.getElementById('f-website').value.trim();
+  const instagram = document.getElementById('f-instagram').value.trim();
+  const tiktok = document.getElementById('f-tiktok').value.trim();
+  const facebook = document.getElementById('f-facebook').value.trim();
   const message = document.getElementById('f-message').value.trim();
   const budget = document.querySelector('input[name="budget"]:checked')?.value || '';
   const needs = [...document.querySelectorAll('.options-list input:checked')].map(c => c.value);
 
   if (!name || !email) {
     alert('Please enter your name and email.');
+    return;
+  }
+  if (!phone) {
+    alert('Please enter your phone number.');
     return;
   }
   if (!biz) {
@@ -813,8 +865,13 @@ async function submitForm() {
   const payload = {
     name,
     email,
+    phone,
     business: biz,
     industry: industry || 'Not specified',
+    website: website || 'Not provided',
+    instagram: instagram || 'Not provided',
+    tiktok: tiktok || 'Not provided',
+    facebook: facebook || 'Not provided',
     budget,
     needs: needs.join(', '),
     message,
