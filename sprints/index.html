@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sprints — 44 Social</title>
+<meta name="description" content="A full content library from one shoot day. Premium production for busy business owners, no retainer required.">
+<meta name="theme-color" content="#2c2724">
+
+<meta property="og:title" content="Sprints — 44 Social" />
+<meta property="og:description" content="A full content library from one shoot day. Premium production for busy business owners, no retainer required." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://44social.co/sprints" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg1: #2c2724;
+    --bg2: #322c29;
+    --bg3: #38312d;
+    --bg4: #3f3732;
+    --red: #e8150a;
+    --red-hover: #ff2a1f;
+    --red-dim: rgba(232,21,10,0.10);
+    --red-border: rgba(232,21,10,0.35);
+    --amber: #c8a070;
+    --amber-hover: #d6b285;
+    --amber-dim: rgba(200,160,112,0.13);
+    --amber-line: rgba(200,160,112,0.28);
+    --text: #f0ebe4;
+    --muted: #a09488;
+    --very-muted: #6a5e58;
+    --white: #ffffff;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg1);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.45;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' /></svg>");
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ============================================
+     NAV
+     ============================================ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(44, 39, 36, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    color: var(--amber);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+
+  .nav-cta {
+    background: var(--amber);
+    color: var(--bg1) !important;
+    padding: 10px 18px;
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--amber-hover);
+    color: var(--bg1) !important;
+  }
+
+  /* ============================================
+     HERO
+     ============================================ */
+  .hero {
+    position: relative;
+    padding: 80px 48px 64px;
+    overflow: hidden;
+    background:
+      linear-gradient(rgba(200,160,112,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,160,112,.04) 1px, transparent 1px);
+    background-color: var(--bg1);
+    background-size: 72px 72px;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -180px;
+    right: -120px;
+    width: 720px;
+    height: 720px;
+    background: radial-gradient(circle, rgba(200,160,112,0.07), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(54px, 9vw, 116px);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 400;
+  }
+
+  .hero-desc {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 620px;
+    margin-bottom: 36px;
+    border-left: 2px solid var(--amber);
+    padding-left: 20px;
+    line-height: 1.55;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+
+  .cta-primary {
+    background: var(--amber);
+    color: var(--bg1);
+    padding: 18px 32px;
+    border-radius: 3px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: background 0.2s ease, transform 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cta-primary:hover { background: var(--amber-hover); transform: translateY(-1px); }
+
+  .cta-secondary {
+    background: transparent;
+    color: var(--text);
+    padding: 18px 28px;
+    border: 1px solid var(--amber-line);
+    border-radius: 3px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+
+  .cta-secondary:hover {
+    border-color: var(--amber);
+    background: var(--amber-dim);
+  }
+
+  /* VSL video placeholder */
+  .vsl-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    aspect-ratio: 16/9;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .vsl-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(200,160,112,0.08), transparent 70%);
+  }
+
+  .vsl-placeholder {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .vsl-play {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: transform 0.2s ease;
+  }
+
+  .vsl-wrap:hover .vsl-play { transform: scale(1.08); }
+
+  .vsl-play::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 22px solid var(--bg1);
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    margin-left: 6px;
+  }
+
+  .vsl-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ============================================
+     SECTION SHARED
+     ============================================ */
+  .section {
+    padding: 100px 48px;
+    position: relative;
+  }
+
+  .section.alt { background: var(--bg2); }
+  .section.dark { background: #261f1c; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .section-h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+
+  .section-h2 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 400;
+  }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 640px;
+    line-height: 1.6;
+    margin-bottom: 56px;
+  }
+
+  /* ============================================
+     SECTION 2: REFRAME (text-heavy)
+     ============================================ */
+  .reframe {
+    padding: 80px 48px;
+    background: var(--bg2);
+  }
+
+  .reframe-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .reframe-quote {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: 32px;
+  }
+
+  .reframe-quote span {
+    color: var(--amber);
+  }
+
+  .reframe-body {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* ============================================
+     SECTION 3: PORTFOLIO GRID
+     ============================================ */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .portfolio-item {
+    aspect-ratio: 9/16;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .portfolio-item:hover {
+    border-color: var(--amber);
+    transform: translateY(-3px);
+  }
+
+  .portfolio-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg3), var(--bg4));
+  }
+
+  .portfolio-placeholder span {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--very-muted);
+    text-transform: uppercase;
+  }
+
+  .portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 14px;
+    background: linear-gradient(rgba(44,39,36,0.85), transparent);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .portfolio-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--amber);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .portfolio-title {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ============================================
+     SECTION 4: PROCESS (numbered steps)
+     ============================================ */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .step {
+    position: relative;
+    padding-top: 28px;
+  }
+
+  .step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--amber), transparent);
+    opacity: 0.4;
+  }
+
+  .step-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+
+  .step h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.03em;
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ============================================
+     SECTION 5: CONTENT LIBRARY
+     ============================================ */
+  /* Center the section label, headline, and list */
+  .library-section .section-inner {
+    text-align: center;
+  }
+
+  .library-section .section-label {
+    justify-content: center;
+  }
+
+  .library-section .section-h2 {
+    margin-bottom: 48px;
+  }
+
+  .library-section .library-list {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .library-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .library-item {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .library-item:last-child { border-bottom: none; }
+
+  .library-item .plus {
+    color: var(--amber);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .library-item .txt {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* ============================================
+     SECTION 6: BOOK THE CALL (Calendly embed)
+     ============================================ */
+  .book-section {
+    padding: 100px 48px;
+    background: var(--bg1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .book-section::after {
+    content: '';
+    position: absolute;
+    top: -180px;
+    left: -120px;
+    width: 720px;
+    height: 720px;
+    background: radial-gradient(circle, rgba(200,160,112,0.07), transparent 60%);
+    pointer-events: none;
+  }
+
+  .book-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .book-h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+
+  .book-h2 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 400;
+  }
+
+  .book-desc {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+
+  .calendly-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--amber-line);
+    border-radius: 4px;
+    padding: 48px;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .calendly-placeholder {
+    color: var(--muted);
+  }
+
+  .calendly-placeholder h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+
+  .calendly-placeholder p {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--very-muted);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  /* ============================================
+     SECTION 7: TRUST FOOTER
+     ============================================ */
+  .trust-section {
+    padding: 80px 48px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+  }
+
+  .trust-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .trust-label {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .trust-label .section-label::before { display: none; }
+
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 28px;
+    position: relative;
+  }
+
+  .testimonial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .testimonial-quote {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    min-height: 100px;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .testimonial-initials {
+    width: 40px;
+    height: 40px;
+    background: var(--amber);
+    color: var(--bg1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+
+  .testimonial-meta .name {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .testimonial-meta .role {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ============================================
+     FINAL CTA BAND
+     ============================================ */
+  .final-cta {
+    padding: 80px 48px;
+    background: var(--bg1);
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .final-cta h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .final-cta h3 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--amber);
+    font-weight: 400;
+  }
+
+  .final-cta p {
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 32px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  .footer {
+    background: #261f1c;
+    padding: 56px 48px 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    color: var(--amber);
+    margin-bottom: 16px;
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 320px;
+    margin-bottom: 16px;
+  }
+
+  .footer-email {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-col h5 {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col li {
+    margin-bottom: 8px;
+  }
+
+  .footer-col li a {
+    font-size: 13px;
+    color: var(--muted);
+    transition: color 0.2s ease;
+  }
+
+  .footer-col li a:hover { color: var(--amber); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--very-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ============================================
+     STICKY MOBILE CTA
+     ============================================ */
+  .sticky-mobile-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: var(--bg1);
+    border-top: 1px solid var(--amber-line);
+    padding: 14px 20px;
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.3);
+  }
+
+  .sticky-mobile-cta a {
+    display: block;
+    background: var(--amber);
+    color: var(--bg1);
+    text-align: center;
+    padding: 14px;
+    border-radius: 3px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (max-width: 900px) {
+    .nav, .hero, .section, .reframe, .book-section, .trust-section, .final-cta, .footer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .nav-links { gap: 16px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+
+    .hero { padding-top: 56px; padding-bottom: 48px; }
+    .section { padding: 64px 24px; }
+    .reframe { padding: 56px 24px; }
+    .book-section { padding: 64px 24px; }
+
+    .steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+
+    .testimonial-quote { min-height: auto; }
+
+    .sticky-mobile-cta { display: block; }
+    body { padding-bottom: 76px; }
+
+    .calendly-wrap { padding: 32px 24px; min-height: 380px; }
+  }
+
+  @media (max-width: 600px) {
+    .steps { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .cta-primary, .cta-secondary { text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     NAV
+     ============================================ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">44 SOCIAL</a>
+  <div class="nav-links">
+    <a href="/#services">Services</a>
+    <a href="/#work">Work</a>
+    <a href="/sprints">Sprints</a>
+    <a href="/apply">Apply</a>
+    <a href="#book" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Content Sprints / One Shoot Day</div>
+
+    <h1>You didn't start your business<br>to become a <em>content creator.</em></h1>
+
+    <p class="hero-desc">
+      A full content library from one shoot day. Video, photo, and everything you need to post. No retainer required.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#book" class="cta-primary">Book a Free Call →</a>
+      <a href="#how" class="cta-secondary">How It Works</a>
+    </div>
+
+    <div class="vsl-wrap" id="vsl">
+      <div class="vsl-placeholder">
+        <div class="vsl-play"></div>
+        <div class="vsl-label">Watch the 3-minute walkthrough</div>
+      </div>
+      <!-- Replace with Vimeo iframe when VSL is recorded:
+      <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID?badge=0&autopause=0" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 2: REFRAME
+     ============================================ -->
+<section class="reframe">
+  <div class="reframe-inner">
+    <div class="reframe-quote">
+      Most business owners don't realize social media is more than just <span>trends.</span> It's content that speaks to a real audience.
+    </div>
+    <p class="reframe-body">
+      You're focused on running your business. You shouldn't have to also become a marketer, a videographer, an editor, and a content strategist. We take the stress out of content creation so you can stay focused on what you do best.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 3: PORTFOLIO
+     ============================================ -->
+<section class="section" id="work">
+  <div class="section-inner">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-h2">Real content, <em>real results.</em></h2>
+    <p class="section-desc">
+      Content from local businesses across Central Florida. Tap any reel to see the full piece.
+    </p>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <iframe src="https://player.vimeo.com/video/1196558922?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                title="Brand Video"></iframe>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Brand Video</div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <iframe src="https://player.vimeo.com/video/1197554756?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                title="Ad Content"></iframe>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Ad Content</div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <iframe src="https://player.vimeo.com/video/1179600280?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                title="Brand Video"></iframe>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Brand Video</div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <iframe src="https://player.vimeo.com/video/1196560897?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                title="Event Media"></iframe>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Event Media</div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <iframe src="https://player.vimeo.com/video/1179607111?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                title="Testimonial"></iframe>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Testimonial</div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <iframe src="https://player.vimeo.com/video/1197555726?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                title="Brand Video"></iframe>
+        <div class="portfolio-overlay">
+          <div class="portfolio-tag">Brand Video</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 4: HOW IT WORKS
+     ============================================ -->
+<section class="section alt" id="how">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-h2">Simple from <em>day one.</em></h2>
+    <p class="section-desc">
+      Four steps from your first call to a full library of content you can post anywhere.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Step 01</div>
+        <h3>Book a Call</h3>
+        <p>A free, low-pressure 30-minute conversation. We learn your business, your goals, and where your content has gaps.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 02</div>
+        <h3>We Plan the Shoot</h3>
+        <p>Based on the call, we build a custom shot plan tailored to your brand and the content that performs in your industry.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 03</div>
+        <h3>One Shoot Day</h3>
+        <p>We come to you. Video, photo, and aerial coverage captured in parallel during a single focused day.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 04</div>
+        <h3>Delivered to You</h3>
+        <p>Everything is edited, captioned, color-corrected, and delivered through a private cloud drive. Ready to post.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5: CONTENT LIBRARY
+     ============================================ -->
+<section class="section library-section">
+  <div class="section-inner">
+    <div class="section-label">What You Get</div>
+    <h2 class="section-h2">A full content library<br>from <em>one shoot day.</em></h2>
+
+    <div class="library-list">
+      <div class="library-item">
+        <span class="plus">+</span>
+        <span class="txt">Video, photo, and aerial coverage</span>
+      </div>
+      <div class="library-item">
+        <span class="plus">+</span>
+        <span class="txt">Edited, captioned, color-corrected</span>
+      </div>
+      <div class="library-item">
+        <span class="plus">+</span>
+        <span class="txt">Ready to post the moment you receive it</span>
+      </div>
+      <div class="library-item">
+        <span class="plus">+</span>
+        <span class="txt">Files delivered privately to your cloud drive</span>
+      </div>
+      <div class="library-item">
+        <span class="plus">+</span>
+        <span class="txt">One round of revisions, just to get it right</span>
+      </div>
+      <div class="library-item">
+        <span class="plus">+</span>
+        <span class="txt">Full rights to use everything we deliver</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 6: BOOK THE CALL
+     ============================================ -->
+<section class="book-section" id="book">
+  <div class="book-inner">
+    <div class="section-label" style="justify-content: center;">The Conversation</div>
+    <h2 class="book-h2">Book your free <em>30-minute call.</em></h2>
+    <p class="book-desc">
+      No pitch. No commitment. Just a conversation about your brand and what your content actually needs.
+    </p>
+
+    <div class="calendly-wrap" id="calendly-embed">
+      <div class="calendly-placeholder">
+        <h4>Calendly Widget Loads Here</h4>
+        <p>Replace this block with your Calendly embed code</p>
+        <a href="mailto:hello@44social.co" class="cta-primary">Email Us To Schedule →</a>
+      </div>
+
+      <!-- When ready, replace the placeholder above with this:
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/YOUR_HANDLE/discovery-call"
+           style="min-width:320px;height:600px;width:100%;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 7: TRUST
+     ============================================ -->
+<section class="trust-section">
+  <div class="trust-inner">
+    <div class="trust-label">
+      <div class="section-label">Trusted by</div>
+    </div>
+
+    <div class="testimonials">
+      <div class="testimonial">
+        <p class="testimonial-quote">Floydie and the 44 Social team are creative, assertive, and true pros at social media and content. A natural at producing engaging content across industries.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-initials">AG</div>
+          <div class="testimonial-meta">
+            <div class="name">Andrew Girges</div>
+            <div class="role">CEO, Omni Airport Parking</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-quote">44 Social did an excellent job shooting our content. They prepared all of the scripts, showed up on time, and had the final product back to us quickly. Highly recommend.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-initials">MW</div>
+          <div class="testimonial-meta">
+            <div class="name">Mike Weckerle</div>
+            <div class="role">CEO, Contractor Supplement Solutions</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-quote">The 44 Social team learned our brand voice and style very quickly. They consistently create high-quality content that truly reflects who we are. Real creativity and professionalism.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-initials">PH</div>
+          <div class="testimonial-meta">
+            <div class="name">Paul Harrison</div>
+            <div class="role">Marketing Director, Street Legal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FINAL CTA
+     ============================================ -->
+<section class="final-cta">
+  <h3>Ready to <em>start?</em></h3>
+  <p>Book your call. We'll learn your business, find your content gaps, and walk you through how a Sprint fits.</p>
+  <a href="#book" class="cta-primary">Book a Free Call →</a>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">44 SOCIAL</div>
+      <p class="footer-tagline">Social Media Management & Content Creation Agency. Based in Orlando, FL — serving clients nationwide.</p>
+      <a href="mailto:hello@44social.co" class="footer-email">hello@44social.co</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="/#services">Strategy</a></li>
+        <li><a href="/#services">Content Creation</a></li>
+        <li><a href="/#services">Social Management</a></li>
+        <li><a href="/sprints">Content Sprints</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#work">Our Work</a></li>
+        <li><a href="/apply">Apply Now</a></li>
+        <li><a href="/sprints#book">Book a Call</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="mailto:hello@44social.co">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 44 Social. All Rights Reserved.</div>
+    <div>Orlando, FL</div>
+  </div>
+</footer>
+
+<!-- ============================================
+     STICKY MOBILE CTA
+     ============================================ -->
+<div class="sticky-mobile-cta">
+  <a href="#book">Book a Free Call →</a>
+</div>
+
+</body>
+</html>
