@@ -1,1304 +1,964 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>44 Social — Pricing Calculator</title>
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '942383486241911');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=942383486241911&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pricing — 44 Social</title>
+<meta name="description" content="Social media management for ongoing partnership, content sprints for one-time production. Pick the path that fits.">
+<meta name="theme-color" content="#2c2724">
+
+<meta property="og:title" content="Pricing — 44 Social" />
+<meta property="og:description" content="Social media management for ongoing partnership, content sprints for one-time production. Pick the path that fits." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://44social.co/pricing" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --bg1: #2c2724;
-  --bg2: #322c29;
-  --bg3: #38312d;
-  --bg4: #3f3732;
-  --amber: #c8a070;
-  --amber-dim: rgba(200,160,112,0.13);
-  --amber-line: rgba(200,160,112,0.28);
-  --green: #3a7a63;
-  --green-hover: #4a9479;
-  --green-dim: rgba(58,122,99,0.13);
-  --green-line: rgba(58,122,99,0.35);
-  --text: #f0ebe4;
-  --muted: #a09488;
-  --very-muted: #6a5e58;
-  --border: rgba(255,255,255,0.07);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: var(--bg1);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  min-height: 100vh;
-  line-height: 1.6;
-  position: relative;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.15;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-}
-
-.container { max-width: 1200px; margin: 0 auto; padding: 48px 32px; position: relative; z-index: 1; }
-
-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 64px; flex-wrap: wrap; gap: 24px; }
-
-.logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; color: var(--amber); line-height: 1; }
-
-.logo-sub { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
-
-.back-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; transition: color 0.2s ease; }
-
-.back-link:hover { color: var(--amber); }
-
-.eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
-
-.title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 9vw, 96px); line-height: 0.95; letter-spacing: 1px; margin-bottom: 8px; }
-
-.title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.85em; letter-spacing: 0; }
-
-.subtitle { font-size: 16px; color: var(--muted); max-width: 620px; border-left: 2px solid var(--amber); padding-left: 16px; margin-bottom: 64px; line-height: 1.7; }
-
-.tabs { display: flex; gap: 0; margin-bottom: 32px; border-bottom: 1px solid var(--border); }
-
-.tab { background: transparent; color: var(--muted); border: none; border-bottom: 2px solid transparent; padding: 16px 24px; font-family: 'DM Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.2s ease; }
-
-.tab:hover { color: var(--text); }
-
-.tab.active { color: var(--amber); border-bottom-color: var(--amber); }
-
-.panel { display: none; }
-.panel.active { display: block; }
-
-.panel-intro { background: var(--bg2); border: 1px solid var(--amber-line); border-left: 3px solid var(--amber); border-radius: 0 4px 4px 0; padding: 32px 36px; margin-bottom: 40px; }
-
-.panel-intro-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 14px; }
-
-.panel-intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: 1px; line-height: 1.05; color: var(--text); margin-bottom: 16px; }
-
-.panel-intro-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.9em; letter-spacing: 0; }
-
-.panel-intro-desc { font-size: 16px; color: var(--muted); margin-bottom: 28px; max-width: 820px; line-height: 1.7; }
-
-.panel-intro-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
-
-.meta-item { display: flex; flex-direction: column; gap: 8px; }
-
-.meta-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
-
-.meta-value { font-size: 15px; color: var(--text); line-height: 1.5; }
-
-.ads-sub-intro { background: var(--bg2); border-left: 2px solid var(--amber-line); padding: 20px 24px; margin-bottom: 24px; border-radius: 0 4px 4px 0; }
-
-.ads-sub-intro-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; }
-
-.ads-sub-intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; color: var(--text); line-height: 1.15; margin-bottom: 6px; }
-
-.ads-sub-intro-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
-
-.combo-callout { background: var(--bg2); border: 1px solid var(--green-line); border-radius: 4px; padding: 28px 32px; margin-top: 32px; position: relative; overflow: hidden; }
-
-.combo-callout::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green-hover), transparent); opacity: 0.5; }
-
-.combo-callout-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--green-hover); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; }
-
-.combo-callout-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--text); line-height: 1.1; margin-bottom: 10px; }
-
-.combo-callout-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--green-hover); font-size: 0.9em; letter-spacing: 0; }
-
-.combo-callout-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 18px; max-width: 720px; }
-
-.combo-callout-btn { display: inline-block; background: transparent; color: var(--green-hover); border: 1px solid var(--green-hover); border-radius: 4px; padding: 12px 24px; font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.2s ease; font-weight: 500; }
-
-.combo-callout-btn:hover { background: var(--green-hover); color: var(--bg1); }
-
-.credits-explainer { background: var(--bg2); border: 1px solid var(--amber-line); border-radius: 4px; padding: 36px; margin-bottom: 40px; position: relative; overflow: hidden; }
-
-.credits-explainer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--amber), transparent); opacity: 0.35; }
-
-.credits-explainer-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 14px; }
-
-.credits-explainer-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 1px; line-height: 1.05; color: var(--text); margin-bottom: 18px; }
-
-.credits-explainer-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.9em; letter-spacing: 0; }
-
-.credits-explainer-lead { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 28px; max-width: 820px; }
-
-.credits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-bottom: 32px; }
-
-.credits-col { display: flex; flex-direction: column; gap: 12px; padding: 20px; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; }
-
-.credits-col-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); text-transform: uppercase; letter-spacing: 2px; padding-bottom: 8px; border-bottom: 1px solid var(--amber-line); }
-
-.credits-col-heading { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; color: var(--text); line-height: 1.2; }
-
-.credits-col-body { font-size: 13px; color: var(--muted); line-height: 1.6; }
-
-.credits-col-body strong { color: var(--text); font-weight: 500; }
-
-.charts-section { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 36px; margin-bottom: 40px; }
-
-.charts-section-heading { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1px; line-height: 1; margin-bottom: 28px; }
-
-.charts-section-heading em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.9em; letter-spacing: 0; }
-
-.charts-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-
-.chart-block { background: var(--bg3); border: 1px solid var(--border); padding: 24px 20px; position: relative; border-radius: 4px; }
-
-.chart-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--amber), transparent); opacity: 0.35; }
-
-.chart-title { font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 2px; margin-bottom: 4px; }
-
-.chart-subtitle { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--very-muted); text-transform: uppercase; margin-bottom: 20px; }
-
-.bar-chart { display: flex; flex-direction: column; gap: 12px; }
-
-.bar-row { display: flex; align-items: center; gap: 10px; }
-
-.bar-label { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 1px; color: var(--text); width: 72px; flex-shrink: 0; }
-
-.bar-track { flex: 1; height: 20px; background: rgba(200,160,112,0.06); position: relative; border: 1px solid var(--border); }
-
-.bar-fill { position: absolute; top: 0; left: 0; bottom: 0; background: var(--amber); transition: width 0.6s ease; }
-
-.bar-fill.featured { background: var(--green-hover); }
-
-.bar-value { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; color: var(--amber); width: 60px; flex-shrink: 0; text-align: right; }
-
-.bar-value.featured { color: var(--green-hover); }
-
-.included-note { font-size: 14px; color: var(--muted); margin: -20px 0 32px; padding: 14px 18px; background: var(--bg2); border-left: 2px solid var(--amber-line); line-height: 1.6; }
-
-.included-note strong { color: var(--amber); font-weight: 500; }
-
-.section { margin-bottom: 40px; }
-
-.section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; gap: 16px; flex-wrap: wrap; }
-
-.section-title { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; }
-
-.section-note { font-size: 12px; color: var(--very-muted); font-style: italic; text-align: right; max-width: 60%; }
-
-.btn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
-
-.btn { background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer; transition: all 0.2s ease; text-align: left; }
-
-.btn:hover { background: var(--bg4); border-color: var(--amber-line); }
-
-.btn.active { background: var(--amber-dim); border-color: var(--amber); color: var(--amber); }
-
-.btn-price { display: block; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); margin-top: 4px; }
-
-.btn.active .btn-price { color: var(--amber); }
-
-.toggle-desc { display: block; font-size: 11px; color: var(--very-muted); margin-top: 4px; line-height: 1.4; }
-
-.btn.active .toggle-desc { color: var(--amber); opacity: 0.8; }
-
-.stack-btn { background: var(--bg2); color: var(--text); border: 1px solid var(--amber-line); padding: 20px 22px; text-align: left; position: relative; }
-
-.stack-btn:hover { background: var(--bg3); border-color: var(--amber); }
-
-.stack-btn.active { background: var(--amber-dim); border-color: var(--amber); }
-
-.stack-btn.recommended { border: 2px solid var(--green); }
-.stack-btn.recommended:hover { border-color: var(--green-hover); }
-.stack-btn.recommended.active { background: var(--green-dim); border-color: var(--green-hover); }
-.stack-btn.recommended::after { content: 'RECOMMENDED'; position: absolute; top: -9px; right: 12px; background: var(--green); color: #fff; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 2px; padding: 3px 8px; border-radius: 2px; }
-
-.stack-name { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; display: block; }
-
-.stack-price { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--amber); margin-top: 4px; display: block; }
-
-.stack-btn.recommended .stack-price { color: var(--green-hover); }
-
-.stack-meta { font-size: 11px; color: var(--very-muted); margin-top: 8px; line-height: 1.4; }
-
-.stack-btn.active .stack-meta { color: var(--amber); opacity: 0.8; }
-
-.stack-btn.recommended.active .stack-meta { color: var(--green-hover); opacity: 0.85; }
-
-.stack-btn.enterprise .stack-price { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 14px; text-transform: none; letter-spacing: 0; }
-
-.ad-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-
-.ad-card { background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 24px; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s ease; text-align: left; display: flex; flex-direction: column; gap: 14px; position: relative; }
-
-.ad-card:hover { background: var(--bg4); border-color: var(--amber-line); }
-
-.ad-card.active { background: var(--amber-dim); border-color: var(--amber); }
-
-.ad-card.recommended { border: 2px solid var(--green); }
-.ad-card.recommended:hover { border-color: var(--green-hover); }
-.ad-card.recommended.active { background: var(--green-dim); border-color: var(--green-hover); }
-.ad-card.recommended::after { content: 'RECOMMENDED'; position: absolute; top: -9px; right: 12px; background: var(--green); color: #fff; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 2px; padding: 3px 8px; border-radius: 2px; }
-
-.ad-card-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
-
-.ad-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; color: var(--text); }
-
-.ad-card.active .ad-card-name { color: var(--amber); }
-
-.ad-card-price { font-family: 'DM Mono', monospace; font-size: 16px; color: var(--amber); font-weight: 500; }
-
-.ad-card.recommended .ad-card-price { color: var(--green-hover); }
-
-.ad-card-deliverable { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; color: var(--amber); line-height: 1.3; }
-
-.ad-card-turnaround { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text); text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 12px; background: var(--bg2); border-radius: 4px; display: inline-block; align-self: flex-start; }
-
-.ad-card.active .ad-card-turnaround { background: var(--bg1); color: var(--amber); }
-
-.ad-card-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-
-.ad-card-features li { font-size: 14px; color: var(--muted); padding-left: 18px; position: relative; line-height: 1.5; }
-
-.ad-card-features li::before { content: '✓'; position: absolute; left: 0; color: var(--amber); font-size: 12px; top: 2px; font-weight: 600; }
-
-.ad-card-features li strong { color: var(--text); font-weight: 500; }
-
-.ad-card-best { font-size: 13px; color: var(--very-muted); padding-top: 14px; border-top: 1px solid var(--border); font-style: italic; line-height: 1.5; margin-top: auto; }
-
-.ad-card.active .ad-card-best { color: var(--muted); }
-
-.mgmt-card { background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 22px; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s ease; text-align: left; display: flex; flex-direction: column; gap: 12px; position: relative; }
-
-.mgmt-card:hover { background: var(--bg4); border-color: var(--amber-line); }
-
-.mgmt-card.active { background: var(--amber-dim); border-color: var(--amber); }
-
-.mgmt-card.recommended { border: 2px solid var(--green); }
-.mgmt-card.recommended:hover { border-color: var(--green-hover); }
-.mgmt-card.recommended.active { background: var(--green-dim); border-color: var(--green-hover); }
-.mgmt-card.recommended::after { content: 'RECOMMENDED'; position: absolute; top: -9px; right: 12px; background: var(--green); color: #fff; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 2px; padding: 3px 8px; border-radius: 2px; }
-
-.mgmt-card-tier { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); text-transform: uppercase; letter-spacing: 2px; }
-
-.mgmt-card.recommended .mgmt-card-tier { color: var(--green-hover); }
-
-.mgmt-card-spend { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; color: var(--text); line-height: 1.1; }
-
-.mgmt-card-fee { font-family: 'DM Mono', monospace; font-size: 15px; color: var(--amber); font-weight: 500; padding-top: 12px; border-top: 1px solid var(--border); }
-
-.mgmt-card.recommended .mgmt-card-fee { color: var(--green-hover); }
-
-.mgmt-card-note { font-size: 12px; color: var(--very-muted); line-height: 1.5; font-style: italic; }
-
-.total-card { background: var(--bg2); border: 2px solid var(--amber); border-radius: 4px; padding: 32px; margin-top: 48px; position: relative; }
-
-.total-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--amber), transparent); opacity: 0.35; }
-
-.total-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; }
-
-.total-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
-
-.total-amount { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 1; letter-spacing: 1px; color: var(--amber); }
-
-.total-amount.custom { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 48px; letter-spacing: 0; }
-
-.total-breakdown { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
-
-.total-breakdown-row { display: flex; justify-content: space-between; align-items: baseline; color: var(--muted); }
-
-.total-breakdown-row .val { font-family: 'DM Mono', monospace; color: var(--amber); font-weight: 500; }
-
-.total-annual { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); }
-
-.total-annual-value { font-family: 'DM Mono', monospace; color: var(--text); font-weight: 500; }
-
-.total-footnote { margin-top: 12px; font-size: 12px; color: var(--very-muted); line-height: 1.5; font-style: italic; }
-
-.actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
-
-.action-btn { flex: 1; min-width: 180px; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 14px 20px; font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.2s ease; }
-
-.action-btn:hover { background: var(--bg3); border-color: var(--amber-line); color: var(--amber); }
-
-.action-btn.primary { background: var(--green); border-color: var(--green); color: #fff; }
-
-.action-btn.primary:hover { background: var(--green-hover); border-color: var(--green-hover); color: #fff; }
-
-.send-confirmation { margin-top: 16px; padding: 14px 18px; background: var(--bg3); border: 1px solid var(--border); border-left: 2px solid var(--amber); border-radius: 0 4px 4px 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
-
-.send-confirmation strong { color: var(--amber); font-weight: 500; }
-
-.summary { margin-top: 24px; padding: 24px; background: var(--bg3); border: 1px solid var(--amber-line); border-radius: 4px; display: none; }
-
-.summary.visible { display: block; }
-
-.summary-title { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--amber); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
-
-.summary-line { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
-
-.summary-line:last-of-type { border-bottom: none; }
-
-.summary-line.total { margin-top: 12px; padding-top: 16px; border-top: 1px solid var(--amber-line); border-bottom: none; font-family: 'DM Mono', monospace; font-size: 15px; color: var(--amber); }
-
-.summary-section { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border); }
-
-.summary-section-title { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
-
-.summary-note { margin-top: 16px; padding: 12px 16px; background: var(--bg4); border-radius: 4px; font-size: 12px; color: var(--muted); }
-
-.help-prompt { margin-top: 48px; padding: 32px; background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; text-align: center; }
-
-.help-prompt-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--text); margin-bottom: 8px; }
-
-.help-prompt-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-size: 0.9em; letter-spacing: 0; }
-
-.help-prompt-desc { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
-
-.help-prompt-link { display: inline-block; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--amber); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; padding: 12px 24px; border: 1px solid var(--amber); border-radius: 4px; transition: all 0.2s ease; }
-
-.help-prompt-link:hover { background: var(--amber); color: var(--bg1); }
-
-footer { margin-top: 96px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--very-muted); }
-
-footer a { color: var(--amber); text-decoration: none; }
-
-@media (max-width: 800px) {
-  .container { padding: 32px 20px; }
-  .btn-grid { grid-template-columns: 1fr 1fr; }
-  .tabs { overflow-x: auto; }
-  .tab { white-space: nowrap; padding: 14px 16px; }
-  .section-note { max-width: 100%; text-align: left; }
-  .credits-grid { grid-template-columns: 1fr; }
-  .charts-row { grid-template-columns: 1fr; }
-}
+  :root {
+    --bg1: #2c2724;
+    --bg2: #322c29;
+    --bg3: #38312d;
+    --bg4: #3f3732;
+    --amber: #c8a070;
+    --amber-hover: #d6b285;
+    --amber-dim: rgba(200,160,112,0.13);
+    --amber-line: rgba(200,160,112,0.28);
+    --amber-strong: rgba(200,160,112,0.55);
+    --text: #f0ebe4;
+    --muted: #a09488;
+    --very-muted: #6a5e58;
+    --white: #ffffff;
+    --border: rgba(255,255,255,0.07);
+    --border-strong: rgba(255,255,255,0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg1);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.45;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' /></svg>");
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ============================================ NAV ============================================ */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(44, 39, 36, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 0.06em; color: var(--amber);
+  }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--amber); }
+  .nav-cta {
+    background: var(--amber); color: var(--bg1) !important;
+    padding: 10px 18px; border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+    transition: background 0.2s ease;
+  }
+  .nav-cta:hover { background: var(--amber-hover); color: var(--bg1) !important; }
+
+  /* ============================================ HERO ============================================ */
+  .hero {
+    position: relative;
+    padding: 80px 48px 40px;
+    overflow: hidden;
+    background:
+      linear-gradient(rgba(200,160,112,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,160,112,.04) 1px, transparent 1px);
+    background-color: var(--bg1);
+    background-size: 72px 72px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; top: -180px; right: -120px;
+    width: 640px; height: 640px;
+    background: radial-gradient(circle, rgba(200,160,112,0.07), transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    position: relative; z-index: 1; text-align: center;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em;
+    color: var(--amber); text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(54px, 8vw, 88px);
+    line-height: 0.95; letter-spacing: 0.02em;
+    font-weight: 400; margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; color: var(--amber); font-weight: 400;
+  }
+  .hero-desc {
+    font-size: 17px; color: var(--muted);
+    max-width: 620px; margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ============================================ TABS ============================================ */
+  .tabs-wrap {
+    padding: 16px 48px 88px;
+    background-color: var(--bg1);
+    background-image:
+      linear-gradient(rgba(200,160,112,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,160,112,.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+    position: relative;
+  }
+  .tabs-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .tabs-bar {
+    display: inline-flex;
+    gap: 6px;
+    padding: 6px;
+    background: var(--bg2);
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    margin: 0 auto 56px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 14px 28px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active {
+    background: var(--amber);
+    color: var(--bg1);
+  }
+
+  .tab-panel { display: none; animation: fadeIn 0.35s ease; }
+  .tab-panel.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============================================ TAB INTRO ============================================ */
+  .tab-intro { text-align: center; margin-bottom: 56px; }
+  .tab-intro-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em;
+    color: var(--amber); text-transform: uppercase;
+    margin-bottom: 18px;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .tab-intro-label::before, .tab-intro-label::after {
+    content: ''; width: 32px; height: 1px; background: var(--amber);
+  }
+  .tab-intro h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: 0.02em; line-height: 0.95;
+    margin-bottom: 18px; font-weight: 400;
+  }
+  .tab-intro h2 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; color: var(--amber); font-weight: 400;
+  }
+  .tab-intro p {
+    font-size: 16px; color: var(--muted);
+    max-width: 620px; line-height: 1.6;
+    margin: 0 auto;
+  }
+
+  /* ============================================ TIER CARDS (shared) ============================================ */
+  .tier-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .tier-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 32px 28px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .tier-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--amber), transparent);
+    opacity: 0.4;
+  }
+  .tier-card:hover { border-color: var(--amber-line); transform: translateY(-3px); }
+
+  .tier-card.featured {
+    background: var(--bg2);
+    border-color: var(--amber-strong);
+    border-width: 2px;
+  }
+  .tier-card.featured::before { opacity: 0.7; }
+
+  .tier-card .recommended-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--amber);
+    color: var(--bg1);
+    padding: 5px 14px;
+    border-radius: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .tier-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em;
+    color: var(--amber); text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tier-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px; letter-spacing: 0.03em;
+    line-height: 1; margin-bottom: 6px; font-weight: 400;
+  }
+  .tier-tagline {
+    font-size: 13px; color: var(--muted);
+    margin-bottom: 24px; line-height: 1.5;
+    min-height: 40px;
+  }
+  .tier-price-block {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 0; margin-bottom: 24px;
+  }
+  .tier-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px; color: var(--amber);
+    letter-spacing: 0.02em; line-height: 1;
+    margin-bottom: 6px;
+  }
+  .tier-price .per {
+    font-size: 20px; color: var(--muted);
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  .tier-price-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.18em;
+    color: var(--very-muted); text-transform: uppercase;
+  }
+  .tier-inc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .tier-inc-list {
+    display: flex; flex-direction: column;
+    gap: 12px; margin-bottom: 32px; flex: 1;
+  }
+  .tier-inc-row {
+    display: flex; gap: 12px; align-items: baseline;
+    font-size: 14px; color: var(--text); line-height: 1.45;
+  }
+  .tier-inc-row .plus {
+    color: var(--amber); font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    flex-shrink: 0;
+  }
+  .tier-cta {
+    display: block;
+    background: var(--amber); color: var(--bg1);
+    text-align: center; padding: 16px;
+    border-radius: 3px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    transition: background 0.2s ease;
+  }
+  .tier-cta:hover { background: var(--amber-hover); }
+  .tier-card:not(.featured) .tier-cta {
+    background: transparent; color: var(--amber);
+    border: 1px solid var(--amber-line);
+  }
+  .tier-card:not(.featured) .tier-cta:hover {
+    background: var(--amber-dim); border-color: var(--amber);
+  }
+
+  .higher-tier-note {
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; color: var(--very-muted);
+    letter-spacing: 0.1em; margin-top: 40px;
+  }
+  .higher-tier-note a {
+    color: var(--amber);
+    border-bottom: 1px solid var(--amber-line);
+    padding-bottom: 1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .higher-tier-note a:hover {
+    color: var(--amber-hover); border-bottom-color: var(--amber);
+  }
+
+  /* ============================================ DETAILS / FAQ ============================================ */
+  .section {
+    padding: 88px 48px;
+    position: relative;
+  }
+  .section.alt { background: var(--bg2); }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    letter-spacing: 0.02em; line-height: 0.95;
+    margin-bottom: 20px; font-weight: 400;
+  }
+  .section-h2 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; color: var(--amber); font-weight: 400;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em;
+    color: var(--amber); text-transform: uppercase;
+    margin-bottom: 18px;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .section-label::before { content: ''; width: 32px; height: 1px; background: var(--amber); }
+  .section-desc {
+    font-size: 16px; color: var(--muted);
+    max-width: 640px; line-height: 1.6;
+    margin: 0 auto 48px;
+  }
+
+  .details-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .detail-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 3px; padding: 28px;
+    position: relative;
+  }
+  .detail-item::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 36px; height: 1px; background: var(--amber);
+  }
+  .detail-item h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 0.03em;
+    margin-bottom: 12px; color: var(--text); font-weight: 400;
+  }
+  .detail-item p {
+    font-size: 14px; color: var(--muted); line-height: 1.6;
+  }
+
+  /* ============================================ TESTIMONIALS ============================================ */
+  .testimonials {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin-top: 8px;
+  }
+  .testimonial {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 3px; padding: 28px;
+    position: relative;
+  }
+  .testimonial::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 32px; height: 1px; background: var(--amber);
+  }
+  .testimonial-quote {
+    font-size: 14px; color: var(--text);
+    line-height: 1.65; margin-bottom: 20px;
+    font-style: italic;
+  }
+  .testimonial-author {
+    display: flex; align-items: center; gap: 12px;
+    padding-top: 16px; border-top: 1px solid var(--border);
+  }
+  .testimonial-initials {
+    width: 40px; height: 40px;
+    background: var(--amber); color: var(--bg1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-weight: 600; font-size: 13px;
+    letter-spacing: 0.05em; flex-shrink: 0;
+  }
+  .testimonial-meta .name {
+    font-size: 13px; color: var(--text); font-weight: 500;
+  }
+  .testimonial-meta .role {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ============================================ FINAL CTA ============================================ */
+  .final-cta {
+    padding: 100px 48px;
+    background: var(--bg1);
+    text-align: center;
+    border-top: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .final-cta::after {
+    content: '';
+    position: absolute; bottom: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 720px; height: 720px;
+    background: radial-gradient(circle, rgba(200,160,112,0.07), transparent 60%);
+    pointer-events: none;
+  }
+  .final-cta-inner { position: relative; z-index: 1; }
+  .final-cta h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: 0.02em; line-height: 1;
+    margin-bottom: 20px; font-weight: 400;
+  }
+  .final-cta h3 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; color: var(--amber); font-weight: 400;
+  }
+  .final-cta p {
+    color: var(--muted); font-size: 16px;
+    margin-bottom: 32px; max-width: 540px;
+    margin-left: auto; margin-right: auto;
+  }
+  .cta-primary {
+    background: var(--amber); color: var(--bg1);
+    padding: 18px 36px; border-radius: 3px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    transition: background 0.2s ease, transform 0.15s ease;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .cta-primary:hover { background: var(--amber-hover); transform: translateY(-1px); }
+
+  /* ============================================ FOOTER ============================================ */
+  .footer {
+    background: #261f1c;
+    padding: 56px 48px 32px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-grid {
+    max-width: 1200px; margin: 0 auto 40px;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px; letter-spacing: 0.05em;
+    color: var(--amber); margin-bottom: 16px;
+  }
+  .footer-tagline {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.6; max-width: 320px;
+    margin-bottom: 16px;
+  }
+  .footer-email {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; color: var(--amber);
+    letter-spacing: 0.05em;
+  }
+  .footer-col h5 {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em;
+    color: var(--amber); text-transform: uppercase;
+    margin-bottom: 18px; font-weight: 500;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col li a {
+    font-size: 13px; color: var(--muted);
+    transition: color 0.2s ease;
+  }
+  .footer-col li a:hover { color: var(--amber); }
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; color: var(--very-muted);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+
+  /* ============================================ STICKY MOBILE CTA ============================================ */
+  .sticky-mobile-cta {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 50;
+    background: var(--bg1);
+    border-top: 1px solid var(--amber-line);
+    padding: 14px 20px;
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.3);
+  }
+  .sticky-mobile-cta a {
+    display: block;
+    background: var(--amber); color: var(--bg1);
+    text-align: center; padding: 14px;
+    border-radius: 3px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+
+  /* ============================================ RESPONSIVE ============================================ */
+  @media (max-width: 1000px) {
+    .tier-row { grid-template-columns: 1fr; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .details-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 900px) {
+    .nav, .hero, .tabs-wrap, .section, .final-cta, .footer { padding-left: 24px; padding-right: 24px; }
+    .nav-links { gap: 16px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding-top: 56px; padding-bottom: 32px; }
+    .tabs-wrap { padding-bottom: 56px; }
+    .section { padding: 56px 24px; }
+    .details-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .sticky-mobile-cta { display: block; }
+    body { padding-bottom: 76px; }
+    .tier-card { padding: 28px 24px; }
+    .tier-price { font-size: 48px; }
+    .tabs-bar { width: 100%; left: 0; transform: none; justify-content: center; }
+    .tab-btn { padding: 12px 20px; font-size: 11px; letter-spacing: 0.14em; }
+  }
 </style>
 </head>
 <body>
 
-<div class="container">
-
-<header>
-  <div>
-    <div class="logo">44 SOCIAL</div>
-    <div class="logo-sub">Social Media & Brand Production</div>
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-logo">44 SOCIAL</a>
+  <div class="nav-links">
+    <a href="/#services">Services</a>
+    <a href="/#work">Work</a>
+    <a href="/pricing">Pricing</a>
+    <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="nav-cta">Book a Call</a>
   </div>
-  <a href="/" class="back-link">← Back to 44social.co</a>
-</header>
+</nav>
 
-<div class="eyebrow">Build Your Partnership</div>
-<h1 class="title">Pick a path, build a <em>package.</em></h1>
-<p class="subtitle">Three ways to work with us. Pick the path that matches how you work, then configure the package that matches what you need. Every price below reflects our 2026 rate card.</p>
-
-<div class="tabs">
-  <button class="tab" data-tab="ads">Ads</button>
-  <button class="tab active" data-tab="smm">Social Media Management</button>
-  <button class="tab" data-tab="prod">Production Partner</button>
-</div>
-
-<!-- ============================================ -->
-<!-- ADS PANEL (Creative Batches + Management) -->
-<!-- ============================================ -->
-<div class="panel" id="panel-ads">
-
-<div class="panel-intro">
-  <div class="panel-intro-eyebrow">Ad creative and campaign management</div>
-  <div class="panel-intro-title">Creative that <em>performs.</em> Management that <em>scales.</em></div>
-  <div class="panel-intro-desc">Two ways to work with us on ads. Drop in for creative batches when you run your own campaigns, or bring us in to manage spend and optimization on your behalf. Mix and match as needed. Both services can work independently or together.</div>
-  <div class="panel-intro-meta">
-    <div class="meta-item">
-      <span class="meta-label">Creative Batches</span>
-      <span class="meta-value">Project-based. Billed per batch, 50/50.</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Campaign Management</span>
-      <span class="meta-value">Monthly retainer. 2-month minimum.</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Platforms</span>
-      <span class="meta-value">Meta, TikTok, YouTube, LinkedIn.</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Ad Spend</span>
-      <span class="meta-value">Billed to you, paid to the platform.</span>
-    </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Pricing / Two Clear Paths</div>
+    <h1>Built around <em>your business.</em></h1>
+    <p class="hero-desc">
+      Ongoing social media management for businesses that need a partner. One-time content production for businesses that need a library. Both lead to one place: a free call.
+    </p>
   </div>
-</div>
+</section>
 
-<!-- CREATIVE BATCHES -->
-<div class="ads-sub-intro">
-  <div class="ads-sub-intro-label">Section 01</div>
-  <div class="ads-sub-intro-title">Creative Batches</div>
-  <div class="ads-sub-intro-desc">Project-based ad creative, delivered ad-ready. For teams that run their own campaigns and need fresh creative to test and scale.</div>
-</div>
+<!-- TABS -->
+<section class="tabs-wrap">
+  <div class="tabs-inner">
 
-<div class="section">
-  <div class="section-head">
-    <div class="section-title">Select a batch</div>
-    <div class="section-note">All batches billed 50% on signing, 50% on delivery</div>
-  </div>
-  <div class="ad-card-grid">
+    <div class="tabs-bar" role="tablist">
+      <button class="tab-btn active" data-tab="sprints" role="tab" aria-selected="true">Content Sprints</button>
+      <button class="tab-btn" data-tab="smm" role="tab" aria-selected="false">Social Media Management</button>
+    </div>
 
-    <button class="ad-card" data-price="2000" data-name="Ad Starter">
-      <div class="ad-card-header">
-        <span class="ad-card-name">Ad Starter</span>
-        <span class="ad-card-price">$2,000</span>
+    <!-- ============ TAB 1: SPRINTS (lead) ============ -->
+    <div class="tab-panel active" id="tab-sprints" role="tabpanel">
+
+      <div class="tab-intro">
+        <div class="tab-intro-label">Path 01 / One-Time</div>
+        <h2>A full content library<br>from <em>one shoot day.</em></h2>
+        <p>Premium production for businesses that need a content library without the retainer. One focused day, finished deliverables in your hands.</p>
       </div>
-      <div class="ad-card-deliverable">6 ad creatives per batch</div>
-      <div class="ad-card-turnaround">7 Business Day Turnaround</div>
-      <ul class="ad-card-features">
-        <li>2 concepts, 3 variations each</li>
-        <li>Static and short-form video mix</li>
-        <li>1 revision round</li>
-        <li>Delivered in Meta and TikTok specs</li>
+
+      <div class="tier-row">
+
+        <article class="tier-card">
+          <div class="tier-label">Tier 01 / Entry</div>
+          <h3 class="tier-name">SPRINT</h3>
+          <p class="tier-tagline">A starter content library for small launches and local businesses.</p>
+
+          <div class="tier-price-block">
+            <div class="tier-price">$1,950</div>
+            <div class="tier-price-sub">One-Time · 50/50 Split</div>
+          </div>
+
+          <div class="tier-inc-label">What's Included</div>
+          <div class="tier-inc-list">
+            <div class="tier-inc-row"><span class="plus">+</span><span>6 short-form videos</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>15 edited photos</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>2-hour shoot day</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Aerial drone footage</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>One round of revisions</span></div>
+          </div>
+
+          <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="tier-cta">Book a Call to Start</a>
+        </article>
+
+        <article class="tier-card featured">
+          <div class="recommended-badge">Recommended</div>
+          <div class="tier-label">Tier 02 / Featured</div>
+          <h3 class="tier-name">SPRINT PRO</h3>
+          <p class="tier-tagline">The default for most local businesses. More content, more polish, brand stills included.</p>
+
+          <div class="tier-price-block">
+            <div class="tier-price">$2,300</div>
+            <div class="tier-price-sub">One-Time · 50/50 Split</div>
+          </div>
+
+          <div class="tier-inc-label">Everything in Sprint, plus</div>
+          <div class="tier-inc-list">
+            <div class="tier-inc-row"><span class="plus">+</span><span>8 short-form videos (vs 6)</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>20 edited photos (vs 15)</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Brand stills set included</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Professional camera work</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Studio-quality lighting</span></div>
+          </div>
+
+          <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="tier-cta">Book a Call to Start</a>
+        </article>
+
+        <article class="tier-card">
+          <div class="tier-label">Tier 03 / Premium</div>
+          <h3 class="tier-name">SPRINT ELITE</h3>
+          <p class="tier-tagline">For launches, rebrands, and seasonal campaigns. Maximum content from one shoot.</p>
+
+          <div class="tier-price-block">
+            <div class="tier-price">$3,100</div>
+            <div class="tier-price-sub">One-Time · 50/50 Split</div>
+          </div>
+
+          <div class="tier-inc-label">Everything in Pro, plus</div>
+          <div class="tier-inc-list">
+            <div class="tier-inc-row"><span class="plus">+</span><span>12 short-form videos</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>30 edited photos</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Full brand stills set</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>3-hour shoot day</span></div>
+          </div>
+
+          <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="tier-cta">Book a Call to Start</a>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ============ TAB 2: SMM ============ -->
+    <div class="tab-panel" id="tab-smm" role="tabpanel">
+
+      <div class="tab-intro">
+        <div class="tab-intro-label">Path 02 / Ongoing</div>
+        <h2>A team that runs your <em>social.</em></h2>
+        <p>Strategy, content, posting, and community management. We become your social team so you can stay focused on running your business.</p>
+      </div>
+
+      <div class="tier-row">
+
+        <article class="tier-card">
+          <div class="tier-label">Tier 01 / Entry</div>
+          <h3 class="tier-name">STARTER</h3>
+          <p class="tier-tagline">For local businesses and professional services ready to take social seriously.</p>
+
+          <div class="tier-price-block">
+            <div class="tier-price">$3,200<span class="per">/mo</span></div>
+            <div class="tier-price-sub">Monthly Retainer · 3-Mo Min</div>
+          </div>
+
+          <div class="tier-inc-label">What's Included</div>
+          <div class="tier-inc-list">
+            <div class="tier-inc-row"><span class="plus">+</span><span>2 platforms managed</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>4 posts per week per platform</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>4 short-form videos per month</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>8 graphics or carousels per month</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>5 hours per week community management</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Monthly strategy + content calendar</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Full Architects AI stack</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Monthly performance reporting</span></div>
+          </div>
+
+          <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="tier-cta">Book a Call to Start</a>
+        </article>
+
+        <article class="tier-card featured">
+          <div class="recommended-badge">Recommended</div>
+          <div class="tier-label">Tier 02 / Featured</div>
+          <h3 class="tier-name">GROWTH</h3>
+          <p class="tier-tagline">The default for most local businesses. More content, more management, more results.</p>
+
+          <div class="tier-price-block">
+            <div class="tier-price">$5,550<span class="per">/mo</span></div>
+            <div class="tier-price-sub">Monthly Retainer · 3-Mo Min</div>
+          </div>
+
+          <div class="tier-inc-label">Everything in Starter, plus</div>
+          <div class="tier-inc-list">
+            <div class="tier-inc-row"><span class="plus">+</span><span>3 platforms managed (vs 2)</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>5 posts per week per platform</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>8 short-form videos per month (vs 4)</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>12 graphics or carousels per month (vs 8)</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Monthly on-site shoot day</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Monthly strategy call</span></div>
+          </div>
+
+          <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="tier-cta">Book a Call to Start</a>
+        </article>
+
+        <article class="tier-card">
+          <div class="tier-label">Tier 03 / Premium</div>
+          <h3 class="tier-name">SCALE</h3>
+          <p class="tier-tagline">Multi-location or high-activity brands ready to make social a core revenue channel.</p>
+
+          <div class="tier-price-block">
+            <div class="tier-price">$6,150<span class="per">/mo</span></div>
+            <div class="tier-price-sub">Monthly Retainer · 3-Mo Min</div>
+          </div>
+
+          <div class="tier-inc-label">Everything in Growth, plus</div>
+          <div class="tier-inc-list">
+            <div class="tier-inc-row"><span class="plus">+</span><span>4 platforms managed (vs 3)</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Daily posting cadence</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>12 short-form videos per month (vs 8)</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>20 graphics or carousels per month (vs 12)</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>10 hours per week community management</span></div>
+            <div class="tier-inc-row"><span class="plus">+</span><span>Quarterly performance review</span></div>
+          </div>
+
+          <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="tier-cta">Book a Call to Start</a>
+        </article>
+
+      </div>
+
+      <p class="higher-tier-note">
+        Multi-brand or enterprise-level needs? <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener">Book a call</a> to discuss custom packages.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DETAILS / FAQ -->
+<section class="section alt">
+  <div class="section-inner">
+    <div style="text-align: center;">
+      <div class="section-label">Good to Know</div>
+      <h2 class="section-h2">The <em>details.</em></h2>
+      <p class="section-desc">Common questions about how we work, billing, and what to expect.</p>
+    </div>
+
+    <div class="details-grid">
+
+      <div class="detail-item">
+        <h4>Simple Billing</h4>
+        <p>SMM retainers billed on the 1st of each month. Sprints are 50% to reserve, 50% before the shoot day. Invoice, Zelle, PayPal, or bank transfer.</p>
+      </div>
+
+      <div class="detail-item">
+        <h4>What You Receive</h4>
+        <p>Finished deliverables with full rights to use them across social, web, and ads. Raw footage and extra edits available anytime as an add-on.</p>
+      </div>
+
+      <div class="detail-item">
+        <h4>Local to You</h4>
+        <p>Based in Orlando, serving Central Florida. Shoots within a 50-mile radius are included. Travel beyond is billed at cost.</p>
+      </div>
+
+      <div class="detail-item">
+        <h4>Onboarding</h4>
+        <p>SMM retainers include a one-time onboarding period where we set up your strategy, content calendar, and AI Architects stack. Sprints require no onboarding, we plan on the call.</p>
+      </div>
+
+      <div class="detail-item">
+        <h4>Add-Ons Available</h4>
+        <p>Ad management, additional platforms, extended community hours, bonus shoot days, and rush turnaround are available as add-ons on calls.</p>
+      </div>
+
+      <div class="detail-item">
+        <h4>Clear Terms</h4>
+        <p>SMM retainers begin with a 3-month minimum and continue month-to-month. Notice for termination is discussed on your call. Sprints are one-time, no ongoing obligation.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-inner">
+    <div style="text-align: center;">
+      <div class="section-label">Client Words</div>
+      <h2 class="section-h2">What they <em>say.</em></h2>
+    </div>
+
+    <div class="testimonials">
+
+      <div class="testimonial">
+        <p class="testimonial-quote">Floydie and the 44 Social team are creative, assertive, and true pros at social media and content. A natural at producing engaging content across industries.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-initials">AG</div>
+          <div class="testimonial-meta">
+            <div class="name">Andrew Girges</div>
+            <div class="role">CEO, Omni Airport Parking</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-quote">44 Social did an excellent job shooting our content. They prepared all of the scripts, showed up on time, and had the final product back to us quickly. Highly recommend.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-initials">MW</div>
+          <div class="testimonial-meta">
+            <div class="name">Mike Weckerle</div>
+            <div class="role">CEO, Contractor Supplement Solutions</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-quote">The 44 Social team learned our brand voice and style very quickly. They consistently create high-quality content that truly reflects who we are. Real creativity and professionalism.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-initials">PH</div>
+          <div class="testimonial-meta">
+            <div class="name">Paul Harrison</div>
+            <div class="role">Marketing Director, Street Legal</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h3>Ready to <em>talk?</em></h3>
+    <p>Book a free 30-minute call. We'll learn your business, find the right fit, and walk you through what comes next.</p>
+    <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="cta-primary">Book a Free Call →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">44 SOCIAL</div>
+      <p class="footer-tagline">Social Media Management & Content Creation Agency. Based in Orlando, FL — serving clients nationwide.</p>
+      <a href="mailto:hello@44social.co" class="footer-email">hello@44social.co</a>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="/#services">Social Media Management</a></li>
+        <li><a href="/pricing">Content Sprints</a></li>
+        <li><a href="/#services">Strategy</a></li>
+        <li><a href="/#services">Content Creation</a></li>
       </ul>
-      <div class="ad-card-best">Best for testing creative at modest ad budgets ($1K–$3K/mo spend)</div>
-    </button>
-
-    <button class="ad-card recommended" data-price="3750" data-name="Ad Growth">
-      <div class="ad-card-header">
-        <span class="ad-card-name">Ad Growth</span>
-        <span class="ad-card-price">$3,750</span>
-      </div>
-      <div class="ad-card-deliverable">12 ad creatives per batch</div>
-      <div class="ad-card-turnaround">5 Business Day Turnaround</div>
-      <ul class="ad-card-features">
-        <li>3 concepts, 4 variations each</li>
-        <li>UGC-style, B-roll, static, and motion</li>
-        <li>2 revision rounds</li>
-        <li>Platform-native variants (Meta, TikTok)</li>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#work">Our Work</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="https://calendly.com/44social/30min" target="_blank" rel="noopener">Book a Call</a></li>
       </ul>
-      <div class="ad-card-best">Best for active advertisers testing weekly ($3K–$10K/mo spend)</div>
-    </button>
-
-    <button class="ad-card" data-price="6500" data-name="Ad Scale">
-      <div class="ad-card-header">
-        <span class="ad-card-name">Ad Scale</span>
-        <span class="ad-card-price">$6,500</span>
-      </div>
-      <div class="ad-card-deliverable">20 ad creatives per batch</div>
-      <div class="ad-card-turnaround">Priority 5 Day Turnaround</div>
-      <ul class="ad-card-features">
-        <li>Full concept development, 4–5 angles</li>
-        <li><strong>Includes original half-day shoot</strong></li>
-        <li>UGC coordination and motion graphics</li>
-        <li>Meta, TikTok, YouTube Shorts, LinkedIn specs</li>
-        <li>2 revision rounds</li>
+    </div>
+    <div class="footer-col">
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="mailto:hello@44social.co">Email Us</a></li>
       </ul>
-      <div class="ad-card-best">Best for performance marketers spending $10K+/mo</div>
-    </button>
-
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-head">
-    <div class="section-title">Commitment length</div>
-    <div class="section-note">Lock in pricing with a multi-batch commit</div>
-  </div>
-  <div class="btn-grid">
-    <button class="btn commit-btn" data-discount="0">Month-to-month<span class="btn-price">Standard pricing</span></button>
-    <button class="btn commit-btn" data-discount="0.05">3-month commit<span class="btn-price">5% off</span></button>
-    <button class="btn commit-btn" data-discount="0.10">6-month commit<span class="btn-price">10% off</span></button>
-    <button class="btn commit-btn" data-discount="0.15">12-month commit<span class="btn-price">15% off</span></button>
-  </div>
-</div>
-
-<!-- CAMPAIGN MANAGEMENT -->
-<div class="ads-sub-intro" style="margin-top: 48px;">
-  <div class="ads-sub-intro-label">Section 02</div>
-  <div class="ads-sub-intro-title">Campaign Management</div>
-  <div class="ads-sub-intro-desc">Monthly retainer where we handle campaign strategy, optimization, tracking, and reporting. For teams that want us running the campaigns, not just delivering the creative.</div>
-</div>
-
-<div class="section">
-  <div class="section-head">
-    <div class="section-title">Select a management tier</div>
-    <div class="section-note">Tier is set by your monthly ad spend. 2-month minimum commitment.</div>
-  </div>
-  <div class="ad-card-grid">
-
-    <button class="mgmt-card" data-tier="1" data-fee="1000" data-name="Tier 1">
-      <div class="mgmt-card-tier">Tier 1</div>
-      <div class="mgmt-card-spend">Under $2,500/mo spend</div>
-      <div class="mgmt-card-fee">$1,000 / month flat</div>
-      <div class="mgmt-card-note">Entry-level ad management for early testing and brand awareness campaigns.</div>
-    </button>
-
-    <button class="mgmt-card recommended" data-tier="2" data-fee="1500" data-name="Tier 2">
-      <div class="mgmt-card-tier">Tier 2</div>
-      <div class="mgmt-card-spend">$2,500 to $7,500/mo spend</div>
-      <div class="mgmt-card-fee">$1,500 / month flat</div>
-      <div class="mgmt-card-note">Sweet spot for most growing brands actively scaling paid acquisition.</div>
-    </button>
-
-    <button class="mgmt-card" data-tier="3" data-fee="spend15" data-name="Tier 3">
-      <div class="mgmt-card-tier">Tier 3</div>
-      <div class="mgmt-card-spend">$7,500 to $15,000/mo spend</div>
-      <div class="mgmt-card-fee">15% of monthly ad spend</div>
-      <div class="mgmt-card-note">For high-volume advertisers. Fee scales with your spend as campaigns grow.</div>
-    </button>
-
-    <button class="mgmt-card" data-tier="4" data-fee="spend12" data-name="Tier 4">
-      <div class="mgmt-card-tier">Tier 4</div>
-      <div class="mgmt-card-spend">$15,000+/mo spend</div>
-      <div class="mgmt-card-fee">12% of monthly ad spend</div>
-      <div class="mgmt-card-note">Enterprise-level spend management. Better per-dollar rate for major budgets.</div>
-    </button>
-
-  </div>
-</div>
-
-<div class="included-note" style="margin-top: 8px;">
-  <strong>Campaign management includes</strong> account setup, audience building, funnel design, pixel and conversion tracking, ongoing optimization, weekly performance monitoring, and a monthly performance report. Ad creative is separate (see Section 01 above or bundle with SMM).
-</div>
-
-<!-- FULL-SERVICE COMBO CALLOUT -->
-<div class="combo-callout">
-  <div class="combo-callout-label">Want it all?</div>
-  <div class="combo-callout-title">Creative, management, and <em>full social</em> under one roof.</div>
-  <div class="combo-callout-desc">Our Social Media Management retainer bundles ad management alongside monthly Credits for new creative, community management, posting cadence, and strategy. One retainer, every service.</div>
-  <button class="combo-callout-btn" id="combo-switch-btn">See Social Media Management →</button>
-</div>
-
-</div>
-
-<!-- ============================================ -->
-<!-- SMM PANEL (CREDITS MODEL) -->
-<!-- ============================================ -->
-<div class="panel active" id="panel-smm">
-
-<div class="panel-intro">
-  <div class="panel-intro-eyebrow">Full-service retainer · Credits Model</div>
-  <div class="panel-intro-title">Flexibility in <em>production.</em> Consistency in <em>posting.</em></div>
-  <div class="panel-intro-desc">Every stack pairs a monthly Credit allotment for content creation with a guaranteed weekly posting cadence. Credits fund what we create. Your retainer funds what we post. Quiet production months don't mean a quiet feed.</div>
-  <div class="panel-intro-meta">
-    <div class="meta-item">
-      <span class="meta-label">How we work</span>
-      <span class="meta-value">Monthly retainer. 3-month initial term.</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Who posts content</span>
-      <span class="meta-value">We do. Full end-to-end handling.</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Community management</span>
-      <span class="meta-value">Included at every tier.</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Best for</span>
-      <span class="meta-value">Brands wanting a full social team.</span>
     </div>
   </div>
-</div>
-
-<div class="credits-explainer">
-  <div class="credits-explainer-eyebrow">How It Works</div>
-  <div class="credits-explainer-title">Credits are <em>flexible</em> units of production.</div>
-  <p class="credits-explainer-lead">Instead of fixed content quotas, each month you receive a set number of Credits to spend however your business needs. Shoot more one month, edit more the next. Your feed stays consistent regardless.</p>
-  <p style="margin-top:16px;"><a href="/pricing/credits" style="display:inline-flex;align-items:center;gap:8px;color:#c8a070;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;border-bottom:1px solid rgba(200,160,112,0.35);padding-bottom:4px;text-decoration:none;">Learn how credits work →</a></p>
-
-  <div class="credits-grid">
-    <div class="credits-col">
-      <div class="credits-col-label">The Idea</div>
-      <div class="credits-col-heading">One Credit, endless options.</div>
-      <div class="credits-col-body">A Credit is a unit of production output. You use it for whatever your content calendar needs that month. <strong>Video, photo, graphics, or on-site shooting.</strong></div>
-    </div>
-    <div class="credits-col">
-      <div class="credits-col-label">The Flexibility</div>
-      <div class="credits-col-heading">Spend your way.</div>
-      <div class="credits-col-body">Big shoot month ahead? Cash in Credits for media hours and video edits. Quiet month? Save them for carousels and graphics. <strong>You decide.</strong></div>
-    </div>
-    <div class="credits-col">
-      <div class="credits-col-label">The Consistency</div>
-      <div class="credits-col-heading">Your feed stays active.</div>
-      <div class="credits-col-body">Posting cadence is included in your retainer, separate from Credits. We post every week from new content, <strong>repurposed archives, and evergreen brand assets.</strong></div>
-    </div>
+  <div class="footer-bottom">
+    <div>© 2026 44 Social. All Rights Reserved.</div>
+    <div>Orlando, FL</div>
   </div>
-</div>
-
-<div class="charts-section">
-  <div class="charts-section-heading">Stacks at a <em>glance.</em></div>
-  <div class="charts-row">
-
-    <div class="chart-block">
-      <div class="chart-title">MONTHLY COST</div>
-      <div class="chart-subtitle">Total retainer per month</div>
-      <div class="bar-chart">
-        <div class="bar-row">
-          <div class="bar-label">Starter</div>
-          <div class="bar-track"><div class="bar-fill" style="width: 36.7%;"></div></div>
-          <div class="bar-value">$3,125</div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Growth</div>
-          <div class="bar-track"><div class="bar-fill featured" style="width: 49.9%;"></div></div>
-          <div class="bar-value featured">$4,250</div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Scale</div>
-          <div class="bar-track"><div class="bar-fill" style="width: 74.5%;"></div></div>
-          <div class="bar-value">$6,350</div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Enterprise</div>
-          <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
-          <div class="bar-value">$8,525</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="chart-block">
-      <div class="chart-title">CREDITS</div>
-      <div class="chart-subtitle">Monthly production allotment</div>
-      <div class="bar-chart">
-        <div class="bar-row">
-          <div class="bar-label">Starter</div>
-          <div class="bar-track"><div class="bar-fill" style="width: 20%;"></div></div>
-          <div class="bar-value">10</div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Growth</div>
-          <div class="bar-track"><div class="bar-fill featured" style="width: 40%;"></div></div>
-          <div class="bar-value featured">20</div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Scale</div>
-          <div class="bar-track"><div class="bar-fill" style="width: 64%;"></div></div>
-          <div class="bar-value">32</div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Enterprise</div>
-          <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
-          <div class="bar-value">50</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="chart-block">
-      <div class="chart-title">POSTS / WEEK</div>
-      <div class="chart-subtitle">Per platform, minimum cadence</div>
-      <div class="bar-chart">
-        <div class="bar-row">
-          <div class="bar-label">Starter</div>
-          <div class="bar-track"><div class="bar-fill" style="width: 60%;"></div></div>
-          <div class="bar-value">3</div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Growth</div>
-          <div class="bar-track"><div class="bar-fill featured" style="width: 80%;"></div></div>
-          <div class="bar-value featured">4</div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Scale</div>
-          <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
-          <div class="bar-value">5</div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label">Enterprise</div>
-          <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
-          <div class="bar-value">5</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-head">
-    <div class="section-title">Pick your stack</div>
-    <div class="section-note">Each stack includes Credits, posting cadence, platforms, and community hours</div>
-  </div>
-  <div class="btn-grid">
-    <button class="btn stack-btn" data-stack="starter">
-      <span class="stack-name">Starter</span>
-      <span class="stack-price">$3,125/mo</span>
-      <div class="stack-meta">10 credits · 3 posts/wk · 2 platforms · 5 hrs community</div>
-    </button>
-    <button class="btn stack-btn recommended" data-stack="growth">
-      <span class="stack-name">Growth</span>
-      <span class="stack-price">$4,250/mo</span>
-      <div class="stack-meta">20 credits · 4 posts/wk · 2 platforms · 5 hrs community</div>
-    </button>
-    <button class="btn stack-btn" data-stack="scale">
-      <span class="stack-name">Scale</span>
-      <span class="stack-price">$6,350/mo</span>
-      <div class="stack-meta">32 credits · 5 posts/wk · 3 platforms · 10 hrs community</div>
-    </button>
-    <button class="btn stack-btn enterprise" data-stack="enterprise">
-      <span class="stack-name">Enterprise</span>
-      <span class="stack-price">Let's talk.</span>
-      <div class="stack-meta">50 credits · 5 posts/wk · 3 platforms · 15 hrs community</div>
-    </button>
-  </div>
-</div>
-
-<div class="included-note">
-  <strong>Every stack includes</strong> dedicated account ownership, monthly strategy, community management, posting and scheduling, repurposing of existing content, client portal access, and monthly performance reporting.
-</div>
-
-<div class="section">
-  <div class="section-head">
-    <div class="section-title">Platforms and community</div>
-    <div class="section-note">Stack base includes 2 platforms. Add more as needed.</div>
-  </div>
-  <div class="btn-grid">
-    <button class="btn toggle-btn" data-toggle="platform1" data-price="400">+1 platform<span class="btn-price">$400/mo</span><span class="toggle-desc">Instagram, TikTok, LinkedIn, Facebook, YouTube, or X</span></button>
-    <button class="btn toggle-btn" data-toggle="platform2" data-price="800">+2 platforms<span class="btn-price">$800/mo</span><span class="toggle-desc">Any two additional platforms from the list</span></button>
-    <button class="btn toggle-btn" data-toggle="comm5" data-price="400">+5 hrs/wk community<span class="btn-price">$400/mo</span><span class="toggle-desc">Replying to comments, DMs, and proactive engagement</span></button>
-    <button class="btn toggle-btn" data-toggle="comm10" data-price="750">+10 hrs/wk community<span class="btn-price">$750/mo</span><span class="toggle-desc">Heavy engagement for high-volume brands</span></button>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">Strategic add-ons</div>
-  <div class="btn-grid">
-    <button class="btn toggle-btn" data-toggle="strategy" data-price="250">Monthly strategy call<span class="btn-price">$250/mo</span><span class="toggle-desc">1-hour deep dive on performance and direction</span></button>
-    <button class="btn toggle-btn" data-toggle="qpr" data-price="167">Quarterly review<span class="btn-price">$167/mo</span><span class="toggle-desc">Full performance audit with recommendations, every quarter</span></button>
-    <button class="btn toggle-btn" data-toggle="shoot1" data-price="2200">Bonus shoot day, solo<span class="btn-price">$2,200/mo</span><span class="toggle-desc">Additional full shoot day with single personnel</span></button>
-    <button class="btn toggle-btn" data-toggle="shoot2" data-price="3400">Bonus shoot day, duo<span class="btn-price">$3,400/mo</span><span class="toggle-desc">Additional full shoot day with dual personnel</span></button>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-head">
-    <div class="section-title">Ad management add-on</div>
-    <div class="section-note">Add campaign management to your SMM retainer. Same tiers as the Ads tab.</div>
-  </div>
-  <select id="ad-mgmt">
-    <option value="0">No ad management</option>
-    <option value="1000">Under $2,500 ad spend — $1,000/mo</option>
-    <option value="1500">$2,500 to $7,500 ad spend — $1,500/mo</option>
-    <option value="1700">$7,500 to $15,000 ad spend — 15% of spend</option>
-    <option value="2100">$15,000+ ad spend — 12% of spend</option>
-  </select>
-</div>
-
-</div>
-
-<!-- ============================================ -->
-<!-- PRODUCTION PARTNER PANEL -->
-<!-- ============================================ -->
-<div class="panel" id="panel-prod">
-
-<div class="panel-intro">
-  <div class="panel-intro-eyebrow">Production-only partnership · Credits Model</div>
-  <div class="panel-intro-title">Your outsourced <em>production team.</em></div>
-  <div class="panel-intro-desc">You have the marketing team, we're the production team. We show up with cameras, capture your brand, and deliver polished content every month. You handle posting, scheduling, and community. Credits-based, so you pick what we create each month. Best for brands with internal marketing teams who need production capacity without full-service handover.</div>
-  <div class="panel-intro-meta">
-    <div class="meta-item">
-      <span class="meta-label">How we work</span>
-      <span class="meta-value">Monthly retainer. Credits-based.</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Who posts content</span>
-      <span class="meta-value">You do. We deliver to your team.</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Community management</span>
-      <span class="meta-value">Not included. You handle community.</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Best for</span>
-      <span class="meta-value">Brands with internal marketing teams.</span>
-    </div>
-  </div>
-</div>
-
-<div class="included-note">
-  <strong>Every production partnership includes</strong> a monthly strategy call, access to our full production team (videographer, photographer, editor), and delivery to your Drive or Dropbox. Start with the $750 base, then add a Credit pack. Minimum 1 Credit pack required.
-</div>
-
-<div class="section">
-  <div class="section-head">
-    <div class="section-title">Pick your credit pack</div>
-    <div class="section-note">Credits are spent across media hours, video edits, photos, and graphics (same rates as SMM)</div>
-  </div>
-  <div class="btn-grid">
-    <button class="btn mod-btn-p" data-group="ppack" data-value="0" data-price="0">None</button>
-    <button class="btn mod-btn-p" data-group="ppack" data-value="8" data-price="1100">8 credits<span class="btn-price">$1,100/mo</span></button>
-    <button class="btn mod-btn-p" data-group="ppack" data-value="16" data-price="2100">16 credits<span class="btn-price">$2,100/mo</span></button>
-    <button class="btn mod-btn-p" data-group="ppack" data-value="24" data-price="2950">24 credits<span class="btn-price">$2,950/mo</span></button>
-    <button class="btn mod-btn-p" data-group="ppack" data-value="40" data-price="4700">40 credits<span class="btn-price">$4,700/mo</span></button>
-    <button class="btn mod-btn-p" data-group="ppack" data-value="60" data-price="6750">60 credits<span class="btn-price">$6,750/mo</span></button>
-  </div>
-</div>
-
-</div>
-
-<!-- TOTAL CARD -->
-<div class="total-card">
-  <div class="total-label" id="total-label">Monthly Total</div>
-  <div class="total-sub" id="total-sub">Start building your package below</div>
-  <div class="total-amount" id="total-amount">$1,750</div>
-  <div class="total-breakdown" id="total-breakdown" style="display:none;"></div>
-  <div class="total-annual" id="total-annual">
-    <span>Annual value (12-month contract)</span>
-    <span class="total-annual-value" id="annual-amount">$21,000</span>
-  </div>
-  <div class="total-footnote" id="total-footnote">One-time onboarding fee: $1,000 (waived on 6-month prepay)</div>
-</div>
-
-<div class="actions">
-  <button class="action-btn" id="reset-btn">Reset selections</button>
-  <button class="action-btn" id="summary-btn">View line-item summary</button>
-  <button class="action-btn primary" id="send-btn">Send to 44 Social →</button>
-</div>
-
-<div class="send-confirmation">
-  <strong>What happens next:</strong> Clicking the button above opens an email with your configuration pre-filled. Send it to us and Floydie will personally reply within 48 hours to set up a call and formalize the proposal.
-</div>
-
-<div class="summary" id="summary">
-  <div class="summary-title">Your configuration</div>
-  <div id="summary-content"></div>
-</div>
-
-<div class="help-prompt">
-  <div class="help-prompt-title">Still not sure which path is <em>right?</em></div>
-  <div class="help-prompt-desc">Skip the calculator and tell us about your brand. We'll recommend the right configuration.</div>
-  <a href="/apply" class="help-prompt-link">Apply to Work With Us →</a>
-</div>
-
-<footer>
-  <div>© 2026 44 Social Company · Orlando, FL</div>
-  <div><a href="mailto:floydie@44social.co">floydie@44social.co</a> · <a href="https://44social.co">44social.co</a></div>
 </footer>
 
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-mobile-cta">
+  <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener">Book a Free Call →</a>
 </div>
 
+<!-- TAB SWITCHING SCRIPT -->
 <script>
-(function() {
-  const state = {
-    mode: 'smm',
-    stack: null, stackPrice: 0, stackCredits: 0, stackPosts: 0,
-    platform1: false, platform2: false,
-    comm5: false, comm10: false,
-    strategy: false, qpr: false,
-    shoot1: false, shoot2: false,
-    adMgmt: 0,
-    ppack: 0,
-    adPackage: null, adPrice: 0, adDiscount: 0,
-    adsMgmtTier: null, adsMgmtFee: 0, adsMgmtName: null,
-    enterprise: false
-  };
-
-  const stacks = {
-    starter: { price: 3125, credits: 10, posts: 3, platforms: 2, community: '5 hrs/wk', name: 'Starter Stack' },
-    growth: { price: 4250, credits: 20, posts: 4, platforms: 2, community: '5 hrs/wk', name: 'Growth Stack' },
-    scale: { price: 6350, credits: 32, posts: 5, platforms: 3, community: '10 hrs/wk', name: 'Scale Stack' }
-  };
-
-  const prodPacks = { 8: 1100, 16: 2100, 24: 2950, 40: 4700, 60: 6750 };
-
-  function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
-
-  function calculateSMM() {
-    if (!state.stack && !state.enterprise) return 0;
-    let total = state.stackPrice;
-    if (state.platform1) total += 400;
-    if (state.platform2) total += 800;
-    if (state.comm5) total += 400;
-    if (state.comm10) total += 750;
-    if (state.strategy) total += 250;
-    if (state.qpr) total += 167;
-    if (state.shoot1) total += 2200;
-    if (state.shoot2) total += 3400;
-    total += state.adMgmt;
-    return total;
-  }
-
-  function calculateProd() {
-    let total = 750;
-    total += prodPacks[state.ppack] || 0;
-    return total;
-  }
-
-  function calculateAdBatch() {
-    if (!state.adPackage) return 0;
-    return state.adPrice * (1 - state.adDiscount);
-  }
-
-  function getAdsMgmtFeeDisplay() {
-    if (!state.adsMgmtTier) return null;
-    if (state.adsMgmtFee === 'spend15') return '15% of ad spend';
-    if (state.adsMgmtFee === 'spend12') return '12% of ad spend';
-    return fmt(state.adsMgmtFee) + '/mo';
-  }
-
-  function updateTotal() {
-    const totalEl = document.getElementById('total-amount');
-    const labelEl = document.getElementById('total-label');
-    const subEl = document.getElementById('total-sub');
-    const breakdownEl = document.getElementById('total-breakdown');
-    const annualEl = document.getElementById('annual-amount');
-    const annualCard = document.getElementById('total-annual');
-    const sendBtn = document.getElementById('send-btn');
-    const footnoteEl = document.getElementById('total-footnote');
-
-    totalEl.classList.remove('custom');
-    breakdownEl.style.display = 'none';
-    breakdownEl.innerHTML = '';
-
-    if (state.enterprise) {
-      labelEl.textContent = 'Enterprise Partnership';
-      subEl.textContent = '50 credits · 5 posts/wk · 3 platforms · 15 hrs community · scoped to you';
-      totalEl.textContent = "Let's talk.";
-      totalEl.classList.add('custom');
-      annualCard.style.display = 'none';
-      footnoteEl.style.display = 'none';
-      sendBtn.textContent = 'Book a Call →';
-      return;
-    }
-
-    sendBtn.textContent = 'Send to 44 Social →';
-
-    if (state.mode === 'smm') {
-      const total = calculateSMM();
-      if (!state.stack) {
-        labelEl.textContent = 'Select a Stack';
-        subEl.textContent = 'Pick a stack above to start building your package';
-        totalEl.textContent = '—';
-        annualCard.style.display = 'none';
-        footnoteEl.style.display = '';
-        footnoteEl.textContent = 'One-time onboarding fee: $1,000 (waived on 6-month prepay)';
-      } else {
-        labelEl.textContent = 'Monthly Total';
-        const addOnCount = [state.platform1, state.platform2, state.comm5, state.comm10, state.strategy, state.qpr, state.shoot1, state.shoot2].filter(x => x).length + (state.adMgmt > 0 ? 1 : 0);
-        const stackName = stacks[state.stack].name;
-        subEl.textContent = stackName + (addOnCount ? ' + ' + addOnCount + ' add-on' + (addOnCount > 1 ? 's' : '') : '');
-        annualEl.textContent = fmt(total * 12);
-        annualCard.style.display = '';
-        footnoteEl.style.display = '';
-        footnoteEl.textContent = 'One-time onboarding fee: $1,000 (waived on 6-month prepay)';
-        totalEl.textContent = fmt(total);
-      }
-    } else if (state.mode === 'prod') {
-      const total = calculateProd();
-      labelEl.textContent = 'Monthly Total';
-      subEl.textContent = state.ppack ? 'Base + ' + state.ppack + ' credits/month' : 'Add a credit pack to get started';
-      annualEl.textContent = fmt(total * 12);
-      annualCard.style.display = '';
-      footnoteEl.style.display = 'none';
-      totalEl.textContent = fmt(total);
-    } else if (state.mode === 'ads') {
-      const batchTotal = calculateAdBatch();
-      const hasBatch = !!state.adPackage;
-      const hasMgmt = !!state.adsMgmtTier;
-
-      if (!hasBatch && !hasMgmt) {
-        labelEl.textContent = 'Build Your Ads Package';
-        subEl.textContent = 'Pick a creative batch, a management tier, or both';
-        totalEl.textContent = '—';
-        annualCard.style.display = 'none';
-        footnoteEl.style.display = '';
-        footnoteEl.textContent = 'Creative batches bill 50/50 per batch. Management bills monthly. Both scale independently.';
-      } else if (hasBatch && !hasMgmt) {
-        labelEl.textContent = state.adPackage + ' per Batch';
-        subEl.textContent = state.adDiscount ? (state.adDiscount * 100) + '% commit discount applied' : 'Month-to-month pricing';
-        totalEl.textContent = fmt(batchTotal);
-        annualCard.style.display = 'none';
-        footnoteEl.style.display = '';
-        footnoteEl.textContent = 'Payment: 50% on signing, 50% on delivery. 4% credit card processing fee applies.';
-      } else if (!hasBatch && hasMgmt) {
-        labelEl.textContent = 'Ads Management, Monthly';
-        subEl.textContent = state.adsMgmtName + ' · 2-month minimum commitment';
-        totalEl.textContent = getAdsMgmtFeeDisplay();
-        if (state.adsMgmtFee === 'spend15' || state.adsMgmtFee === 'spend12') {
-          totalEl.classList.add('custom');
-        }
-        annualCard.style.display = 'none';
-        footnoteEl.style.display = '';
-        footnoteEl.textContent = 'Ad spend billed separately, paid directly to the platform.';
-      } else {
-        labelEl.textContent = 'Ads Package, Combined';
-        subEl.textContent = 'Creative batch + monthly management';
-        totalEl.textContent = fmt(batchTotal);
-        breakdownEl.style.display = '';
-        breakdownEl.innerHTML =
-          '<div class="total-breakdown-row"><span>Creative: ' + state.adPackage + ', per batch</span><span class="val">' + fmt(batchTotal) + '</span></div>' +
-          '<div class="total-breakdown-row"><span>Management: ' + state.adsMgmtName + ', monthly</span><span class="val">' + getAdsMgmtFeeDisplay() + '</span></div>';
-        annualCard.style.display = 'none';
-        footnoteEl.style.display = '';
-        footnoteEl.textContent = 'Creative bills 50/50 per batch. Management bills monthly. Billing cadences are independent.';
-      }
-    }
-  }
-
-  function showSummary() {
-    const el = document.getElementById('summary');
-    const content = document.getElementById('summary-content');
-    let html = '';
-
-    if (state.enterprise) {
-      html = '<div style="font-size: 15px; color: var(--text); line-height: 1.7;">Enterprise partnerships are custom-scoped based on your brand count, location count, content volume, and internal team structure. The Enterprise Stack baseline includes 50 credits/month, 5 posts/week per platform, 3 platforms, and 15 hours/week of community management. Click "Book a Call" to start a conversation and we\'ll build a proposal tailored to your needs.</div>';
-      content.innerHTML = html;
-      el.classList.add('visible');
-      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      return;
-    }
-
-    if (state.mode === 'smm') {
-      if (!state.stack) {
-        html = '<div style="color: var(--muted); font-size: 14px;">Select a stack above to see the summary.</div>';
-      } else {
-        const s = stacks[state.stack];
-        html += '<div class="summary-line"><span>' + s.name + ' (' + s.credits + ' credits · ' + s.posts + ' posts/wk · ' + s.platforms + ' platforms)</span><span>' + fmt(s.price) + '</span></div>';
-        if (state.platform1) html += '<div class="summary-line"><span>Additional platform</span><span>' + fmt(400) + '</span></div>';
-        if (state.platform2) html += '<div class="summary-line"><span>2 additional platforms</span><span>' + fmt(800) + '</span></div>';
-        if (state.comm5) html += '<div class="summary-line"><span>+5 hrs/wk community management</span><span>' + fmt(400) + '</span></div>';
-        if (state.comm10) html += '<div class="summary-line"><span>+10 hrs/wk community management</span><span>' + fmt(750) + '</span></div>';
-        if (state.strategy) html += '<div class="summary-line"><span>Monthly strategy call</span><span>' + fmt(250) + '</span></div>';
-        if (state.qpr) html += '<div class="summary-line"><span>Quarterly performance review</span><span>' + fmt(167) + '</span></div>';
-        if (state.shoot1) html += '<div class="summary-line"><span>Bonus shoot day, solo</span><span>' + fmt(2200) + '</span></div>';
-        if (state.shoot2) html += '<div class="summary-line"><span>Bonus shoot day, duo</span><span>' + fmt(3400) + '</span></div>';
-        if (state.adMgmt) html += '<div class="summary-line"><span>Ad management</span><span>' + fmt(state.adMgmt) + '</span></div>';
-        const total = calculateSMM();
-        html += '<div class="summary-line total"><span>Monthly total</span><span>' + fmt(total) + '</span></div>';
-        html += '<div class="summary-note">One-time onboarding fee: $1,000. Waived on 6-month prepay. Annual value at 12 months: ' + fmt(total * 12) + '. Credits refresh on the 1st. Up to 25% roll over one month.</div>';
-      }
-    } else if (state.mode === 'prod') {
-      html += '<div class="summary-line"><span>Production partner base</span><span>' + fmt(750) + '</span></div>';
-      if (state.ppack) html += '<div class="summary-line"><span>' + state.ppack + ' credits/month</span><span>' + fmt(prodPacks[state.ppack]) + '</span></div>';
-      const total = calculateProd();
-      html += '<div class="summary-line total"><span>Monthly total</span><span>' + fmt(total) + '</span></div>';
-      html += '<div class="summary-note">Annual value at 12 months: ' + fmt(total * 12) + '. Minimum 1 credit pack required. Credits follow the same rules as SMM.</div>';
-    } else if (state.mode === 'ads') {
-      const hasBatch = !!state.adPackage;
-      const hasMgmt = !!state.adsMgmtTier;
-      if (!hasBatch && !hasMgmt) {
-        html = '<div style="color: var(--muted); font-size: 14px;">Select a creative batch, a management tier, or both to see the summary.</div>';
-      } else {
-        if (hasBatch) {
-          html += '<div class="summary-section-title">Creative Batch, per batch</div>';
-          html += '<div class="summary-line"><span>' + state.adPackage + '</span><span>' + fmt(state.adPrice) + '</span></div>';
-          if (state.adDiscount) {
-            const discount = state.adPrice * state.adDiscount;
-            html += '<div class="summary-line"><span>Commit discount (' + (state.adDiscount * 100) + '%)</span><span style="color: var(--amber);">-' + fmt(discount) + '</span></div>';
-          }
-          html += '<div class="summary-line total"><span>Batch total</span><span>' + fmt(calculateAdBatch()) + '</span></div>';
-        }
-        if (hasMgmt) {
-          if (hasBatch) html += '<div class="summary-section"></div>';
-          html += '<div class="summary-section-title">Campaign Management, monthly</div>';
-          html += '<div class="summary-line"><span>' + state.adsMgmtName + '</span><span>' + getAdsMgmtFeeDisplay() + '</span></div>';
-        }
-        html += '<div class="summary-note">Creative bills 50/50 per batch. Management bills monthly with a 2-month minimum commitment. Ad spend billed separately, paid directly to the platform. 4% credit card processing fee applies.</div>';
-      }
-    }
-
-    content.innerHTML = html;
-    el.classList.add('visible');
-    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  function buildEmailBody() {
-    let body = '';
-    if (state.enterprise) {
-      body = 'Hi Floydie,%0A%0AI\'m interested in an Enterprise Partnership with 44 Social and would like to book a call to discuss a custom configuration.%0A%0ABrief context on what we\'re looking for:%0A%0A%0A---%0ASent via 44 Social Pricing Calculator';
-      return body;
-    }
-    if (state.mode === 'smm') {
-      body += 'Interested in Social Media Management%0A%0A';
-      if (state.stack) {
-        const s = stacks[state.stack];
-        body += s.name + ' (' + s.credits + ' credits, ' + s.posts + ' posts/wk, ' + s.platforms + ' platforms): ' + fmt(s.price) + '%0A';
-      }
-      if (state.platform1) body += 'Additional platform: ' + fmt(400) + '%0A';
-      if (state.platform2) body += '2 additional platforms: ' + fmt(800) + '%0A';
-      if (state.comm5) body += '+5 hrs community: ' + fmt(400) + '%0A';
-      if (state.comm10) body += '+10 hrs community: ' + fmt(750) + '%0A';
-      if (state.strategy) body += 'Monthly strategy call: ' + fmt(250) + '%0A';
-      if (state.qpr) body += 'Quarterly review: ' + fmt(167) + '%0A';
-      if (state.shoot1) body += 'Bonus shoot day, solo: ' + fmt(2200) + '%0A';
-      if (state.shoot2) body += 'Bonus shoot day, duo: ' + fmt(3400) + '%0A';
-      if (state.adMgmt) body += 'Ad management: ' + fmt(state.adMgmt) + '%0A';
-      body += '%0AMonthly total: ' + fmt(calculateSMM()) + '%0A';
-    } else if (state.mode === 'prod') {
-      body += 'Interested in Production Partnership%0A%0A';
-      body += 'Production partner base: ' + fmt(750) + '%0A';
-      if (state.ppack) body += state.ppack + ' credits/month: ' + fmt(prodPacks[state.ppack]) + '%0A';
-      body += '%0AMonthly total: ' + fmt(calculateProd()) + '%0A';
-    } else if (state.mode === 'ads') {
-      body += 'Interested in Ads%0A%0A';
-      if (state.adPackage) {
-        body += 'Creative Batch: ' + state.adPackage + ' - ' + fmt(state.adPrice) + ' per batch%0A';
-        if (state.adDiscount) body += 'Commit discount: ' + (state.adDiscount * 100) + '%25 off%0A';
-        body += 'Batch total: ' + fmt(calculateAdBatch()) + '%0A';
-      }
-      if (state.adsMgmtTier) {
-        if (state.adPackage) body += '%0A';
-        body += 'Campaign Management: ' + state.adsMgmtName + ' - ' + getAdsMgmtFeeDisplay() + '%0A';
-      }
-    }
-    body += '%0ASent via 44 Social Pricing Calculator';
-    return body;
-  }
-
-  function resetAll() {
-    state.stack = null; state.stackPrice = 0; state.stackCredits = 0; state.stackPosts = 0;
-    state.platform1 = false; state.platform2 = false;
-    state.comm5 = false; state.comm10 = false;
-    state.strategy = false; state.qpr = false;
-    state.shoot1 = false; state.shoot2 = false;
-    state.adMgmt = 0;
-    state.ppack = 0;
-    state.adPackage = null; state.adPrice = 0; state.adDiscount = 0;
-    state.adsMgmtTier = null; state.adsMgmtFee = 0; state.adsMgmtName = null;
-    state.enterprise = false;
-    document.querySelectorAll('.btn, .ad-card, .mgmt-card').forEach(b => b.classList.remove('active'));
-    document.getElementById('ad-mgmt').value = '0';
-    document.getElementById('summary').classList.remove('visible');
-    updateTotal();
-  }
-
-  function selectStack(stackName) {
-    state.enterprise = false;
-    if (stackName === 'enterprise') {
-      state.enterprise = true;
-      state.stack = null;
-      state.stackPrice = 0;
-      document.querySelectorAll('.stack-btn').forEach(b => b.classList.remove('active'));
-      document.querySelector('.stack-btn[data-stack="enterprise"]').classList.add('active');
-      updateTotal();
-      return;
-    }
-    const s = stacks[stackName];
-    state.stack = stackName;
-    state.stackPrice = s.price;
-    state.stackCredits = s.credits;
-    state.stackPosts = s.posts;
-    document.querySelectorAll('.stack-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('.stack-btn[data-stack="' + stackName + '"]').classList.add('active');
-    updateTotal();
-  }
-
-  function switchTab(mode) {
-    state.mode = mode;
-    state.enterprise = false;
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.querySelector('.tab[data-tab="' + mode + '"]').classList.add('active');
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('panel-' + mode).classList.add('active');
-    document.getElementById('summary').classList.remove('visible');
-    updateTotal();
-  }
-
-  document.querySelectorAll('.tab').forEach(t => {
-    t.addEventListener('click', () => switchTab(t.dataset.tab));
-  });
-
-  document.querySelectorAll('.stack-btn').forEach(btn => {
-    btn.addEventListener('click', () => selectStack(btn.dataset.stack));
-  });
-
-  document.querySelectorAll('.mod-btn-p').forEach(btn => {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const group = btn.dataset.group;
-      const value = parseInt(btn.dataset.value);
-      state[group] = value;
-      document.querySelectorAll('.mod-btn-p[data-group="' + group + '"]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      updateTotal();
-    });
-  });
-
-  document.querySelectorAll('.toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.enterprise = false;
-      const key = btn.dataset.toggle;
-      state[key] = !state[key];
-      if (key === 'platform1' && state.platform1) { state.platform2 = false; }
-      if (key === 'platform2' && state.platform2) { state.platform1 = false; }
-      if (key === 'comm5' && state.comm5) { state.comm10 = false; }
-      if (key === 'comm10' && state.comm10) { state.comm5 = false; }
-      if (key === 'shoot1' && state.shoot1) { state.shoot2 = false; }
-      if (key === 'shoot2' && state.shoot2) { state.shoot1 = false; }
-      document.querySelectorAll('.toggle-btn').forEach(b => {
-        if (state[b.dataset.toggle]) { b.classList.add('active'); } else { b.classList.remove('active'); }
+      const target = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
       });
-      updateTotal();
-    });
-  });
-
-  document.getElementById('ad-mgmt').addEventListener('change', (e) => {
-    state.enterprise = false;
-    state.adMgmt = parseInt(e.target.value) || 0;
-    updateTotal();
-  });
-
-  document.querySelectorAll('.ad-card').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.adPackage = btn.dataset.name;
-      state.adPrice = parseInt(btn.dataset.price);
-      document.querySelectorAll('.ad-card').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
-      updateTotal();
+      btn.setAttribute('aria-selected', 'true');
+      document.getElementById('tab-' + target).classList.add('active');
+      // Smooth scroll to top of tabs
+      document.querySelector('.tabs-bar').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
-
-  document.querySelectorAll('.mgmt-card').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.adsMgmtTier = btn.dataset.tier;
-      const feeVal = btn.dataset.fee;
-      state.adsMgmtFee = (feeVal === 'spend15' || feeVal === 'spend12') ? feeVal : parseInt(feeVal);
-      state.adsMgmtName = btn.dataset.name;
-      document.querySelectorAll('.mgmt-card').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      updateTotal();
-    });
-  });
-
-  document.querySelectorAll('.commit-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.adDiscount = parseFloat(btn.dataset.discount);
-      document.querySelectorAll('.commit-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      updateTotal();
-    });
-  });
-
-  document.getElementById('combo-switch-btn').addEventListener('click', () => {
-    switchTab('smm');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  document.getElementById('reset-btn').addEventListener('click', resetAll);
-  document.getElementById('summary-btn').addEventListener('click', showSummary);
-  document.getElementById('send-btn').addEventListener('click', () => {
-    let subject;
-    if (state.enterprise) {
-      subject = '44 Social Enterprise Partnership Inquiry';
-    } else {
-      subject = state.mode === 'smm' ? '44 Social SMM Configuration Inquiry' :
-               state.mode === 'prod' ? '44 Social Production Partnership Inquiry' :
-               '44 Social Ads Inquiry';
-    }
-    window.location.href = 'mailto:floydie@44social.co?subject=' + encodeURIComponent(subject) + '&body=' + buildEmailBody();
-  });
-
-  updateTotal();
-})();
 </script>
 
 </body>
