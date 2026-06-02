@@ -178,6 +178,59 @@
     font-weight: 400;
   }
 
+  /* New: outcome-led sub-headline */
+  .hero-promise {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(20px, 2.4vw, 26px);
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 18px;
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+  }
+
+  .hero-promise span {
+    color: var(--amber);
+    font-style: italic;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 1.1em;
+  }
+
+  /* New: urgency strip */
+  .hero-urgency {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    margin-top: 24px;
+    background: rgba(200, 160, 112, 0.08);
+    border: 1px solid var(--amber-line);
+    border-radius: 100px;
+  }
+
+  .urgency-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 0 4px rgba(200, 160, 112, 0.18);
+    animation: urgencyPulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes urgencyPulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(200, 160, 112, 0.18); }
+    50% { box-shadow: 0 0 0 7px rgba(200, 160, 112, 0.05); }
+  }
+
+  .urgency-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    text-transform: uppercase;
+  }
+
   .hero-desc {
     font-size: 18px;
     color: var(--muted);
@@ -290,6 +343,82 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--muted);
+  }
+
+  /* ============================================
+     FEATURED TESTIMONIAL (early social proof)
+     ============================================ */
+  .featured-testimonial {
+    padding: 56px 48px;
+    background: var(--bg1);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ft-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ft-stars {
+    color: var(--amber);
+    font-size: 18px;
+    letter-spacing: 0.4em;
+    margin-bottom: 20px;
+  }
+
+  .ft-quote {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.6vw, 28px);
+    line-height: 1.4;
+    color: var(--text);
+    margin-bottom: 28px;
+    letter-spacing: -0.005em;
+  }
+
+  .ft-author {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .ft-initials {
+    width: 44px;
+    height: 44px;
+    background: var(--amber);
+    color: var(--bg1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+
+  .ft-meta {
+    text-align: left;
+  }
+
+  .ft-name {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .ft-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 3px;
   }
 
   /* ============================================
@@ -607,40 +736,42 @@
     line-height: 1.6;
   }
 
-  .calendly-wrap {
-    background: var(--bg2);
-    border: 1px solid var(--amber-line);
-    border-radius: 4px;
-    padding: 48px;
-    max-width: 900px;
-    margin: 0 auto;
-    min-height: 480px;
-    display: flex;
+  .book-cta-wrap {
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .book-cta {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    background: var(--amber);
+    color: var(--bg1);
+    padding: 28px 64px;
+    border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 32px rgba(200, 160, 112, 0.18);
+    margin-bottom: 18px;
   }
 
-  .calendly-placeholder {
-    color: var(--muted);
+  .book-cta:hover {
+    background: var(--amber-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(200, 160, 112, 0.28);
   }
 
-  .calendly-placeholder h4 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    letter-spacing: 0.03em;
-    color: var(--text);
-    margin-bottom: 12px;
-    font-weight: 400;
-  }
-
-  .calendly-placeholder p {
+  .book-cta-sub {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     color: var(--very-muted);
     text-transform: uppercase;
-    margin-bottom: 28px;
+    margin-top: 12px;
   }
 
   /* ============================================
@@ -666,8 +797,10 @@
 
   .testimonials {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .testimonial {
@@ -883,7 +1016,7 @@
      RESPONSIVE
      ============================================ */
   @media (max-width: 900px) {
-    .nav, .hero, .section, .reframe, .book-section, .trust-section, .final-cta, .footer {
+    .nav, .hero, .section, .reframe, .featured-testimonial, .book-section, .trust-section, .final-cta, .footer {
       padding-left: 24px;
       padding-right: 24px;
     }
@@ -894,6 +1027,7 @@
     .hero { padding-top: 56px; padding-bottom: 48px; }
     .section { padding: 64px 24px; }
     .reframe { padding: 56px 24px; }
+    .featured-testimonial { padding: 40px 24px; }
     .book-section { padding: 64px 24px; }
 
     .steps { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -906,7 +1040,10 @@
     .sticky-mobile-cta { display: block; }
     body { padding-bottom: 76px; }
 
-    .calendly-wrap { padding: 32px 24px; min-height: 380px; }
+    .book-cta { padding: 22px 40px; font-size: 12px; }
+
+    .hero-urgency { padding: 8px 14px; }
+    .urgency-text { font-size: 10px; letter-spacing: 0.1em; }
   }
 
   @media (max-width: 600px) {
@@ -914,6 +1051,7 @@
     .portfolio-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
     .hero-ctas { flex-direction: column; align-items: stretch; }
     .cta-primary, .cta-secondary { text-align: center; justify-content: center; }
+    .hero-urgency { display: flex; justify-content: center; }
   }
 </style>
 </head>
@@ -942,13 +1080,20 @@
 
     <h1>You didn't start your business<br>to become a <em>content creator.</em></h1>
 
+    <p class="hero-promise">Get a month of premium content in <span>one shoot day.</span></p>
+
     <p class="hero-desc">
-      A full content library from one shoot day. Video, photo, and everything you need to post. No retainer required.
+      Video, photo, and everything you need to post. No retainer. No monthly contract. Just one focused day and a full content library to fuel your social.
     </p>
 
     <div class="hero-ctas">
       <a href="#book" class="cta-primary">Book a Free Call →</a>
       <a href="#how" class="cta-secondary">How It Works</a>
+    </div>
+
+    <div class="hero-urgency">
+      <span class="urgency-dot"></span>
+      <span class="urgency-text">Currently booking next month · Limited shoot days available</span>
     </div>
 
     <div class="vsl-wrap" id="vsl">
@@ -959,6 +1104,25 @@
       <!-- Replace with Vimeo iframe when VSL is recorded:
       <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID?badge=0&autopause=0" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="autoplay; fullscreen; picture-in-picture"></iframe>
       -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FEATURED TESTIMONIAL (early social proof)
+     ============================================ -->
+<section class="featured-testimonial">
+  <div class="ft-inner">
+    <div class="ft-stars">★★★★★</div>
+    <p class="ft-quote">
+      "44 Social did an excellent job shooting our content. They prepared all of the scripts, showed up on time, and had the final product back to us quickly. Highly recommend."
+    </p>
+    <div class="ft-author">
+      <div class="ft-initials">MW</div>
+      <div class="ft-meta">
+        <div class="ft-name">Mike Weckerle</div>
+        <div class="ft-role">CEO, Contractor Supplement Solutions</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1137,19 +1301,11 @@
       No pitch. No commitment. Just a conversation about your brand and what your content actually needs.
     </p>
 
-    <div class="calendly-wrap" id="calendly-embed">
-      <div class="calendly-placeholder">
-        <h4>Calendly Widget Loads Here</h4>
-        <p>Replace this block with your Calendly embed code</p>
-        <a href="mailto:hello@44social.co" class="cta-primary">Email Us To Schedule →</a>
-      </div>
-
-      <!-- When ready, replace the placeholder above with this:
-      <div class="calendly-inline-widget"
-           data-url="https://calendly.com/YOUR_HANDLE/discovery-call"
-           style="min-width:320px;height:600px;width:100%;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      -->
+    <div class="book-cta-wrap">
+      <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="book-cta">
+        Book Your Call →
+      </a>
+      <p class="book-cta-sub">Opens in a new tab · 30 minutes · No commitment</p>
     </div>
   </div>
 </section>
@@ -1171,17 +1327,6 @@
           <div class="testimonial-meta">
             <div class="name">Andrew Girges</div>
             <div class="role">CEO, Omni Airport Parking</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <p class="testimonial-quote">44 Social did an excellent job shooting our content. They prepared all of the scripts, showed up on time, and had the final product back to us quickly. Highly recommend.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-initials">MW</div>
-          <div class="testimonial-meta">
-            <div class="name">Mike Weckerle</div>
-            <div class="role">CEO, Contractor Supplement Solutions</div>
           </div>
         </div>
       </div>
