@@ -1045,6 +1045,12 @@ body { cursor: auto; }
 }
 .nav-logo img{height:50px;width:auto;display:block}
 .nav-logo{display:inline-flex;align-items:center}
+
+/* Cursor fix: disable the buggy custom cursor, restore normal cursors */
+* { cursor: auto !important; }
+a[href], button, [role="button"], .nav-cta, .cta-primary, .cta-secondary, summary, label[for] { cursor: pointer !important; }
+input, textarea, select { cursor: auto !important; }
+.cursor-dot, .cursor-ring { display: none !important; }
 </style>
 <script src="https://player.vimeo.com/api/player.js"></script>
 </head>
