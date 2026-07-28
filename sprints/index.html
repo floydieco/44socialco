@@ -1385,5 +1385,18 @@ STICKY MOBILE CTA
   function done(btn){ btn.textContent = "\u2713 Got it \u2014 we'll reach out"; btn.style.background="var(--amber)"; btn.style.color="var(--bg1)"; btn.disabled=true; }
 })();
 </script>
+
+<script>
+(function(){
+  try{
+    var co = (new URLSearchParams(location.search).get("co")||"").trim();
+    if(!co) return;
+    var k = "44op_"+co;
+    if(sessionStorage.getItem(k)) return;
+    sessionStorage.setItem(k,"1");
+    fetch("https://portal.44social.co/.netlify/functions/select",{method:"POST",headers:{"content-type":"application/json"},keepalive:true,body:JSON.stringify({type:"link_opened",company:co,source:location.pathname})}).catch(function(){});
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
