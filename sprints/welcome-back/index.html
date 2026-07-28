@@ -1155,7 +1155,7 @@ You already know how we work, and we still know your brand. No re-onboarding, no
 <div class="tier-inc-row"><span class="plus">+</span><span>One round of revisions</span></div>
 </div>
 <div class="tier-ctas">
-<a href="/apply?package=sprint" class="tier-cta">Start This Package</a>
+<button type="button" class="tier-cta" data-select="sprint">Select This Package</button>
 <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="tier-cta-alt">Book a Call</a>
 </div>
 </article>
@@ -1177,7 +1177,7 @@ You already know how we work, and we still know your brand. No re-onboarding, no
 <div class="tier-inc-row"><span class="plus">+</span><span>Studio-quality lighting</span></div>
 </div>
 <div class="tier-ctas">
-<a href="/apply?package=sprint-pro" class="tier-cta">Start This Package</a>
+<button type="button" class="tier-cta" data-select="sprint-pro">Select This Package</button>
 <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="tier-cta-alt">Book a Call</a>
 </div>
 </article>
@@ -1197,7 +1197,7 @@ You already know how we work, and we still know your brand. No re-onboarding, no
 <div class="tier-inc-row"><span class="plus">+</span><span>3-hour shoot day</span></div>
 </div>
 <div class="tier-ctas">
-<a href="/apply?package=sprint-elite" class="tier-cta">Start This Package</a>
+<button type="button" class="tier-cta" data-select="sprint-elite">Select This Package</button>
 <a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="tier-cta-alt">Book a Call</a>
 </div>
 </article>
@@ -1389,6 +1389,23 @@ STICKY MOBILE CTA
       });
     }
   }catch(e){}
+})();
+</script>
+
+<script>
+(function(){
+  var ENDPOINT = 'https://portal.44social.co/.netlify/functions/select';
+  var KIND = 'returning';
+  var NAMES = {'sprint':'Sprint','sprint-pro':'Sprint Pro','sprint-elite':'Sprint Elite'};
+  var company = (new URLSearchParams(location.search).get("co")||"").trim();
+  document.querySelectorAll("[data-select]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var slug = btn.getAttribute("data-select"); var pkg = NAMES[slug]||slug;
+      btn.disabled = true; btn.textContent = "Sending...";
+      fetch(ENDPOINT,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({company:company,package:pkg,kind:KIND,source:location.pathname})}).then(function(){done(btn);}).catch(function(){done(btn);});
+    });
+  });
+  function done(btn){ btn.textContent = "\u2713 Got it \u2014 we'll reach out"; btn.style.background="var(--amber)"; btn.style.color="var(--bg1)"; btn.disabled=true; }
 })();
 </script>
 </body>
