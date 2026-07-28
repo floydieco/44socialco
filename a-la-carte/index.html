@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Hidden page: not linked in site nav, kept out of search. -->
+<meta name="robots" content="noindex, nofollow" />
+<title>Event Coverage Rate Card — 44 Social</title>
+<meta name="description" content="À la carte event coverage. Pick the hours, crew, and edits each event needs. Pay for exactly what it calls for." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--bg1: #051F20;
+--bg2: #0B2B26;
+--bg3: #103029;
+--bg4: #163832;
+--amber: #8EB69B;
+--amber-hover: #a9cdb5;
+--amber-dim: rgba(142,182,155,0.14);
+--amber-line: rgba(142,182,155,0.30);
+--amber-strong: rgba(142,182,155,0.55);
+--text: #DAF1DE;
+--muted: #7f9a8b;
+--very-muted: #5c7469;
+--white: #ffffff;
+--border: rgba(218,241,222,0.09);
+--border-strong: rgba(218,241,222,0.16);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+background: var(--bg1);
+color: var(--text);
+font-family: 'DM Sans', sans-serif;
+font-weight: 400;
+line-height: 1.6;
+overflow-x: hidden;
+}
+
+body::after {
+content: '';
+position: fixed; inset: 0;
+pointer-events: none; z-index: 9999; opacity: 0.45;
+background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' /></svg>");
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV — logo + back link only (no site nav) */
+.nav {
+position: sticky; top: 0; z-index: 100;
+background: rgba(5,31,32,0.92);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid var(--border);
+padding: 18px 48px;
+display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.06em; color: var(--amber); }
+.nav-back {
+font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em;
+text-transform: uppercase; color: var(--muted); transition: color 0.2s ease;
+}
+.nav-back:hover { color: var(--amber); }
+
+/* HERO */
+.hero {
+position: relative; padding: 72px 48px 40px; overflow: hidden;
+background:
+linear-gradient(rgba(142,182,155,.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(142,182,155,.04) 1px, transparent 1px);
+background-color: var(--bg1); background-size: 72px 72px;
+}
+.hero::after {
+content: ''; position: absolute; top: -160px; right: -120px;
+width: 620px; height: 620px;
+background: radial-gradient(circle, rgba(142,182,155,0.07), transparent 60%);
+pointer-events: none; z-index: 0;
+}
+.hero-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-eyebrow {
+font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em;
+color: var(--amber); text-transform: uppercase; margin-bottom: 22px;
+}
+.hero h1 {
+font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 8vw, 92px);
+line-height: 0.95; letter-spacing: 0.02em; font-weight: 400; margin-bottom: 20px;
+}
+.hero h1 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--amber); font-weight: 400; }
+.hero-desc {
+font-size: 17px; color: var(--muted); max-width: 560px; line-height: 1.6;
+border-left: 2px solid var(--amber); padding-left: 18px;
+}
+
+/* SECTION shell */
+.section { padding: 40px 48px 88px; }
+.section-inner { max-width: 1000px; margin: 0 auto; }
+.section-label {
+font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em;
+color: var(--amber); text-transform: uppercase; margin-bottom: 22px;
+display: inline-flex; align-items: center; gap: 14px;
+}
+.section-label::before { content: ''; width: 32px; height: 1px; background: var(--amber); }
+
+/* RATE CARD */
+.card {
+background: var(--bg2); border: 1px solid var(--border);
+border-radius: 4px; overflow: hidden; position: relative;
+}
+.card::before {
+content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+background: linear-gradient(90deg, var(--amber), transparent); opacity: 0.5;
+}
+.rate-head {
+display: grid; grid-template-columns: 1.1fr 2fr 0.7fr; gap: 20px;
+padding: 20px 32px; border-bottom: 1px solid var(--border);
+font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+text-transform: uppercase; color: var(--very-muted);
+}
+.rate-head .r { text-align: right; }
+.rate-group { padding: 22px 32px; border-bottom: 1px solid var(--border); }
+.rate-group:last-child { border-bottom: none; }
+.rate-group.bonus { background: var(--amber-dim); }
+.rate-row { display: grid; grid-template-columns: 1.1fr 2fr 0.7fr; gap: 20px; align-items: baseline; }
+.rate-row + .rate-sub { margin-top: 12px; }
+.rate-sub { display: grid; grid-template-columns: 1.1fr 2fr 0.7fr; gap: 20px; align-items: baseline; margin-top: 10px; }
+.svc { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.03em; color: var(--white); line-height: 1.1; }
+.svc.bonus-svc { color: var(--amber); }
+.detail { font-size: 14px; color: var(--muted); line-height: 1.5; }
+.detail .tier-note { color: var(--text); }
+.rate { text-align: right; font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--amber); letter-spacing: 0.02em; line-height: 1; white-space: nowrap; }
+.rate .unit { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--very-muted); letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-top: 4px; }
+.rate.word { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); }
+.sub-detail { padding-left: 0; }
+.rate-sub .svc-spacer { }
+
+/* SAMPLE BUILD */
+.sample {
+margin-top: 28px; background: var(--bg3);
+border: 1px solid var(--amber-line); border-radius: 4px;
+padding: 32px; position: relative;
+}
+.sample-title { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.03em; color: var(--white); margin-bottom: 4px; }
+.sample-config { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 24px; }
+.sample-row { display: grid; grid-template-columns: 1fr 1.4fr 0.6fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+.sample-row .l { font-size: 15px; color: var(--text); font-weight: 500; }
+.sample-row .m { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+.sample-row .v { text-align: right; font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--text); letter-spacing: 0.02em; }
+.sample-row.total { border-bottom: none; border-top: 2px solid var(--amber-line); margin-top: 6px; padding-top: 18px; }
+.sample-row.total .l { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.03em; }
+.sample-row.total .v { color: var(--amber); font-size: 40px; }
+
+/* HOW IT WORKS + CTA */
+.note {
+margin-top: 26px; font-family: 'DM Mono', monospace; font-size: 12px;
+letter-spacing: 0.04em; color: var(--very-muted); line-height: 1.7;
+padding: 18px 22px; background: var(--bg2); border: 1px solid var(--border);
+border-left: 2px solid var(--amber); border-radius: 0 4px 4px 0;
+}
+.note b { color: var(--amber); font-family: 'DM Mono', monospace; font-weight: 500; }
+
+.cta-wrap { text-align: center; margin-top: 48px; }
+.cta {
+display: inline-flex; align-items: center; gap: 10px;
+background: var(--amber); color: var(--bg1);
+padding: 20px 44px; border-radius: 3px;
+font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500;
+letter-spacing: 0.2em; text-transform: uppercase;
+transition: background 0.2s ease, transform 0.15s ease;
+}
+.cta:hover { background: var(--amber-hover); transform: translateY(-1px); }
+.cta-sub { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--very-muted); margin-top: 14px; }
+
+/* FOOTER */
+.footer { padding: 40px 48px; border-top: 1px solid var(--border); background: #04181A; text-align: center; }
+.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.05em; color: var(--amber); margin-bottom: 6px; }
+.footer-meta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--very-muted); }
+.footer-meta a { color: var(--muted); }
+.footer-meta a:hover { color: var(--amber); }
+
+@media (max-width: 780px) {
+.nav, .hero, .section, .footer { padding-left: 22px; padding-right: 22px; }
+.rate-head { display: none; }
+.rate-row, .rate-sub { grid-template-columns: 1fr auto; gap: 10px; }
+.rate-row .detail, .rate-sub .detail { grid-column: 1 / -1; grid-row: 2; }
+.sample-row { grid-template-columns: 1fr auto; }
+.sample-row .m { grid-column: 1 / -1; grid-row: 2; }
+.section { padding: 32px 22px 72px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+<a href="https://44social.co" class="nav-logo">44 SOCIAL</a>
+<a href="https://44social.co" class="nav-back">← Back to 44social.co</a>
+</nav>
+
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-eyebrow">Event Coverage / Rate Card</div>
+<h1>Build Your Event <em>Coverage.</em></h1>
+<p class="hero-desc">Pick the hours, crew, and edits each event needs. Pay for exactly what it calls for.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-inner">
+<div class="section-label">The Rate Card</div>
+
+<div class="card">
+<div class="rate-head">
+<div>Service</div>
+<div>Detail</div>
+<div class="r">Rate</div>
+</div>
+
+<!-- Onsite Production Mgmt -->
+<div class="rate-group">
+<div class="rate-row">
+<div class="svc">Onsite Production Mgmt</div>
+<div class="detail">Brief, scripting, pre- and post-production. Per hour, 2-hour minimum.</div>
+<div class="rate">$150<span class="unit">/ hour</span></div>
+</div>
+</div>
+
+<!-- Media Capture -->
+<div class="rate-group">
+<div class="rate-row">
+<div class="svc">Media Capture</div>
+<div class="detail"><span class="tier-note">1 to 4 hours</span> · videographer and/or photographer, per person</div>
+<div class="rate">$135<span class="unit">/ hour</span></div>
+</div>
+<div class="rate-sub">
+<div class="svc-spacer"></div>
+<div class="detail"><span class="tier-note">5 to 8 hours</span> · per person</div>
+<div class="rate">$130<span class="unit">/ hour</span></div>
+</div>
+<div class="rate-sub">
+<div class="svc-spacer"></div>
+<div class="detail"><span class="tier-note">9 hours or more</span> · per person</div>
+<div class="rate">$125<span class="unit">/ hour</span></div>
+</div>
+</div>
+
+<!-- Photo Editing -->
+<div class="rate-group">
+<div class="rate-row">
+<div class="svc">Photo Editing</div>
+<div class="detail">Edited batch, up to 50 images</div>
+<div class="rate">$65</div>
+</div>
+<div class="rate-sub">
+<div class="svc-spacer"></div>
+<div class="detail">Edited batch, up to 100 images</div>
+<div class="rate">$125</div>
+</div>
+</div>
+
+<!-- Video Editing -->
+<div class="rate-group">
+<div class="rate-row">
+<div class="svc">Video Editing</div>
+<div class="detail">Per video, up to 30 seconds</div>
+<div class="rate">$65</div>
+</div>
+<div class="rate-sub">
+<div class="svc-spacer"></div>
+<div class="detail">Per video, up to 60 seconds</div>
+<div class="rate">$125</div>
+</div>
+</div>
+
+<!-- Travel -->
+<div class="rate-group">
+<div class="rate-row">
+<div class="svc">Travel</div>
+<div class="detail">Out-of-area only — flight, lodging, transit. Local: no charge.</div>
+<div class="rate word">At cost</div>
+</div>
+</div>
+
+<!-- Bonus -->
+<div class="rate-group bonus">
+<div class="rate-row">
+<div class="svc bonus-svc">Bonus · Content Pack</div>
+<div class="detail">12 ready-to-post pieces, captions + a posting schedule.</div>
+<div class="rate word">Included</div>
+</div>
+</div>
+
+</div>
+
+<!-- SAMPLE BUILD -->
+<div class="section-label" style="margin-top:56px;">A Sample Build</div>
+<div class="sample">
+<div class="sample-title">3-Hour Event</div>
+<div class="sample-config">3-hour event · 2 media · 6 videos · 100 photos</div>
+
+<div class="sample-row">
+<div class="l">Onsite management</div>
+<div class="m">3 hrs × $150</div>
+<div class="v">$450</div>
+</div>
+<div class="sample-row">
+<div class="l">Media capture</div>
+<div class="m">2 people × 3 hrs × $135</div>
+<div class="v">$810</div>
+</div>
+<div class="sample-row">
+<div class="l">Video edits</div>
+<div class="m">6 × $125 (up to 60s)</div>
+<div class="v">$750</div>
+</div>
+<div class="sample-row">
+<div class="l">Photo editing</div>
+<div class="m">Batch, up to 100 images</div>
+<div class="v">$125</div>
+</div>
+<div class="sample-row total">
+<div class="l">Total</div>
+<div class="m"></div>
+<div class="v">$2,135</div>
+</div>
+</div>
+
+<div class="note">
+<b>How it works:</b> out-of-area events add travel and a $65/day per diem, per crew member.
+</div>
+
+<div class="cta-wrap">
+<a href="https://calendly.com/44social/30min" target="_blank" rel="noopener" class="cta">Book Your Event Coverage →</a>
+<div class="cta-sub">Tell us the event, we'll build the quote</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="footer-logo">44 SOCIAL</div>
+<div class="footer-meta">Orlando, FL &nbsp;·&nbsp; <a href="mailto:hello@44social.co">hello@44social.co</a></div>
+</footer>
+
+</body>
+</html>
