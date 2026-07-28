@@ -1043,6 +1043,8 @@ footer { padding: 60px 24px 32px; }
 body { cursor: auto; }
 .cursor-dot, .cursor-ring { display: none; }
 }
+.nav-logo img{height:50px;width:auto;display:block}
+.nav-logo{display:inline-flex;align-items:center}
 </style>
 <script src="https://player.vimeo.com/api/player.js"></script>
 </head>
@@ -1052,12 +1054,13 @@ body { cursor: auto; }
 <div class="cursor-ring" id="cursorRing"></div>
 
 <nav id="mainNav">
-<a href="#" class="nav-logo"><span>44</span> SOCIAL</a>
+<a href="#" class="nav-logo"><img src="/logo-nav.png" alt="44 Social"></a>
 <ul class="nav-links">
 <li><a href="#services">Services</a></li>
 <li><a href="#work">Work</a></li>
 <li><a href="#process">Process</a></li>
 <li><a href="#about">About</a></li>
+<li><a href="/pricing">Packages</a></li>
 <li><a href="/apply" class="nav-cta">Apply Now</a></li>
 </ul>
 <button class="nav-toggle" aria-label="Menu">
