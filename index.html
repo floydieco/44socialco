@@ -1053,6 +1053,17 @@ input, textarea, select { cursor: auto !important; }
 .cursor-dot, .cursor-ring { display: none !important; }
 </style>
 <script src="https://player.vimeo.com/api/player.js"></script>
+<style>
+@media (max-width:768px){
+  nav.menu-open .nav-links{display:flex;flex-direction:column;gap:2px;position:absolute;top:100%;left:0;right:0;background:#24242a;border-bottom:1px solid var(--border);padding:12px 24px 18px;margin:0;list-style:none;}
+  nav.menu-open .nav-links li{width:100%;}
+  nav.menu-open .nav-links a{display:block;padding:13px 0;font-size:16px;}
+  nav.menu-open .nav-links a.nav-cta{display:inline-block;margin-top:8px;padding:12px 20px;}
+  nav.menu-open .nav-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  nav.menu-open .nav-toggle span:nth-child(2){opacity:0;}
+  nav.menu-open .nav-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+}
+</style>
 </head>
 <body>
 
@@ -1437,6 +1448,17 @@ document.querySelectorAll('.work-tab').forEach(t => t.classList.remove('active')
 this.classList.add('active');
 });
 });
+</script>
+<script>
+(function(){
+  var nav=document.getElementById('mainNav');
+  if(!nav) return;
+  var tog=nav.querySelector('.nav-toggle');
+  if(!tog) return;
+  tog.addEventListener('click',function(e){ e.stopPropagation(); nav.classList.toggle('menu-open'); });
+  [].forEach.call(nav.querySelectorAll('.nav-links a'),function(a){ a.addEventListener('click',function(){ nav.classList.remove('menu-open'); }); });
+  document.addEventListener('click',function(e){ if(nav.classList.contains('menu-open') && !nav.contains(e.target)) nav.classList.remove('menu-open'); });
+})();
 </script>
 </body>
 </html>
